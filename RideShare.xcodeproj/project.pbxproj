@@ -14,6 +14,10 @@
 		5EF05F4B2B8D4E8C00885CC1 /* RideShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F4A2B8D4E8C00885CC1 /* RideShareTests.swift */; };
 		5EF05F552B8D4E8C00885CC1 /* RideShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F542B8D4E8C00885CC1 /* RideShareUITests.swift */; };
 		5EF05F572B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F562B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift */; };
+		5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* User.swift */; };
+		5EF05F6B2B8D4F2F00885CC1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */; };
+		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
+		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		5EF05F502B8D4E8C00885CC1 /* RideShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RideShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF05F542B8D4E8C00885CC1 /* RideShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideShareUITests.swift; sourceTree = "<group>"; };
 		5EF05F562B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideShareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5EF05F682B8D4F0D00885CC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,12 @@
 		5EF05F382B8D4E8B00885CC1 /* RideShare */ = {
 			isa = PBXGroup;
 			children = (
+				5EF05F6C2B8D4F7100885CC1 /* Views */,
+				5EF05F672B8D4EF600885CC1 /* Utilities */,
+				5EF05F662B8D4EE900885CC1 /* Services */,
+				5EF05F652B8D4EDA00885CC1 /* ViewModels */,
+				5EF05F642B8D4ED200885CC1 /* Models */,
+				5EF05F632B8D4EA100885CC1 /* Fonts */,
 				5EF05F392B8D4E8B00885CC1 /* RideShareApp.swift */,
 				5EF05F3B2B8D4E8B00885CC1 /* ContentView.swift */,
 				5EF05F3D2B8D4E8C00885CC1 /* Assets.xcassets */,
@@ -125,6 +139,52 @@
 				5EF05F562B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift */,
 			);
 			path = RideShareUITests;
+			sourceTree = "<group>";
+		};
+		5EF05F632B8D4EA100885CC1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5EF05F642B8D4ED200885CC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5EF05F682B8D4F0D00885CC1 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5EF05F652B8D4EDA00885CC1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5EF05F662B8D4EE900885CC1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5EF05F672B8D4EF600885CC1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5EF05F702B8D4FF900885CC1 /* Buttons.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5EF05F6C2B8D4F7100885CC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F3C2B8D4E8B00885CC1 /* ContentView.swift in Sources */,
+				5EF05F6B2B8D4F2F00885CC1 /* RegistrationViewModel.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
+				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
+				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
+				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
