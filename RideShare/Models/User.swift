@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 struct User {
-    var username: String
+    var name: String
+    var email: String
     var password: String
 }
