@@ -24,6 +24,15 @@ struct SignUpView: View {
             
             CustomTextField(title: "Password", text: $user.password, isSecure: true)
             
+            Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
+                Text("I am a driver (Optional)")
+            }
+            
+            
+            Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
+                Text("I would like to receive your newsletter and other promotional information.")
+            }
+
             
             GreenButton(title: "Sign Up", action: {
                 // Perform the sign-up action here
