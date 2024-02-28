@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isAuthenticated = false
-
     var body: some View {
-        if isAuthenticated {
-            // Your app's main content or home screen
-            Text("Welcome to the app!")
-        } else {
-            // Show LoginView if not authenticated
-            RegistrationView(isAuthenticated: $isAuthenticated)
-        }
+        
+        RegistrationView()
+        
     }
 }
 

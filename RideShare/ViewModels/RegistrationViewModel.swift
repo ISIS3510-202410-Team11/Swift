@@ -11,14 +11,17 @@ import Foundation
 class RegistrationViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
+    @Published var email: String = "" // Registration might require more info than login
+    
+    @Published var navigateToSignUp: Bool = false
 
-    // Add your login logic here
-    func login(completion: @escaping (Bool) -> Void) {
-        // Here, you would usually interact with a web service to authenticate the user.
-        // For this example, we're just simulating a successful login after a delay.
+    // Registration logic here
+    func signUp(completion: @escaping (Bool) -> Void) {
+        // Interact with a web service to register the user
+        // Simulate a successful registration
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            // Simulate login success
-            completion(true)
+            completion(true) // Simulated registration success
         }
     }
+
 }
