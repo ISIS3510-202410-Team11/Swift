@@ -23,6 +23,8 @@
 		5EF05F6B2B8D4F2F00885CC1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+		866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F892BABF2C900EF6663 /* MapView2.swift */; };
+		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		866A1F892BABF2C900EF6663 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
+		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,8 @@
 				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
 				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
 				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
+				866A1F892BABF2C900EF6663 /* MapView2.swift */,
+				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			files = (
 				5EF05F3C2B8D4E8B00885CC1 /* ContentView.swift in Sources */,
 				5EF05F6B2B8D4F2F00885CC1 /* RegistrationViewModel.swift in Sources */,
+				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
@@ -341,6 +348,7 @@
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
+				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 			);
@@ -508,6 +516,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +545,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
