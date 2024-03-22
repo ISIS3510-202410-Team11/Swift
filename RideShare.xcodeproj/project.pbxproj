@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		10816137DAC769844A308E75 /* Pods_RideShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C312D10169DC6A0D3D853C8F /* Pods_RideShareTests.framework */; };
+		1324EFD22BADD03F00625914 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1324EFD12BADD03F00625914 /* GoogleService-Info.plist */; };
+		1324EFD42BADD59E00625914 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1324EFD32BADD59E00625914 /* ProfileTextFiles.swift */; };
+		1324EFD82BAE0D6E00625914 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1324EFD72BAE0D6E00625914 /* Tabvar.swift */; };
 		57BE50DCBB694E775D9D6A85 /* Pods_RideShare_RideShareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F99E49A97BAB6C5C056A43 /* Pods_RideShare_RideShareUITests.framework */; };
 		5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4A43ED2BAC9ED700DCB02C /* .gitignore */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
@@ -15,7 +18,6 @@
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
-		5EE339272BAD2D530064B3F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */; };
 		5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */; };
 		5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89EA2B8E273300F37097 /* LoginView.swift */; };
 		5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89EC2B8E275200F37097 /* SignUpView.swift */; };
@@ -54,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1324EFD12BADD03F00625914 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1324EFD32BADD59E00625914 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileTextFiles.swift; path = RideShare/Utilities/ProfileTextFiles.swift; sourceTree = SOURCE_ROOT; };
+		1324EFD72BAE0D6E00625914 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		27F99E49A97BAB6C5C056A43 /* Pods_RideShare_RideShareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideShare_RideShareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A37DD0284D502B00A15F072 /* Pods-RideShare-RideShareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShare-RideShareUITests.debug.xcconfig"; path = "Target Support Files/Pods-RideShare-RideShareUITests/Pods-RideShare-RideShareUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4400B58D3BCDCE718B3D4318 /* Pods-RideShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShareTests.debug.xcconfig"; path = "Target Support Files/Pods-RideShareTests/Pods-RideShareTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +69,6 @@
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5EE339252BAD25D00064B3F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5EEB89EA2B8E273300F37097 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5EEB89EC2B8E275200F37097 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -137,7 +141,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */,
+				1324EFD12BADD03F00625914 /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -239,7 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				5EF05F702B8D4FF900885CC1 /* Buttons.swift */,
+				1324EFD32BADD59E00625914 /* ProfileTextFiles.swift */,
 				5EEB89EE2B8E57E100F37097 /* TextFields.swift */,
+				1324EFD72BAE0D6E00625914 /* Tabvar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -381,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				5EE339272BAD2D530064B3F7 /* GoogleService-Info.plist in Resources */,
+				1324EFD22BADD03F00625914 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -521,8 +527,10 @@
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
+				1324EFD42BADD59E00625914 /* ProfileTextFiles.swift in Sources */,
 				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
+				1324EFD82BAE0D6E00625914 /* Tabvar.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
