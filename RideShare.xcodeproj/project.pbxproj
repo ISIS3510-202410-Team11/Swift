@@ -11,6 +11,10 @@
 		57BE50DCBB694E775D9D6A85 /* Pods_RideShare_RideShareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F99E49A97BAB6C5C056A43 /* Pods_RideShare_RideShareUITests.framework */; };
 		5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4A43ED2BAC9ED700DCB02C /* .gitignore */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
+		5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0CE2BADC85000AEED32 /* UserModel.swift */; };
+		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
+		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
+		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
 		5EE339272BAD2D530064B3F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */; };
 		5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */; };
 		5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89EA2B8E273300F37097 /* LoginView.swift */; };
@@ -55,6 +59,10 @@
 		4400B58D3BCDCE718B3D4318 /* Pods-RideShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShareTests.debug.xcconfig"; path = "Target Support Files/Pods-RideShareTests/Pods-RideShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E4A43ED2BAC9ED700DCB02C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		5ED5B0CE2BADC85000AEED32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5EE339252BAD25D00064B3F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				5EF05F682B8D4F0D00885CC1 /* User.swift */,
+				5ED5B0CE2BADC85000AEED32 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +222,8 @@
 			children = (
 				5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */,
 				5EEB89F02B8E5B5E00F37097 /* SignUpViewModel.swift */,
+				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
+				5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 				866A1F892BABF2C900EF6663 /* MapView2.swift */,
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
+				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -505,12 +517,16 @@
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
+				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
+				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
+				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
+				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
