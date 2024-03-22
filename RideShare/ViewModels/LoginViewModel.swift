@@ -26,4 +26,20 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    func recoverPassword(for email: String, completion: @escaping (Bool, String?) -> Void) {
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        
+                        completion(false, error.localizedDescription)
+                    } else {
+                        // If the email was sent successfully, pass true and nil for the error message
+                        completion(true, nil)
+                    }
+                }
+            }
+        }
+    
+    
 }
