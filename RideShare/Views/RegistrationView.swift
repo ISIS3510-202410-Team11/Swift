@@ -42,6 +42,7 @@ struct RegistrationView: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 }
+                .background(Color.white)
                 .edgesIgnoringSafeArea(.all)
             }
         }

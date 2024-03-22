@@ -47,95 +47,44 @@ struct LoginView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
+            VStack(alignment: .leading, spacing: 20) { // Adjust alignment and spacing as needed
+                Text("Login")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity)
+
+                CustomTextField(title: "Email", text: $loginViewModel.username, keyboardType: .emailAddress)
+                    .cornerRadius(5)
                 
-                VStack(spacing: 20) {
-                    Text("Login")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-
-                    CustomTextField(title: "Email", text: $loginViewModel.username, keyboardType: .emailAddress)
-                    
-                    CustomTextField(title: "Password", text: $loginViewModel.password, isSecure: true)
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.white) // Or any color to distinguish the form area
-                .cornerRadius(10)
-
-                Spacer()
+                CustomTextField(title: "Password", text: $loginViewModel.password, isSecure: true)
+                    .cornerRadius(5)
                 
                 GreenButton(title: "Login", action: {
                     loginViewModel.login { success, errorMessage in
                         if success {
                             print("Login successful")
-                            navigateToMapView = true // Trigger navigation
+                            navigateToMapView = true
                         } else {
                             authenticationFailed = true
                             authenticationErrorMessage = errorMessage ?? "An error occurred"
                             print(errorMessage ?? "Login failed")
                         }
                     }
-                }).disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
-                .padding()
-                .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
-                .padding(.bottom, keyboardResponder.currentHeight)
+                })
+                .disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
                 
-//                Button(action: authenticateWithFaceID) {
-//                    HStack {
-//                        Image(systemName: "faceid")
-//                            .font(.title)
-//                        Text("Log In with Face ID")
-//                            .fontWeight(.bold)
-//                    }
-//                }
-//                .padding()
-//                .background(Color.green) // Use your app's theme color
-//                .foregroundColor(.white)
-//                .cornerRadius(10)
-//                .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
-//                .padding(.bottom, keyboardResponder.currentHeight)
-                
-                // NavigationLink to proceed to the next view on successful login
+                // Place the NavigationLink outside the main VStack for better control
                 NavigationLink(destination: MapView2(), isActive: $navigateToMapView) { EmptyView() }
             }
-            .edgesIgnoringSafeArea(keyboardResponder.currentHeight > 0 ? .bottom : [])
-            // Optionally add .alert here to handle authenticationFailed
+            .padding()
+            .background(Color.white) // Set the entire VStack's background to white
+            .cornerRadius(10)
+            .padding(.bottom, keyboardResponder.currentHeight) // Adjust for keyboard
+            .navigationBarHidden(true) // Optionally hide the navigation bar
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) // Align content to the top
+            .background(Color.white.edgesIgnoringSafeArea(.all)) // Ensure the whole screen background is white
         }
     }
-    
-    
-//    var isFormValid: Bool {
-//        !user.name.isEmpty && !user.email.isEmpty && !user.password.isEmpty
-//    }
-    
-//    func authenticateWithFaceID() {
-//        let context = LAContext()
-//        var error: NSError?
-//        
-//        // Check if Face ID is available
-//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-//            let reason = "Log in using Face ID"
-//            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-//                DispatchQueue.main.async {
-//                    if success {
-//                        // Face ID authentication was successful
-//                        // Proceed with your login flow, e.g., setting isSignUpComplete to true
-//                        self.isSignUpComplete = true
-//                    } else {
-//                        // Handle authentication failure
-//                        // You can show an alert or update the UI accordingly
-//                        print("Authentication failed")
-//                    }
-//                }
-//            }
-//        } else {
-//            // Face ID not available or other error
-//            // Handle this scenario gracefully in your app
-//            print(error?.localizedDescription ?? "Face ID not available")
-//        }
-//    }
 }
 
 struct Login_View_Preview: PreviewProvider {

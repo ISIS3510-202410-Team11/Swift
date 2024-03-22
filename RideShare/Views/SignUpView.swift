@@ -20,20 +20,23 @@ struct SignUpView: View {
             Text("Sign Up")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .tint(.black)
             
-            CustomTextField(title: "Username", text: $viewModel.name)
+            CustomTextField(title: "Username", text: $viewModel.name).textFieldStyle(.plain)
             
-            CustomTextField(title: "Email", text: $viewModel.email, keyboardType: .emailAddress)
+            CustomTextField(title: "Email", text: $viewModel.email, keyboardType: .emailAddress).textFieldStyle(.plain)
             
-            CustomTextField(title: "Password", text: $viewModel.password, isSecure: true)
+            CustomTextField(title: "Password", text: $viewModel.password, isSecure: true).textFieldStyle(.plain)
             
             Toggle(isOn: $isDriver) {
                 Text("I am a driver (Optional)")
             }
+            .tint(.black)
                         
             Toggle(isOn: $wantsNewsletter) {
                 Text("I would like to receive your newsletter and other promotional information.")
             }
+            .tint(.black)
 
             
             GreenButton(title: "Register") {
@@ -45,6 +48,7 @@ struct SignUpView: View {
             Spacer()
         }
         .padding()
+        .background(Color.white)
         .alert(isPresented: $viewModel.showAlert) { // Use ViewModel's showAlert for binding
                     Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
                 }
