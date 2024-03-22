@@ -67,6 +67,7 @@ struct LoginView: View {
                 isSignUpComplete = true
             })
             .disabled(!isFormValid)
+            .padding()
             .padding(.bottom, keyboardResponder.currentHeight)
             .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
         }

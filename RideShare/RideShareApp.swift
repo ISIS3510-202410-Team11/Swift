@@ -11,8 +11,8 @@ import SwiftUI
 struct RideShareApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            MapView2()
+            ContentView()
+            //MapView2()
         }
     }
 }
