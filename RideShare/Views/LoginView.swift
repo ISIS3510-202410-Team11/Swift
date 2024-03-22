@@ -7,76 +7,67 @@
 
 import Foundation
 import SwiftUI
-
-// Custom Keyboard Responder
-class KeyboardResponder: ObservableObject {
-    @Published var currentHeight: CGFloat = 0
-
-    var keyboardShowObserver: NSObjectProtocol?
-    var keyboardHideObserver: NSObjectProtocol?
-
-    init() {
-        keyboardShowObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.currentHeight = keyboardSize.height
-            }
-        }
-
-        keyboardHideObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
-            self.currentHeight = 0
-        }
-    }
-
-    deinit {
-        if let observer = keyboardShowObserver {
-            NotificationCenter.default.removeObserver(observer)
-        }
-        if let observer = keyboardHideObserver {
-            NotificationCenter.default.removeObserver(observer)
-        }
-    }
-}
+import LocalAuthentication
 
 struct LoginView: View {
-    @State private var user = User(name: "", email: "", password: "")
-    @State private var isSignUpComplete = false
-    @ObservedObject private var keyboardResponder = KeyboardResponder()
+    @ObservedObject var loginViewModel = LoginViewModel()
+    @State private var authenticationFailed = false
+    @State private var authenticationErrorMessage: String = ""
+    @State private var navigateToMapView = false // To control navigation
+    @State private var navigateToForgotPassword = false // To control navigation
+    
+//    @ObservedObject private var keyboardResponder = KeyboardResponder()
 
     var body: some View {
-        VStack {
-            Spacer()
-            
-            VStack(spacing: 20) {
-                Text("Sign Up")
+        NavigationView {
+            VStack(alignment: .leading, spacing: 20) { 
+                Text("Login")
                     .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity)
 
-                CustomTextField(title: "Email", text: $user.email, keyboardType: .emailAddress)
+                CustomTextField(title: "Email", text: $loginViewModel.username, keyboardType: .emailAddress)
+                    .cornerRadius(5)
                 
-                CustomTextField(title: "Password", text: $user.password, isSecure: true)
+                CustomTextField(title: "Password", text: $loginViewModel.password, isSecure: true)
+                    .cornerRadius(5)
+                
+                
+                GreenButton(title: "Login", action: {
+                    loginViewModel.login { success, errorMessage in
+                        if success {
+                            print("Login successful")
+                            navigateToMapView = true
+                        } else {
+                            authenticationFailed = true
+                            authenticationErrorMessage = errorMessage ?? "An error occurred"
+                            print(errorMessage ?? "Login failed")
+                        }
+                    }
+                })
+                .disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
+                
+                Text("Forgot your password?")
+                    .frame(maxWidth:.infinity)
+                    .foregroundColor(.green)
+                    .onTapGesture {
+                        self.navigateToForgotPassword = true
+                    }
+                
+                // NavigationLink should go outside the main VStack for better control ?
+                NavigationLink(destination: MapView2(), isActive: $navigateToMapView) { EmptyView() }
+                NavigationLink(destination: ForgotPasswordView(), isActive: $navigateToForgotPassword) {EmptyView()}
             }
             .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.white) // Or any color to distinguish the form area
+            .background(Color.white)
             .cornerRadius(10)
-
-            Spacer()
-            
-            GreenButton(title: "Sign Up", action: {
-                print("Performing sign-up...")
-                isSignUpComplete = true
-            })
-            .disabled(!isFormValid)
-            .padding(.bottom, keyboardResponder.currentHeight)
-            .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
+            .navigationBarHidden(true)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) // Align content to the top
+            .background(Color.white.edgesIgnoringSafeArea(.all)) // Ensure the whole screen background is white
         }
-        .edgesIgnoringSafeArea(keyboardResponder.currentHeight > 0 ? .bottom : [])
-    }
-    
-    var isFormValid: Bool {
-        !user.name.isEmpty && !user.email.isEmpty && !user.password.isEmpty
     }
 }
+
 struct Login_View_Preview: PreviewProvider {
     static var previews: some View {
         // Create a temporary binding for isAuthenticated
