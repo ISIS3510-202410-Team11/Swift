@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import LocalAuthentication
 
 // Custom Keyboard Responder
 class KeyboardResponder: ObservableObject {
@@ -38,46 +39,105 @@ class KeyboardResponder: ObservableObject {
 }
 
 struct LoginView: View {
-    @State private var user = User(name: "", email: "", password: "")
-    @State private var isSignUpComplete = false
+    @ObservedObject var loginViewModel = LoginViewModel()
+    @State private var authenticationFailed = false
+    @State private var authenticationErrorMessage: String = ""
+    @State private var navigateToMapView = false // To control navigation
     @ObservedObject private var keyboardResponder = KeyboardResponder()
 
     var body: some View {
-        VStack {
-            Spacer()
-            
-            VStack(spacing: 20) {
-                Text("Sign Up")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-
-                CustomTextField(title: "Email", text: $user.email, keyboardType: .emailAddress)
+        NavigationView {
+            VStack {
+                Spacer()
                 
-                CustomTextField(title: "Password", text: $user.password, isSecure: true)
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.white) // Or any color to distinguish the form area
-            .cornerRadius(10)
+                VStack(spacing: 20) {
+                    Text("Login")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
 
-            Spacer()
-            
-            GreenButton(title: "Sign Up", action: {
-                print("Performing sign-up...")
-                isSignUpComplete = true
-            })
-            .disabled(!isFormValid)
-            .padding()
-            .padding(.bottom, keyboardResponder.currentHeight)
-            .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
+                    CustomTextField(title: "Email", text: $loginViewModel.username, keyboardType: .emailAddress)
+                    
+                    CustomTextField(title: "Password", text: $loginViewModel.password, isSecure: true)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white) // Or any color to distinguish the form area
+                .cornerRadius(10)
+
+                Spacer()
+                
+                GreenButton(title: "Login", action: {
+                    loginViewModel.login { success, errorMessage in
+                        if success {
+                            print("Login successful")
+                            navigateToMapView = true // Trigger navigation
+                        } else {
+                            authenticationFailed = true
+                            authenticationErrorMessage = errorMessage ?? "An error occurred"
+                            print(errorMessage ?? "Login failed")
+                        }
+                    }
+                }).disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
+                .padding()
+                .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
+                .padding(.bottom, keyboardResponder.currentHeight)
+                
+//                Button(action: authenticateWithFaceID) {
+//                    HStack {
+//                        Image(systemName: "faceid")
+//                            .font(.title)
+//                        Text("Log In with Face ID")
+//                            .fontWeight(.bold)
+//                    }
+//                }
+//                .padding()
+//                .background(Color.green) // Use your app's theme color
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//                .animation(.easeOut(duration: 0.16), value: keyboardResponder.currentHeight)
+//                .padding(.bottom, keyboardResponder.currentHeight)
+                
+                // NavigationLink to proceed to the next view on successful login
+                NavigationLink(destination: MapView2(), isActive: $navigateToMapView) { EmptyView() }
+            }
+            .edgesIgnoringSafeArea(keyboardResponder.currentHeight > 0 ? .bottom : [])
+            // Optionally add .alert here to handle authenticationFailed
         }
-        .edgesIgnoringSafeArea(keyboardResponder.currentHeight > 0 ? .bottom : [])
     }
     
-    var isFormValid: Bool {
-        !user.name.isEmpty && !user.email.isEmpty && !user.password.isEmpty
-    }
+    
+//    var isFormValid: Bool {
+//        !user.name.isEmpty && !user.email.isEmpty && !user.password.isEmpty
+//    }
+    
+//    func authenticateWithFaceID() {
+//        let context = LAContext()
+//        var error: NSError?
+//        
+//        // Check if Face ID is available
+//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+//            let reason = "Log in using Face ID"
+//            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+//                DispatchQueue.main.async {
+//                    if success {
+//                        // Face ID authentication was successful
+//                        // Proceed with your login flow, e.g., setting isSignUpComplete to true
+//                        self.isSignUpComplete = true
+//                    } else {
+//                        // Handle authentication failure
+//                        // You can show an alert or update the UI accordingly
+//                        print("Authentication failed")
+//                    }
+//                }
+//            }
+//        } else {
+//            // Face ID not available or other error
+//            // Handle this scenario gracefully in your app
+//            print(error?.localizedDescription ?? "Face ID not available")
+//        }
+//    }
 }
+
 struct Login_View_Preview: PreviewProvider {
     static var previews: some View {
         // Create a temporary binding for isAuthenticated

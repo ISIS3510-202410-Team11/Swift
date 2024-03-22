@@ -6,10 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct RideShareApp: App {
+    
+    // Firebase initialization
+        init() {
+            FirebaseApp.configure()
+        }
+        
     var body: some Scene {
+        
         WindowGroup {
             ContentView()
             //MapView2()

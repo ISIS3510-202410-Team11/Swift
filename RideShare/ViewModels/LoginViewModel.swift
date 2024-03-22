@@ -7,18 +7,23 @@
 
 import Foundation
 import Combine
-
+import FirebaseAuth
 
 class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     
-    // Login logic here
-    func login(completion: @escaping (Bool) -> Void) {
-        // Interact with a web service to authenticate the user
-        // Simulate a successful login
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            completion(true) // Simulated login success
+    // Login logic using Firebase Authentication
+    func login(completion: @escaping (Bool, String?) -> Void) {
+        Auth.auth().signIn(withEmail: username, password: password) { authResult, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error.localizedDescription)
+                    completion(false, error.localizedDescription)
+                } else if authResult?.user != nil {
+                    completion(true, nil) 
+                }
+            }
         }
     }
 }

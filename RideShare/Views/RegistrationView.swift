@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 struct RegistrationView: View {
 
-    @StateObject private var registrationViewModel = RegistrationViewModel()
+//    @StateObject private var registrationViewModel = RegistrationViewModel()
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
