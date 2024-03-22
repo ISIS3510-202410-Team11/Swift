@@ -60,3 +60,4 @@ struct SignUpView_Preview: PreviewProvider {
         SignUpView()
     }
 }
+
