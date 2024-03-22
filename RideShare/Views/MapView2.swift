@@ -7,8 +7,10 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct MapView2: View {
+        
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
     @State private var searchText = ""
     @State private var results = [MKMapItem]()
@@ -74,18 +76,19 @@ struct MapView2: View {
     }
 }
 
-extension CLLocationCoordinate2D{
-    static var userLocation: CLLocationCoordinate2D{
-        return .init(latitude: 4.6023629365926,
-                     longitude: -74.06629875229713)
-        
-    }
-}
 extension MKCoordinateRegion{
     static var userRegion: MKCoordinateRegion{
         return .init(center: .userLocation,
                      latitudinalMeters: 10000,
                      longitudinalMeters: 10000)
+    }
+}
+
+extension CLLocationCoordinate2D{
+    static var userLocation: CLLocationCoordinate2D{
+        return .init(latitude: 4.6023629365926,
+                     longitude: -74.06629875229713)
+        
     }
 }
 

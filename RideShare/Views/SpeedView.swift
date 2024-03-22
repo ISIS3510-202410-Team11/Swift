@@ -6,12 +6,28 @@
 //
 
 import SwiftUI
+import Charts
 
 struct SpeedView: View {
+    @StateObject var vm_speed = ViewModelSpeed()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Label("Acelerometro del iPhone", systemImage: "sensor.fill")
+            .font(.system(size: 20, weight: .bold, design: .rounded))
+        Chart(vm_speed.data){data in
+            ForEach(Array(data.value.enumerated()), id: \.offset){
+                index, element in
+                LineMark(x: .value("Index", index),
+                         y: .value("Index", element))
+                }
+            .foregroundStyle(by: .value("Axis", data.axis))
+        }
+        .frame(height: 400)
+        Button("Reset"){
+            vm_speed.removeData()
+        }
     }
 }
+
 
 #Preview {
     SpeedView()

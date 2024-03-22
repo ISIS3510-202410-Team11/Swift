@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct MapView: View {
+    @State private var showSearchView = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .top){
+            MapRepresentable()
+                .ignoresSafeArea()
+            
+            if showSearchView{
+                LocationSearchView()
+            }else{
+                SearchBarView()
+                    .padding(.top, 72)
+                    .onTapGesture {
+                        withAnimation(.spring()){
+                            showSearchView.toggle()
+                        }
+                    }
+            }
+            
+            OptionsButtonView(showLocationSearchView:$showSearchView)
+                .padding(.leading)
+                .padding(.top,4)
+        }
+
     }
 }
 

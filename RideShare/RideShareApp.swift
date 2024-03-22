@@ -12,7 +12,11 @@ struct RideShareApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            MapView2()
+            //MapView2()
+            MapView()
+            //LocationSearchView()
+            //peedView()
+            //Profile()
         }
     }
 }

@@ -25,6 +25,16 @@
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
 		866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F892BABF2C900EF6663 /* MapView2.swift */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
+		86EB82C92BACBDA90089BEEE /* ViewModelSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82C82BACBDA90089BEEE /* ViewModelSpeed.swift */; };
+		86EB82CB2BACDA890089BEEE /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82CA2BACDA890089BEEE /* SpeedView.swift */; };
+		86EB82CE2BAD36910089BEEE /* MapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82CD2BAD36910089BEEE /* MapRepresentable.swift */; };
+		86EB82D02BAD38380089BEEE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82CF2BAD38380089BEEE /* MapView.swift */; };
+		86EB82D22BAD39090089BEEE /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82D12BAD39090089BEEE /* LocationService.swift */; };
+		86EB82D42BAD40D50089BEEE /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82D32BAD40D50089BEEE /* LocationSearchView.swift */; };
+		86EB82D62BAD43A10089BEEE /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82D52BAD43A10089BEEE /* LocationCell.swift */; };
+		86EB82DC2BAD55930089BEEE /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82DB2BAD55930089BEEE /* SearchBarView.swift */; };
+		86EB82DE2BAD55E80089BEEE /* OptionsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82DD2BAD55E80089BEEE /* OptionsButtonView.swift */; };
+		86EB82E02BAD602F0089BEEE /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB82DF2BAD602F0089BEEE /* LocationSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,17 @@
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		866A1F892BABF2C900EF6663 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		86EB82C82BACBDA90089BEEE /* ViewModelSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSpeed.swift; sourceTree = "<group>"; };
+		86EB82CA2BACDA890089BEEE /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
+		86EB82CC2BAD171B0089BEEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		86EB82CD2BAD36910089BEEE /* MapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRepresentable.swift; sourceTree = "<group>"; };
+		86EB82CF2BAD38380089BEEE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		86EB82D12BAD39090089BEEE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = RideShare/Views/LocationService.swift; sourceTree = SOURCE_ROOT; };
+		86EB82D32BAD40D50089BEEE /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		86EB82D52BAD43A10089BEEE /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		86EB82DB2BAD55930089BEEE /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		86EB82DD2BAD55E80089BEEE /* OptionsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsButtonView.swift; sourceTree = "<group>"; };
+		86EB82DF2BAD602F0089BEEE /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +137,7 @@
 		5EF05F382B8D4E8B00885CC1 /* RideShare */ = {
 			isa = PBXGroup;
 			children = (
+				86EB82CC2BAD171B0089BEEE /* Info.plist */,
 				5EF05F632B8D4EA100885CC1 /* Fonts */,
 				5EF05F672B8D4EF600885CC1 /* Utilities */,
 				5EF05F662B8D4EE900885CC1 /* Services */,
@@ -176,6 +198,8 @@
 				5EF05F6A2B8D4F2F00885CC1 /* RegistrationViewModel.swift */,
 				5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */,
 				5EEB89F02B8E5B5E00F37097 /* SignUpViewModel.swift */,
+				86EB82C82BACBDA90089BEEE /* ViewModelSpeed.swift */,
+				86EB82DF2BAD602F0089BEEE /* LocationSearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,6 +207,7 @@
 		5EF05F662B8D4EE900885CC1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				86EB82D12BAD39090089BEEE /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -204,6 +229,13 @@
 				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
 				866A1F892BABF2C900EF6663 /* MapView2.swift */,
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
+				86EB82CA2BACDA890089BEEE /* SpeedView.swift */,
+				86EB82CD2BAD36910089BEEE /* MapRepresentable.swift */,
+				86EB82CF2BAD38380089BEEE /* MapView.swift */,
+				86EB82D32BAD40D50089BEEE /* LocationSearchView.swift */,
+				86EB82D52BAD43A10089BEEE /* LocationCell.swift */,
+				86EB82DB2BAD55930089BEEE /* SearchBarView.swift */,
+				86EB82DD2BAD55E80089BEEE /* OptionsButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,18 +370,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EB82CB2BACDA890089BEEE /* SpeedView.swift in Sources */,
 				5EF05F3C2B8D4E8B00885CC1 /* ContentView.swift in Sources */,
 				5EF05F6B2B8D4F2F00885CC1 /* RegistrationViewModel.swift in Sources */,
 				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
+				86EB82D62BAD43A10089BEEE /* LocationCell.swift in Sources */,
+				86EB82D22BAD39090089BEEE /* LocationService.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
+				86EB82E02BAD602F0089BEEE /* LocationSearchViewModel.swift in Sources */,
+				86EB82D02BAD38380089BEEE /* MapView.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
+				86EB82CE2BAD36910089BEEE /* MapRepresentable.swift in Sources */,
+				86EB82C92BACBDA90089BEEE /* ViewModelSpeed.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
+				86EB82DC2BAD55930089BEEE /* SearchBarView.swift in Sources */,
+				86EB82DE2BAD55E80089BEEE /* OptionsButtonView.swift in Sources */,
+				86EB82D42BAD40D50089BEEE /* LocationSearchView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -491,7 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -509,8 +551,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RideShare/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dame permiso para usar tu càmara!!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dame permiso para usar tu ubicaciòn mientras usas la app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -522,7 +568,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Moviles.RideShare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccaro.Moviles.RideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -538,8 +584,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RideShare/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dame permiso para usar tu càmara!!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dame permiso para usar tu ubicaciòn mientras usas la app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -551,7 +601,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Moviles.RideShare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccaro.Moviles.RideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -567,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dame acceso a tu càmara ya!";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moviles.RideShareTests;
@@ -586,6 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dame acceso a tu càmara ya!";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moviles.RideShareTests;
