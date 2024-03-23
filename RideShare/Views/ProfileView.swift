@@ -63,10 +63,9 @@ struct ProfileView: View {
                     ProfileTextFiles(label: "Referencia", value: "Purosangue")
                     ProfileTextFiles(label: "Color", value: "Rojo Pasion")
                     
-                    Button("Registrar nuevo vehículo") {
-                        
-                    }
+                    GreenButton(title:"Registrar nuevo vehículo"){}
                     .padding()
+                    
                 }
                 .padding()
         }

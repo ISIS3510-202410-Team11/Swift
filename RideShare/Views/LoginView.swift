@@ -20,7 +20,7 @@ struct LoginView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 20) { 
+            VStack(alignment: .leading, spacing: 20) {
                 Text("Login")
                     .font(.largeTitle)
                     .foregroundColor(.black)
@@ -55,7 +55,7 @@ struct LoginView: View {
                     }
                 
                 // NavigationLink should go outside the main VStack for better control ?
-                NavigationLink(destination: MapView2(), isActive: $navigateToMapView) { EmptyView() }
+                NavigationLink(destination: Tabvar(startingTab: .home), isActive: $navigateToMapView) { EmptyView() }
                 NavigationLink(destination: ForgotPasswordView(), isActive: $navigateToForgotPassword) {EmptyView()}
             }
             .padding()
@@ -75,4 +75,3 @@ struct Login_View_Preview: PreviewProvider {
         LoginView()
     }
 }
-

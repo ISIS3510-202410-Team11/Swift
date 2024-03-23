@@ -11,10 +11,11 @@ struct NewCarView: View {
     
     @EnvironmentObject var userSession: UserSession
     @StateObject var viewModel = NewCarViewModel()
+    @State var navigateToProfileview = false
     
     var body: some View {
         
-        
+        NavigationView{
         VStack(spacing: 20) {
                         Text("Vehicle Form")
                             .font(.largeTitle)
@@ -33,6 +34,9 @@ struct NewCarView: View {
             
             
                         GreenButton(title: "Register new vehicle") {
+                            
+                            navigateToProfileview = true
+                            
                             if let userUID = userSession.uid {
                                 viewModel.registerVehicle(userUID: userUID)
                             } else {
@@ -42,13 +46,14 @@ struct NewCarView: View {
                         }
                         .disabled(!viewModel.isFormValid)
             
-            
+                    NavigationLink(destination: Tabvar(startingTab: .account), isActive: $navigateToProfileview) { EmptyView() }
                         Spacer()
                     }
                     .padding()
                     .background(Color.white)
                     .alert(isPresented: $viewModel.showAlert) { // Use ViewModel's showAlert for binding
-                                Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                        Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                    }
         }
         
         
