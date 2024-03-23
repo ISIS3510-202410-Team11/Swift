@@ -35,5 +35,12 @@ class FirestoreManager {
             completion(error)
         }
     }
+    
+    
+
+    
+
+    
+    
 }
   
