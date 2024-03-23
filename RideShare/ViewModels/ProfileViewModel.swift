@@ -8,48 +8,28 @@
 import Foundation
 import UIKit
 
-class FormViewModel: NSObject, ObservableObject {
-    @Published var userModel = UserModel(name: "", rating: 0.0,  cedula: 0, paymentMethod: "", profileImage: nil)
-    @Published var profileImage: UIImage?
-    let paymentMethods = ["Nequi", "Efectivo", "Tarjeta"]
-    func selectPaymentMethod(_ index: Int) {
-            userModel.paymentMethod = paymentMethods[index]
+class ProfileViewModel: ObservableObject {
+    @Published var user: User?
+    @Published var isLoading = false
+    @Published var errorMessage: String?
+
+    private let firestoreManager = FirestoreManager.shared
+
+    func fetchUser(byUID uid: String) {
+        isLoading = true
+        firestoreManager.fetchUser(withUID: uid) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                switch result {
+                case .success(let fetchedUser):
+                    self?.user = fetchedUser
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
+                }
+            }
         }
-
-    private let imagePicker = UIImagePickerController()
-
-    override init() {
-        super.init()
-        imagePicker.delegate = self
-    }
-
-    func selectImage(sourceType: UIImagePickerController.SourceType) {
-        imagePicker.sourceType = sourceType
-        if sourceType == .camera {
-            imagePicker.cameraCaptureMode = .photo
-        }
-
-        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
-            rootViewController.present(imagePicker, animated: true, completion: nil)
-        }
-    }
-
-    func saveFormData() {
-        userModel.profileImage = self.profileImage
     }
 }
 
-extension FormViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            picker.dismiss(animated: true, completion: nil)
-            return
-        }
-        profileImage = selectedImage
-        picker.dismiss(animated: true, completion: nil)
-    }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
+

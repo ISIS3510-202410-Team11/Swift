@@ -8,80 +8,106 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject private var viewModel = FormViewModel()
+    @EnvironmentObject var userSession: UserSession
+    @ObservedObject private var viewModel = ProfileViewModel()
     @State private var isShowingImagePicker = false
-    
+    @State private var selectedTab = 0
     var body: some View {
-        VStack(spacing: 20) {
-            if let image = viewModel.profileImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200).offset(y:20)
-            } else {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 2)
-                    .frame(width: 200, height: 200).offset(y:20)
-            }
+        VStack(alignment: .leading, spacing: 15) {
             
-            HStack(spacing: 20) {
-                Button("Seleccionar Imagen") {
-                    self.isShowingImagePicker.toggle()
-                }
-                .padding()
-                .sheet(isPresented: $isShowingImagePicker) {
-                    ImagePicker(image: $viewModel.profileImage, sourceType: .photoLibrary)
-                }
-
-                Button("Tomar Foto") {
-                    viewModel.selectImage(sourceType: .camera)
-                }
-                .padding()
+            Text("Descripción")
+                .font(.title)
+                .fontWeight(.bold)
+                .tint(.black)
+            HStack {
+                Text("Name")
+                    .font(.headline)
+                Spacer()
+                Text(".")
+                    .font(.subheadline)
             }
-
-            Button("Guardar") {
-                viewModel.saveFormData()
+            Divider()
+            
+            HStack {
+                Text("Rating")
+                    .font(.headline)
+                Spacer()
+                Text(".") // Format to one decimal place
+                    .font(.subheadline)
             }
-            .padding().offset(y:-35)
-
-            VStack(spacing: 20) {
-                Text("Datos de Perfil").font(.title).fontWeight(.bold)
-
-                HStack {
-                        Text("Nombre:")
-                        TextField("Nombre", text: $viewModel.userModel.name).padding().textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                
-                HStack {
-                    Text("Cedula:")
-                    TextField("Cedula", value: $viewModel.userModel.cedula, formatter: NumberFormatter()) // Corregido: debería ser .cedula
-                        .padding().textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-
-                HStack {
-                    Text("Rating:")
-                    TextField("Rating", value: $viewModel.userModel.rating, formatter: NumberFormatter())
-                        .padding().textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("Tipo de pago preferido:")
-                    Picker(selection: $viewModel.userModel.paymentMethod, label: Text("Tipos de pagos"))
-                        {
-                            ForEach(viewModel.paymentMethods, id: \.self)
-                            { method in Text(method)}
-                        }
-                    }
-                .padding()
+            Divider()
+            
+            HStack {
+                Text("Billing")
+                    .font(.headline)
+                Spacer()
+                Text(".")
+                    .font(.subheadline)
             }
+            Divider()
+            
+            Text("Mis vehiculos")
+                .font(.title)
+                .fontWeight(.bold)
+                .tint(.black)
+                .padding(.vertical,20)
+            Spacer()
+            
+            HStack {
+                Text("Type")
+                    .font(.headline)
+                Spacer()
+                Text(".")
+                    .font(.subheadline)
+            }
+            Divider()
+            
+            HStack {
+                Text("Plate")
+                    .font(.headline)
+                Spacer()
+                Text(".")
+                    .font(.subheadline)
+            }
+            Divider()
+            HStack {
+                Text("Reference")
+                    .font(.headline)
+                Spacer()
+                Text(".")
+                    .font(.subheadline)
+            }
+            Divider()
+            HStack {
+                Text("Color")
+                    .font(.headline)
+                Spacer()
+                Text(".") 
+                    .font(.subheadline)
+            }
+            Divider()
+            GreenButton(title: "Register new vehicle") {}
+            
+            
         }
-        .padding()
+        .padding(65)
+        .padding(.vertical,-40)
+        .onAppear {
+            viewModel.fetchUser(byUID: userSession.uid ?? "defaultUID")
+//            viewModel.fetchUser(byUID: userSession.uid!)
+            
+        }
     }
 }
 
 
 
-struct FormView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        let userSession = UserSession()
+                // Set any necessary properties on userSession here
+                userSession.uid = "sampleUID"
+                
+                return ProfileView().environmentObject(userSession)
     }
 }

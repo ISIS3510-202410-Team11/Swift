@@ -35,5 +35,24 @@ class FirestoreManager {
             completion(error)
         }
     }
+    
+    func fetchUser(withUID uid: String, completion: @escaping (Result<User, Error>) -> Void) {
+            //Get a user with a certain UID.
+            db.collection("users").document(uid).getDocument { (document, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                guard let document = document, document.exists,
+                      let user = try? document.data(as: User.self) else {
+                    completion(.failure(FirestoreError.nonExistentDocument))
+                    return
+                }
+                completion(.success(user))
+            }
+        }
 }
   
+enum FirestoreError: Error {
+    case nonExistentDocument
+}
