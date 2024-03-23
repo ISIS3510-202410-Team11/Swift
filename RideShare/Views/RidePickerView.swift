@@ -38,7 +38,6 @@ struct RidePickerView: View {
                 .navigationTitle("Pick your ride")
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
