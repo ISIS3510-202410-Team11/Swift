@@ -22,9 +22,10 @@ struct RideShareApp: App {
     var body: some Scene {
         
         WindowGroup {
+
             ContentView()
                 .environmentObject(userSession)
-            //MapView2()
+
         }
     }
 }
