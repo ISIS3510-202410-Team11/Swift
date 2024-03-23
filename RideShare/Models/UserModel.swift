@@ -7,10 +7,10 @@
 
 import Foundation
 import UIKit
-struct UserModel {
+struct UserModel: Codable {
     var name: String
     var rating: Double
     var cedula: Int
     var paymentMethod: String
-    var profileImage: UIImage?
+    var profileImage: Data? // Change UIImage to Data for storing in Firestore
 }
