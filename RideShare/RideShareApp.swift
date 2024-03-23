@@ -5,14 +5,27 @@
 //  Created by Pablo Junco on 26/02/24.
 //
 
-import SwiftUI
+import SwiftUI   
+import Firebase
+
 
 @main
 struct RideShareApp: App {
+    
+    // Firebase initialization
+        init() {
+            FirebaseApp.configure()
+        }
+    
+    var userSession = UserSession()
+        
     var body: some Scene {
+        
         WindowGroup {
-            //ContentView()
-            MapView2()
+
+            ContentView()
+                .environmentObject(userSession)
+
         }
     }
 }
