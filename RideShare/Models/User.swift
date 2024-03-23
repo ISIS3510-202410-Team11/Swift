@@ -7,10 +7,8 @@
 
 import Foundation
 import SwiftUI
-struct User: Codable {
-    var uid: String
+struct User {
     var name: String
     var email: String
-    var driver: Bool
-    var newsletter: Bool
+    var password: String
 }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 struct RegistrationView: View {
 
-//    @StateObject private var registrationViewModel = RegistrationViewModel()
+    @StateObject private var registrationViewModel = RegistrationViewModel()
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
@@ -42,7 +42,6 @@ struct RegistrationView: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 }
-                .background(Color.white)
                 .edgesIgnoringSafeArea(.all)
             }
         }
