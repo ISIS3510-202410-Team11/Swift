@@ -11,6 +11,7 @@ import UIKit
 class FormViewModel: NSObject, ObservableObject {
     @Published var userModel = UserModel(name: "", rating: 0.0,  cedula: 0, paymentMethod: "", profileImage: nil)
     @Published var profileImage: UIImage?
+    
     let paymentMethods = ["Nequi", "Efectivo", "Tarjeta"]
     func selectPaymentMethod(_ index: Int) {
             userModel.paymentMethod = paymentMethods[index]
@@ -35,8 +36,11 @@ class FormViewModel: NSObject, ObservableObject {
     }
 
     func saveFormData() {
-        userModel.profileImage = self.profileImage
+        if let selectedImage = profileImage {
+            userModel.profileImage = selectedImage.jpegData(compressionQuality: 0.5)
+        }
     }
+
 }
 
 extension FormViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
