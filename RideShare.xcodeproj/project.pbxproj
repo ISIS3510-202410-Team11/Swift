@@ -15,7 +15,6 @@
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
-		5EE339272BAD2D530064B3F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */; };
 		5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */; };
 		5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89EA2B8E273300F37097 /* LoginView.swift */; };
 		5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB89EC2B8E275200F37097 /* SignUpView.swift */; };
@@ -33,6 +32,19 @@
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
 		866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F892BABF2C900EF6663 /* MapView2.swift */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
+		86858E4A2BADD75F00113E4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86858E492BADD75F00113E4B /* GoogleService-Info.plist */; };
+		86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */; };
+		86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4D2BADED6100113E4B /* SpeedViewModel.swift */; };
+		86858E502BADED9900113E4B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4F2BADED9900113E4B /* LocationCell.swift */; };
+		86858E522BADEDB700113E4B /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E512BADEDB700113E4B /* LocationSearchView.swift */; };
+		86858E542BADEDD500113E4B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E532BADEDD500113E4B /* LocationService.swift */; };
+		86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E552BADEDF300113E4B /* MapRepresentable.swift */; };
+		86858E582BADEE0D00113E4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E572BADEE0D00113E4B /* MapView.swift */; };
+		86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E592BADEE4200113E4B /* OptionsButtonView.swift */; };
+		86858E5C2BADEE5F00113E4B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E5B2BADEE5F00113E4B /* SearchBarView.swift */; };
+		86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E5D2BADEE7800113E4B /* SpeedView.swift */; };
+		86858E602BADF36700113E4B /* RidePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E5F2BADF36700113E4B /* RidePickerView.swift */; };
+		86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E632BADF7C700113E4B /* ObjectsLocalList.swift */; };
 		A6A45ACDEDF9C7D7FB9E87D8 /* Pods_RideShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647F5A45D820E5E763D7DE93 /* Pods_RideShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +76,6 @@
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5EE339252BAD25D00064B3F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5EEB89EA2B8E273300F37097 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5EEB89EC2B8E275200F37097 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -87,6 +98,19 @@
 		78CDDF6BD6754275D0B2AF20 /* Pods-RideShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShareTests.release.xcconfig"; path = "Target Support Files/Pods-RideShareTests/Pods-RideShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		866A1F892BABF2C900EF6663 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		86858E492BADD75F00113E4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		86858E4D2BADED6100113E4B /* SpeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewModel.swift; sourceTree = "<group>"; };
+		86858E4F2BADED9900113E4B /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		86858E512BADEDB700113E4B /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		86858E532BADEDD500113E4B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = RideShare/Views/LocationService.swift; sourceTree = SOURCE_ROOT; };
+		86858E552BADEDF300113E4B /* MapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRepresentable.swift; sourceTree = "<group>"; };
+		86858E572BADEE0D00113E4B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		86858E592BADEE4200113E4B /* OptionsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsButtonView.swift; sourceTree = "<group>"; };
+		86858E5B2BADEE5F00113E4B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		86858E5D2BADEE7800113E4B /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
+		86858E5F2BADF36700113E4B /* RidePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidePickerView.swift; sourceTree = "<group>"; };
+		86858E632BADF7C700113E4B /* ObjectsLocalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsLocalList.swift; sourceTree = "<group>"; };
 		9214DD02DA540E9C1AF3913E /* Pods-RideShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShare.release.xcconfig"; path = "Target Support Files/Pods-RideShare/Pods-RideShare.release.xcconfig"; sourceTree = "<group>"; };
 		BB1FD550057D2F8DD3ACBC0C /* Pods-RideShare-RideShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideShare-RideShareUITests.release.xcconfig"; path = "Target Support Files/Pods-RideShare-RideShareUITests/Pods-RideShare-RideShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C312D10169DC6A0D3D853C8F /* Pods_RideShareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideShareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +161,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5EE339262BAD2D530064B3F7 /* GoogleService-Info.plist */,
+				86858E492BADD75F00113E4B /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -220,10 +244,12 @@
 		5EF05F652B8D4EDA00885CC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */,
 				5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */,
 				5EEB89F02B8E5B5E00F37097 /* SignUpViewModel.swift */,
 				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
 				5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */,
+				86858E4D2BADED6100113E4B /* SpeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -231,6 +257,7 @@
 		5EF05F662B8D4EE900885CC1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				86858E532BADEDD500113E4B /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,6 +267,7 @@
 			children = (
 				5EF05F702B8D4FF900885CC1 /* Buttons.swift */,
 				5EEB89EE2B8E57E100F37097 /* TextFields.swift */,
+				86858E632BADF7C700113E4B /* ObjectsLocalList.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,6 +282,14 @@
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
 				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
+				86858E4F2BADED9900113E4B /* LocationCell.swift */,
+				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
+				86858E552BADEDF300113E4B /* MapRepresentable.swift */,
+				86858E572BADEE0D00113E4B /* MapView.swift */,
+				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
+				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
+				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
+				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,7 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				5EE339272BAD2D530064B3F7 /* GoogleService-Info.plist in Resources */,
+				86858E4A2BADD75F00113E4B /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -512,21 +548,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F3C2B8D4E8B00885CC1 /* ContentView.swift in Sources */,
+				86858E582BADEE0D00113E4B /* MapView.swift in Sources */,
 				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
+				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
+				86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */,
+				86858E542BADEDD500113E4B /* LocationService.swift in Sources */,
+				86858E502BADED9900113E4B /* LocationCell.swift in Sources */,
+				86858E522BADEDB700113E4B /* LocationSearchView.swift in Sources */,
+				86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */,
+				86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
+				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
+				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
 				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
+				86858E5C2BADEE5F00113E4B /* SearchBarView.swift in Sources */,
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
+				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +740,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -726,6 +775,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
