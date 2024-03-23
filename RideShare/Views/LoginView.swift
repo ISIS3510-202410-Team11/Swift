@@ -55,7 +55,7 @@ struct LoginView: View {
                     }
                 
                 // NavigationLink should go outside the main VStack for better control ?
-                NavigationLink(destination: Tabvar(startingTab: .home), isActive: $navigateToMapView) { EmptyView() }
+                NavigationLink(destination: MapView2(), isActive: $navigateToMapView) { EmptyView() }
                 NavigationLink(destination: ForgotPasswordView(), isActive: $navigateToForgotPassword) {EmptyView()}
             }
             .padding()

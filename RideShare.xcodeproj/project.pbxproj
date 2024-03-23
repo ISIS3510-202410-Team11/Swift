@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
+		13FF5C0C2BAE329A00CE7121 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13FF5C0B2BAE329A00CE7121 /* GoogleService-Info.plist */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1F92BAE0D51004FFD67 /* userSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F82BAE0D51004FFD67 /* userSession.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -19,11 +20,6 @@
 		5E7AD2DC2BADFEB40001D379 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DB2BADFEB40001D379 /* FirebaseFirestoreSwift */; };
 		5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */; };
 		5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DF2BADFF240001D379 /* FirebaseAuth */; };
-<<<<<<< Updated upstream
-		5E854C242BAE957200ECAFDE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E854C232BAE957200ECAFDE /* GoogleService-Info.plist */; };
-=======
-		5E854C222BAE891F00ECAFDE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E854C212BAE891F00ECAFDE /* GoogleService-Info.plist */; };
->>>>>>> Stashed changes
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
 		5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0CE2BADC85000AEED32 /* UserModel.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
@@ -44,7 +40,9 @@
 		5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* User.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+		866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F892BABF2C900EF6663 /* MapView2.swift */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
+		86858E4A2BADD75F00113E4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86858E492BADD75F00113E4B /* GoogleService-Info.plist */; };
 		86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */; };
 		86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4D2BADED6100113E4B /* SpeedViewModel.swift */; };
 		86858E502BADED9900113E4B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4F2BADED9900113E4B /* LocationCell.swift */; };
@@ -57,6 +55,7 @@
 		86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E5D2BADEE7800113E4B /* SpeedView.swift */; };
 		86858E602BADF36700113E4B /* RidePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E5F2BADF36700113E4B /* RidePickerView.swift */; };
 		86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E632BADF7C700113E4B /* ObjectsLocalList.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,17 +78,13 @@
 /* Begin PBXFileReference section */
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
+		13FF5C0B2BAE329A00CE7121 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1F82BAE0D51004FFD67 /* userSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSession.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		5E4A43ED2BAC9ED700DCB02C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
-<<<<<<< Updated upstream
-		5E854C232BAE957200ECAFDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-=======
-		5E854C212BAE891F00ECAFDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		5ED5B0CE2BADC85000AEED32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
@@ -114,7 +109,10 @@
 		5EF05F682B8D4F0D00885CC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		866A1F892BABF2C900EF6663 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+
+		86858E492BADD75F00113E4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		86858E4D2BADED6100113E4B /* SpeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewModel.swift; sourceTree = "<group>"; };
 		86858E4F2BADED9900113E4B /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -127,6 +125,7 @@
 		86858E5D2BADEE7800113E4B /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
 		86858E5F2BADF36700113E4B /* RidePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidePickerView.swift; sourceTree = "<group>"; };
 		86858E632BADF7C700113E4B /* ObjectsLocalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsLocalList.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,15 +157,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44E4C0A3C42170249456BDCF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
-				5E854C232BAE957200ECAFDE /* GoogleService-Info.plist */,
-=======
-				5E854C212BAE891F00ECAFDE /* GoogleService-Info.plist */,
->>>>>>> Stashed changes
+
+				86858E492BADD75F00113E4B /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
+				13FF5C0B2BAE329A00CE7121 /* GoogleService-Info.plist */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
 				5EF05F532B8D4E8C00885CC1 /* RideShareUITests */,
@@ -261,8 +265,10 @@
 		5EF05F662B8D4EE900885CC1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+
 				86858E532BADEDD500113E4B /* LocationService.swift */,
 				5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */,
+
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
 				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
 				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
+				866A1F892BABF2C900EF6663 /* MapView2.swift */,
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
 				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
@@ -416,11 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-<<<<<<< Updated upstream
-				5E854C242BAE957200ECAFDE /* GoogleService-Info.plist in Resources */,
-=======
-				5E854C222BAE891F00ECAFDE /* GoogleService-Info.plist in Resources */,
->>>>>>> Stashed changes
+				86858E4A2BADD75F00113E4B /* GoogleService-Info.plist in Resources */,
+				13FF5C0C2BAE329A00CE7121 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -475,6 +479,7 @@
 				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
+				866A1F8A2BABF2C900EF6663 /* MapView2.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
 				86858E5C2BADEE5F00113E4B /* SearchBarView.swift in Sources */,
 				5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */,
@@ -644,7 +649,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow me to use the camera";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -679,7 +684,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow me to use the camera";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
