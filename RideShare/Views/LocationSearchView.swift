@@ -71,7 +71,7 @@ struct LocationSearchView: View {
         }
         .background(Color(.white))
     }
-        .navigationTitle("TITULO")
+//        .navigationTitle("TITULO")
     }
 }
 
