@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-struct Vehicle: Codable {
+struct Vehicle: Decodable, Hashable, Encodable {
     var type: String
     var plate: String
     var reference: String

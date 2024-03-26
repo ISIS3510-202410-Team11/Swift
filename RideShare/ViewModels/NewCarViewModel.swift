@@ -16,11 +16,26 @@ class NewCarViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
-    func registerVehicle(userUID: String) {
-        // Create a Vehicle instance
-        let vehicle = Vehicle( type: type, plate: plate, reference: reference, color: color)
+    @Published var vehicleColor: String = "Black" // Default or initial value
+    
+    @Published var vehicleType: String = "Car" // Default or initial value
+    
+    let vehicleTypes: [String] = ["Car", "Truck", "Motorcycle", "Bycicle"]
+    
+    
+    let vehicleColors: [String] = ["White", "Black", "Gray",
+                                   "Silver","Blue","Red","Brown",
+                                   "Green", "Yellow"]
+    
+    func registerVehicle() {
+        guard let userUID = SessionManager.shared.currentUserProfile?.uid else {
+            self.alertMessage = "User not logged in."
+            self.showAlert = true
+            return
+        }
         
-        // Use FirestoreManager to add the vehicle
+        let vehicle = Vehicle(type: vehicleType, plate: plate, reference: reference, color: vehicleColor)
+        
         FirestoreManager.shared.addVehicle(forUserUID: userUID, vehicle: vehicle) { [weak self] error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -29,14 +44,21 @@ class NewCarViewModel: ObservableObject {
                 } else {
                     self?.alertMessage = "Vehicle registered successfully."
                     self?.showAlert = true
-                    // Optionally reset form here
+
+                    self?.resetForm()
                 }
             }
         }
     }
     
-    // Example validation logic
+    private func resetForm() {
+        type = ""
+        plate = ""
+        reference = ""
+        color = ""
+    }
+    
     var isFormValid: Bool {
-        !type.isEmpty && !plate.isEmpty && !reference.isEmpty && !color.isEmpty
+        !plate.isEmpty && !reference.isEmpty
     }
 }

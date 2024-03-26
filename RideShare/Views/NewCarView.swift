@@ -8,64 +8,68 @@
 import Foundation
 import SwiftUI
 struct NewCarView: View {
-    
-    @EnvironmentObject var userSession: UserSession
     @StateObject var viewModel = NewCarViewModel()
-    @State var navigateToProfileview = false
+    @State var navigateToProfileView = false
     
+
     var body: some View {
-        
-        NavigationView{
-        VStack(spacing: 20) {
+            NavigationView {
+                ZStack {
+//                    Color.white.edgesIgnoringSafeArea(.all) // Background for the entire screen
+
+                    VStack(spacing: 20) {
                         Text("Vehicle Form")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                            .tint(.black)
-            
-                        CustomTextField(title: "Type of vehicle", text: $viewModel.type).textFieldStyle(.plain)
-            
-                        CustomTextField(title: "Vehicle plate", text: $viewModel.plate, keyboardType: .emailAddress).textFieldStyle(.plain)
-            
-                        CustomTextField(title: "Vehicle reference", text: $viewModel.reference).textFieldStyle(.plain)
-            
-                        CustomTextField(title: "Vehicle color", text: $viewModel.color).textFieldStyle(.plain)
-            
-            
-            
-            
-                        GreenButton(title: "Register new vehicle") {
-                            
-                            navigateToProfileview = true
-                            
-                            if let userUID = userSession.uid {
-                                viewModel.registerVehicle(userUID: userUID)
-                            } else {
-                                viewModel.alertMessage = "User not logged in"
-                                viewModel.showAlert = true
+                            .foregroundColor(.black)
+
+                        // Form contained within a rounded rectangle background
+                        
+                        Form {
+                            Section {
+                                CustomTextField(title: "Select Vehicle Type", text: $viewModel.vehicleType, backgroundColor: .clear, isPicker: true, pickerOptions: viewModel.vehicleTypes)
+
+                                CustomTextField(title: "Vehicle Plate", text: $viewModel.plate, backgroundColor: .clear)
+
+                                CustomTextField(title: "Vehicle Reference", text: $viewModel.reference, backgroundColor: .clear)
+
+                                CustomTextField(title: "Select Vehicle Color", text: $viewModel.vehicleColor, backgroundColor: .clear, isPicker: true, pickerOptions: viewModel.vehicleColors)
                             }
+                            .padding(.vertical, 5)
+                            .listRowBackground(Color.white)
+                        }
+                        .frame(height: 330)
+                        .background(Color.white)
+                        .padding(.horizontal, -30) // Adjusts form padding to align better visually
+                            
+
+                        GreenButton(title: "Register new vehicle") {
+                            viewModel.registerVehicle()
                         }
                         .disabled(!viewModel.isFormValid)
-            
-                    NavigationLink(destination: Tabvar(startingTab: .account), isActive: $navigateToProfileview) { EmptyView() }
+
+                        NavigationLink(destination: ProfileView(), isActive: $navigateToProfileView) { EmptyView() }
                         Spacer()
                     }
-                    .padding()
-                    .background(Color.white)
-                    .alert(isPresented: $viewModel.showAlert) { // Use ViewModel's showAlert for binding
-                        Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
-                    }
+                    .padding(.vertical)
+                }
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                }
+            }
+            .onReceive(viewModel.$showAlert) { showAlert in
+                // Trigger navigation upon successful vehicle registration
+                if showAlert && viewModel.alertMessage == "Vehicle registered successfully." {
+                    navigateToProfileView = true
+                }
+            }
         }
-        
-        
     }
-    
-    
-}
 
-struct NewCarView_Preview: PreviewProvider {
-    static var previews: some View {
-        // Create a temporary binding for isAuthenticated
-        // For preview purposes, we initialize it with false
-        NewCarView()
-    }
-}
+//struct NewCarView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        // Create a temporary binding for isAuthenticated
+//        // For preview purposes, we initialize it with false
+//        NewCarView()
+//    }
+//}

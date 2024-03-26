@@ -10,7 +10,6 @@
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
-		5E47E1F92BAE0D51004FFD67 /* userSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F82BAE0D51004FFD67 /* userSession.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
 		5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */; };
 		5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4A43ED2BAC9ED700DCB02C /* .gitignore */; };
@@ -19,8 +18,10 @@
 		5E7AD2DC2BADFEB40001D379 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DB2BADFEB40001D379 /* FirebaseFirestoreSwift */; };
 		5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */; };
 		5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DF2BADFF240001D379 /* FirebaseAuth */; };
-		5E854C262BAE9B7600ECAFDE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E854C252BAE9B7600ECAFDE /* GoogleService-Info.plist */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
+		5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */; };
+		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
+		5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B92BB27E71008826C1 /* SessionManager.swift */; };
 		5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0CE2BADC85000AEED32 /* UserModel.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
@@ -37,7 +38,7 @@
 		5EF05F4B2B8D4E8C00885CC1 /* RideShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F4A2B8D4E8C00885CC1 /* RideShareTests.swift */; };
 		5EF05F552B8D4E8C00885CC1 /* RideShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F542B8D4E8C00885CC1 /* RideShareUITests.swift */; };
 		5EF05F572B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F562B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift */; };
-		5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* User.swift */; };
+		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
@@ -76,13 +77,14 @@
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
-		5E47E1F82BAE0D51004FFD67 /* userSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSession.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		5E4A43ED2BAC9ED700DCB02C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
-		5E854C252BAE9B7600ECAFDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
+		5EA875B92BB27E71008826C1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5ED5B0CE2BADC85000AEED32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 		5EF05F502B8D4E8C00885CC1 /* RideShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RideShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF05F542B8D4E8C00885CC1 /* RideShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideShareUITests.swift; sourceTree = "<group>"; };
 		5EF05F562B8D4E8C00885CC1 /* RideShareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideShareUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5EF05F682B8D4F0D00885CC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5E854C252BAE9B7600ECAFDE /* GoogleService-Info.plist */,
+				5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -225,9 +227,10 @@
 		5EF05F642B8D4ED200885CC1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5EF05F682B8D4F0D00885CC1 /* User.swift */,
+				5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */,
 				5ED5B0CE2BADC85000AEED32 /* UserModel.swift */,
 				5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */,
+				5EA875B72BB27B26008826C1 /* AuthData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,8 +265,8 @@
 				5EEB89EE2B8E57E100F37097 /* TextFields.swift */,
 				86858E632BADF7C700113E4B /* ObjectsLocalList.swift */,
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
-				5E47E1F82BAE0D51004FFD67 /* userSession.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
+				5EA875B92BB27E71008826C1 /* SessionManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -272,20 +275,20 @@
 			isa = PBXGroup;
 			children = (
 				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
-				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
-				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
-				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
-				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
+				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
+				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
+				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				86858E4F2BADED9900113E4B /* LocationCell.swift */,
 				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
 				86858E552BADEDF300113E4B /* MapRepresentable.swift */,
 				86858E572BADEE0D00113E4B /* MapView.swift */,
+				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
 				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
 				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
-				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
 				5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */,
+				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,7 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				5E854C262BAE9B7600ECAFDE /* GoogleService-Info.plist in Resources */,
+				5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -437,13 +440,14 @@
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
 				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
-				5EF05F692B8D4F0D00885CC1 /* User.swift in Sources */,
+				5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */,
 				86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */,
 				86858E542BADEDD500113E4B /* LocationService.swift in Sources */,
 				86858E502BADED9900113E4B /* LocationCell.swift in Sources */,
 				86858E522BADEDB700113E4B /* LocationSearchView.swift in Sources */,
 				86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */,
 				86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */,
+				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
@@ -454,8 +458,8 @@
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
+				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
 				5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */,
-				5E47E1F92BAE0D51004FFD67 /* userSession.swift in Sources */,
 				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,

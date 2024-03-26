@@ -10,6 +10,10 @@ import UIKit
 
 class FormViewModel: NSObject, ObservableObject {
     @Published var userModel = UserModel(name: "", rating: 0.0,  cedula: 0, paymentMethod: "", profileImage: nil)
+    
+    @Published var userProfile: UserProfile?
+    @Published var vehicles: [Vehicle] = []
+    
     @Published var profileImage: UIImage?
     
     let paymentMethods = ["Nequi", "Efectivo", "Tarjeta"]
@@ -40,6 +44,33 @@ class FormViewModel: NSObject, ObservableObject {
             userModel.profileImage = selectedImage.jpegData(compressionQuality: 0.5)
         }
     }
+    
+    func fetchUserData() {
+            guard let uid = SessionManager.shared.currentUserProfile?.uid else {
+                print("User not logged in")
+                return
+            }
+            
+            FirestoreManager.shared.fetchUserData(uid: uid) { [weak self] userProfile, vehicles, error in
+                DispatchQueue.main.async {
+                    guard let self = self else { return }
+                    
+                    if let error = error {
+                        print("Error fetching user data: \(error)")
+                        return
+                    }
+                    
+                    self.userProfile = userProfile
+                    
+                    // Update to handle an array of vehicles
+                    if let vehicles = vehicles {
+                        self.vehicles = vehicles
+                    } else {
+                        self.vehicles = [] 
+                    }
+                }
+            }
+        }
 
 }
 
