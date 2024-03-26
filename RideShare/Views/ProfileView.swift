@@ -84,6 +84,7 @@ struct ProfileView: View {
                 .onAppear {
                             viewModel.fetchUserData() // Fetch user data when the view appears
                         }
+                
             }
             
         }

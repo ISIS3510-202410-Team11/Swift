@@ -48,7 +48,7 @@ struct NewCarView: View {
                         }
                         .disabled(!viewModel.isFormValid)
 
-                        NavigationLink(destination: ProfileView(), isActive: $navigateToProfileView) { EmptyView() }
+                        NavigationLink(destination: Tabvar(startingTab: .account), isActive: $navigateToProfileView) { EmptyView() }
                         Spacer()
                     }
                     .padding(.vertical)
