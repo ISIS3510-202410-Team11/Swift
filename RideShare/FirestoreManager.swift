@@ -27,6 +27,9 @@ class FirestoreManager {
         }
     }
     
+    
+    
+    
     func addVehicle(forUserUID userUID: String, vehicle: Vehicle, completion: @escaping (Error?) -> Void) {
         do {
             // Convert the vehicle object into JSON data
@@ -84,8 +87,28 @@ class FirestoreManager {
         }
     }
     
+    func removeVehicle(forUserUID userUID: String, vehicleID: String, completion: @escaping (Error?) -> Void) {
+        let userDocRef = db.collection("users").document(userUID)
 
-    
+        userDocRef.getDocument { (document, error) in
+            if let document = document, let data = document.data(), var vehiclesArray = data["vehicles"] as? [[String: Any]] {
+                // Find the index of the vehicle to remove
+                if let indexToRemove = vehiclesArray.firstIndex(where: { $0["id"] as? String == vehicleID }) {
+                    // Remove the vehicle from the array
+                    vehiclesArray.remove(at: indexToRemove)
+
+                    
+                    userDocRef.updateData(["vehicles": vehiclesArray]) { error in
+                        completion(error)
+                    }
+                } else {
+                    completion(nil) // Vehicle not found
+                }
+            } else {
+                completion(error ?? NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch user document"]))
+            }
+        }
+    }
     
 }
   

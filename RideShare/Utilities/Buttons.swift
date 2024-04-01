@@ -19,3 +19,16 @@ struct GreenButton: View {
             .cornerRadius(10)
     }
 }
+
+struct RedButton: View {
+    var title: String
+    var action: () -> Void
+    var body: some View {
+        Button(title, action: action)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.red)
+            .cornerRadius(10)
+    }
+}

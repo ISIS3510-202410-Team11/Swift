@@ -47,7 +47,7 @@ struct Tabvar: View {
             .tag(Tab.activity)
 
             NavigationView {
-                ProfileView()
+                ProfileView(viewModel: ProfileViewModel(mock: true))
             }
             .tabItem {
                 Image(systemName: "person.fill")

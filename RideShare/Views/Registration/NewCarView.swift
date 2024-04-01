@@ -11,6 +11,8 @@ struct NewCarView: View {
     @StateObject var viewModel = NewCarViewModel()
     @State var navigateToProfileView = false
     
+    var onVehicleAdded: () -> Void // Callback when a vehicle is added
+
 
     var body: some View {
             NavigationView {
@@ -58,11 +60,11 @@ struct NewCarView: View {
                 }
             }
             .onReceive(viewModel.$showAlert) { showAlert in
-                // Trigger navigation upon successful vehicle registration
-                if showAlert && viewModel.alertMessage == "Vehicle registered successfully." {
-                    navigateToProfileView = true
+                    if showAlert && viewModel.alertMessage == "Vehicle registered successfully." {
+                        self.navigateToProfileView = true
+                        onVehicleAdded() // Call the callback to notify of successful addition
+                    }
                 }
-            }
         }
     }
 

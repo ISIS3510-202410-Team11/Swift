@@ -15,4 +15,5 @@ struct UserProfile: Codable {
     var newsletter: Bool
     var rating : String?
     var payment : String?
+    var profileImage: Data?
 }

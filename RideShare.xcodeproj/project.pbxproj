@@ -22,7 +22,6 @@
 		5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */; };
 		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
 		5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B92BB27E71008826C1 /* SessionManager.swift */; };
-		5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0CE2BADC85000AEED32 /* UserModel.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
@@ -85,7 +84,6 @@
 		5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		5EA875B92BB27E71008826C1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		5ED5B0CE2BADC85000AEED32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -152,6 +150,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EDA89A42BB3729500023634 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */,
+				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
+				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
+				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
+				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		5EDA89A52BB3735700023634 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
+				86858E4F2BADED9900113E4B /* LocationCell.swift */,
+				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
+				86858E552BADEDF300113E4B /* MapRepresentable.swift */,
+				86858E572BADEE0D00113E4B /* MapView.swift */,
+				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
+				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
+				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		5EDA89A62BB3EB3500023634 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */,
+				5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */,
+				5EEB89F02B8E5B5E00F37097 /* SignUpViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		5EDA89A72BB3EB6400023634 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */,
-				5ED5B0CE2BADC85000AEED32 /* UserModel.swift */,
 				5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */,
 				5EA875B72BB27B26008826C1 /* AuthData.swift */,
 			);
@@ -238,13 +280,11 @@
 		5EF05F652B8D4EDA00885CC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */,
-				5EEB89E82B8E24AC00F37097 /* LoginViewModel.swift */,
-				5EEB89F02B8E5B5E00F37097 /* SignUpViewModel.swift */,
+				5EDA89A72BB3EB6400023634 /* Map */,
+				5EDA89A62BB3EB3500023634 /* Registration */,
 				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
 				5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */,
 				86858E4D2BADED6100113E4B /* SpeedViewModel.swift */,
-				5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -274,20 +314,9 @@
 		5EF05F6C2B8D4F7100885CC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */,
-				5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */,
-				5EEB89EC2B8E275200F37097 /* SignUpView.swift */,
-				5EEB89EA2B8E273300F37097 /* LoginView.swift */,
-				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
-				86858E4F2BADED9900113E4B /* LocationCell.swift */,
-				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
-				86858E552BADEDF300113E4B /* MapRepresentable.swift */,
-				86858E572BADEE0D00113E4B /* MapView.swift */,
-				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
-				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
-				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
+				5EDA89A52BB3735700023634 /* Map */,
+				5EDA89A42BB3729500023634 /* Registration */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
-				5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */,
 				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
 			);
 			path = Views;
@@ -460,7 +489,6 @@
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
 				5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */,
-				5ED5B0CF2BADC85000AEED32 /* UserModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,

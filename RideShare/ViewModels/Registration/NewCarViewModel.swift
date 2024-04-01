@@ -34,7 +34,8 @@ class NewCarViewModel: ObservableObject {
             return
         }
         
-        let vehicle = Vehicle(type: vehicleType, plate: plate, reference: reference, color: vehicleColor)
+        let vehicleID = UUID().uuidString
+        let vehicle = Vehicle(id:vehicleID, type: vehicleType, plate: plate, reference: reference, color: vehicleColor)
         
         FirestoreManager.shared.addVehicle(forUserUID: userUID, vehicle: vehicle) { [weak self] error in
             DispatchQueue.main.async {

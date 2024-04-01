@@ -8,18 +8,27 @@
 import Foundation
 import UIKit
 
-class FormViewModel: NSObject, ObservableObject {
-    @Published var userModel = UserModel(name: "", rating: 0.0,  cedula: 0, paymentMethod: "", profileImage: nil)
+class ProfileViewModel: NSObject, ObservableObject {
+    @Published var userModel = UserProfile(uid: "", name: "",email:"", driver: false, newsletter: false, rating: "", payment: nil, profileImage: nil)
     
     @Published var userProfile: UserProfile?
     @Published var vehicles: [Vehicle] = []
     
     @Published var profileImage: UIImage?
     
-    let paymentMethods = ["Nequi", "Efectivo", "Tarjeta"]
-    func selectPaymentMethod(_ index: Int) {
-            userModel.paymentMethod = paymentMethods[index]
+    @Published var selectedVehicleIndex: Int? = nil
+    
+    // Initialize with mock data for previews or testing
+        init(mock: Bool = false) {
+            if mock {
+                // Setup mock data
+                self.userProfile = UserProfile(uid: "123", name: "Gandalf",email:"gandalf@thegray.com", driver: true, newsletter: false, rating: "5.0", payment: "Efe", profileImage: nil)
+                self.vehicles = [Vehicle(id:"", type: "Car", plate: "XYZ123", reference: "Tesla Model S", color: "Red"), Vehicle(id:"", type: "Motobike", plate: "AAA123", reference: "Husq Varna", color: "Black"),Vehicle(id:"", type: "Bike", plate: "000000", reference: "Dogma Pinarello", color: "Black")]
+                self.profileImage = UIImage(systemName: "person.fill")
+            }
         }
+    
+
 
     private let imagePicker = UIImagePickerController()
 
@@ -71,10 +80,37 @@ class FormViewModel: NSObject, ObservableObject {
                 }
             }
         }
+    
+    func removeVehicle(at index: Int) {
+        guard vehicles.indices.contains(index) else { return }
+        let vehicleToRemove = vehicles[index]
+
+        guard let userUID = SessionManager.shared.currentUserProfile?.uid else {
+            // Handle error: user not logged in or UID not found
+            return
+        }
+
+        FirestoreManager.shared.removeVehicle(forUserUID: userUID, vehicleID: vehicleToRemove.id) { [weak self] error in
+            if let error = error {
+                // Handle error (e.g., showing an alert to the user)
+                print("Error removing vehicle: \(error.localizedDescription)")
+            } else {
+                // Successfully removed from Firestore, now remove from local array
+                DispatchQueue.main.async {
+                    self?.vehicles.remove(at: index)
+                    
+                    // Simple strategy: hard reseting
+                    self?.selectedVehicleIndex = nil
+                }
+            }
+        }
+        
+        
+    }
 
 }
 
-extension FormViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             picker.dismiss(animated: true, completion: nil)

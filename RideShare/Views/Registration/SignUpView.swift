@@ -36,7 +36,9 @@ struct SignUpView: View {
                 }
                 .disabled(!viewModel.isFormValid)
 
-                NavigationLink(destination: NewCarView(), isActive: $viewModel.registrationSuccessful) { EmptyView() }
+                NavigationLink(destination: NewCarView(onVehicleAdded: {
+                    
+                }), isActive: $viewModel.registrationSuccessful) { EmptyView() }
             }
             .padding()
             .background(Color.white)
