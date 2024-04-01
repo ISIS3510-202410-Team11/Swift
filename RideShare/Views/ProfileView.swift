@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     @State private var isShowingImagePicker = false
     @State private var isTakingPhoto = false
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
 
 
     
@@ -35,7 +35,7 @@ struct ProfileView: View {
                     if let userProfile = viewModel.userProfile {
                         VStack(alignment: .leading, spacing: 10) {
                             ProfileTextFiles(label: "Nombre", value: userProfile.name)
-                            ProfileTextFiles(label: "Rating", value: userProfile.rating ?? "")
+                            ProfileTextFiles(label: "Rating", value: userProfile.rating ?? "0.0")
                             ProfileTextFiles(label: "Tipo de pago preferido", value: userProfile.payment ?? "Not assigned")
                         }
                         .padding(.horizontal)
@@ -53,6 +53,9 @@ struct ProfileView: View {
                                         .onTapGesture {
                                             self.viewModel.selectedVehicleIndex = index
                                         }
+                                        .onAppear{
+                                            viewModel.fetchUserData()
+                                        }
                                 }
                             }
                         }
@@ -61,12 +64,42 @@ struct ProfileView: View {
                         .padding(.horizontal,30)
 
                         if let index = viewModel.selectedVehicleIndex {
+                            
                             VehicleDetailsView(vehicle: viewModel.vehicles[index])
+                            
+                            
+                            HStack {
+                                BlueButton(title: "Escoger foto", action: {
+                                    self.imagePickerSourceType = .photoLibrary
+                                    self.isShowingImagePicker = true
+                                })
+                                .padding(.horizontal,30)
+                                
+                                BlueButton(title: "Tomar foto", action: {
+                                    self.imagePickerSourceType = .camera
+                                    self.isShowingImagePicker = true
+                                })
+                                .padding(.horizontal,30)
+                                
+                                            
+                            }
+                            .sheet(isPresented: $isShowingImagePicker) {
+                                ImagePickerView(sourceType: self.imagePickerSourceType) { image in
+                                    // Handle the selected image
+                                    viewModel.updateVehicleImage(for: index, with: image)
+                                }
+                                            
+                            }
+                            
+                                
+                            
                             RedButton(title: "Eliminar Vehiculo") {
                                                     // Implement vehicle removal logic here
                                                     viewModel.removeVehicle(at: index)
                                                 }
                                                 .padding(.horizontal,30)
+                            
+                            
                         } else {
                             Text("(Selecciona un vehículo para ver los detalles)")
                         }
@@ -74,7 +107,7 @@ struct ProfileView: View {
                     
                 
                     if viewModel.vehicles.count < 3 {
-                        GreenButton(title: "Añadir Vehiculo") {
+                        GreenButton(tittle: "Añadir Vehiculo") {
                             self.isShowingNewCarView = true
                             
                         }
@@ -99,26 +132,44 @@ struct ProfileView: View {
 }
 
 struct VehicleImageView: View {
+    @StateObject private var loader = AsyncImageLoader()
     var vehicle: Vehicle
     var index: Int
     
     var body: some View {
-        if let imageData = vehicle.image, let uiImage = UIImage(data: imageData) {
-            Image(uiImage: uiImage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-        } else {
-            // Placeholder when image data is not available
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.gray)
-                .frame(width: 100, height: 100)
-                .overlay(
-                    Text("\(index + 1)")
-                    .font(.largeTitle) // Adjust font size as needed
-                    .foregroundColor(.white)
-                )
+        Group {
+            if let urlString = vehicle.image, !urlString.isEmpty {
+                // Attempt to load and display the image from URL
+                if let imageData = loader.imageData, let image = UIImage(data: imageData) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } else {
+                    ProgressView() //loading indicator
+                        .aspectRatio(contentMode: .fit)
+                }
+            } else {
+                // Placeholder when image URL is not available or loading failed
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.gray)
+                    .overlay(
+                        Text("\(index + 1)")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                    )
+            }
+        }
+        .frame(width: 100, height: 100)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .onAppear {
+            if let urlString = vehicle.image, !urlString.isEmpty {
+                loader.loadImage(from: urlString)
+            }
+        }
+        .onChange(of: vehicle.image) { newImageUrl in
+            if let newImageUrl = newImageUrl, !newImageUrl.isEmpty {
+                loader.loadImage(from: newImageUrl)
+            }
         }
     }
 }

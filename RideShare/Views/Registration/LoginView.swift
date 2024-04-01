@@ -33,7 +33,7 @@ struct LoginView: View {
                     .cornerRadius(5)
                 
                 
-                GreenButton(title: "Login", action: {
+                GreenButton(tittle: "Login", action: {
                     loginViewModel.login { success, errorMessage in
                         if success {
                             print("Login successful")

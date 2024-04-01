@@ -54,6 +54,7 @@ class FirestoreManager {
     }
     
     
+    
     func fetchUserData(uid: String, completion: @escaping (UserProfile?, [Vehicle]?, Error?) -> Void) {
         let userDocRef = db.collection("users").document(uid)
         
@@ -109,6 +110,37 @@ class FirestoreManager {
             }
         }
     }
+    
+
+    func updateVehicleImage(with vehicleID: String, imageUrl: String, forUserUID userUID: String) {
+        
+        let userDocRef = db.collection("users").document(userUID)
+
+        userDocRef.getDocument { (document, error) in
+            guard let document = document, var data = document.data(), var vehicles = data["vehicles"] as? [[String: Any]] else {
+                print("Document does not exist or vehicles array cannot be fetched")
+                return
+            }
+            
+            // Find the index of the vehicle to update
+            if let index = vehicles.firstIndex(where: { $0["id"] as? String == vehicleID }) {
+                // Update the imageUrl for the found vehicle
+                vehicles[index]["imageUrl"] = imageUrl
+                
+                // Update the entire vehicles array in Firestore
+                userDocRef.updateData(["vehicles": vehicles]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error.localizedDescription)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+            } else {
+                print("Vehicle not found")
+            }
+        }
+    }
+
     
 }
   

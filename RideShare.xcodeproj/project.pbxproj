@@ -22,6 +22,10 @@
 		5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */; };
 		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
 		5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B92BB27E71008826C1 /* SessionManager.swift */; };
+		5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */; };
+		5EC001D82BBA69C80000C8EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC001D72BBA69C80000C8EC /* FirebaseStorage */; };
+		5EC001DA2BBA6AC30000C8EC /* FireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */; };
+		5EC001DC2BBA72190000C8EC /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
@@ -84,6 +88,9 @@
 		5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		5EA875B92BB27E71008826C1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireStorageManager.swift; path = RideShare/Views/FireStorageManager.swift; sourceTree = SOURCE_ROOT; };
+		5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageLoader.swift; path = RideShare/Views/AsyncImageLoader.swift; sourceTree = SOURCE_ROOT; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -129,6 +136,7 @@
 				5E7AD2D82BADF0CD0001D379 /* FirebaseFirestore in Frameworks */,
 				5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */,
 				5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */,
+				5EC001D82BBA69C80000C8EC /* FirebaseStorage in Frameworks */,
 				5E7AD2DC2BADFEB40001D379 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +158,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EC001D62BBA69C80000C8EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5EDA89A42BB3729500023634 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +219,7 @@
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
 				5EF05F532B8D4E8C00885CC1 /* RideShareUITests */,
 				5EF05F372B8D4E8B00885CC1 /* Products */,
+				5EC001D62BBA69C80000C8EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,6 +310,8 @@
 			children = (
 				86858E532BADEDD500113E4B /* LocationService.swift */,
 				5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */,
+				5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */,
+				5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,6 +336,7 @@
 				5EDA89A42BB3729500023634 /* Registration */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
 				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
+				5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +362,7 @@
 				5E7AD2DB2BADFEB40001D379 /* FirebaseFirestoreSwift */,
 				5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */,
 				5E7AD2DF2BADFF240001D379 /* FirebaseAuth */,
+				5EC001D72BBA69C80000C8EC /* FirebaseStorage */,
 			);
 			productName = RideShare;
 			productReference = 5EF05F362B8D4E8B00885CC1 /* RideShare.app */;
@@ -467,13 +487,16 @@
 				86858E582BADEE0D00113E4B /* MapView.swift in Sources */,
 				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
+				5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */,
 				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */,
+				5EC001DA2BBA6AC30000C8EC /* FireStorageManager.swift in Sources */,
 				86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */,
 				86858E542BADEDD500113E4B /* LocationService.swift in Sources */,
 				86858E502BADED9900113E4B /* LocationCell.swift in Sources */,
 				86858E522BADEDB700113E4B /* LocationSearchView.swift in Sources */,
+				5EC001DC2BBA72190000C8EC /* AsyncImageLoader.swift in Sources */,
 				86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */,
 				86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */,
 				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
@@ -862,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		5EC001D72BBA69C80000C8EC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

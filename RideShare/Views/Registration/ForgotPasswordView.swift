@@ -27,7 +27,7 @@ struct ForgotPasswordView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                GreenButton(title:"Recover Password") {
+                GreenButton(tittle:"Recover Password") {
                     loginViewModel.recoverPassword(for: email) { success, message in
                         alertMessage = success ? "Check your email to reset your password." : (message ?? "An error occurred.")
                         showAlert = true

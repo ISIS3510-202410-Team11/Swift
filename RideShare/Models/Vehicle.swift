@@ -13,5 +13,5 @@ struct Vehicle: Decodable, Hashable, Encodable {
     var plate: String
     var reference: String
     var color: String
-    var image: Data?
+    var image: String?
 }

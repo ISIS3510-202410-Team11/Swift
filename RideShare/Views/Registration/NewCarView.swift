@@ -45,7 +45,7 @@ struct NewCarView: View {
                         .padding(.horizontal, -30) // Adjusts form padding to align better visually
                             
 
-                        GreenButton(title: "Register new vehicle") {
+                        GreenButton(tittle: "Register new vehicle") {
                             viewModel.registerVehicle()
                         }
                         .disabled(!viewModel.isFormValid)

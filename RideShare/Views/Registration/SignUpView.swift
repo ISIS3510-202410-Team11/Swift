@@ -31,7 +31,7 @@ struct SignUpView: View {
                     Text("I would like to receive your newsletter and other promotional information.")
                 }.tint(.green)
                 
-                GreenButton(title: "Register") {
+                GreenButton(tittle: "Register") {
                     viewModel.registerUser()
                 }
                 .disabled(!viewModel.isFormValid)

@@ -23,36 +23,16 @@ class ProfileViewModel: NSObject, ObservableObject {
             if mock {
                 // Setup mock data
                 self.userProfile = UserProfile(uid: "123", name: "Gandalf",email:"gandalf@thegray.com", driver: true, newsletter: false, rating: "5.0", payment: "Efe", profileImage: nil)
-                self.vehicles = [Vehicle(id:"", type: "Car", plate: "XYZ123", reference: "Tesla Model S", color: "Red"), Vehicle(id:"", type: "Motobike", plate: "AAA123", reference: "Husq Varna", color: "Black"),Vehicle(id:"", type: "Bike", plate: "000000", reference: "Dogma Pinarello", color: "Black")]
+                self.vehicles = [Vehicle(id:"", type: "Car", plate: "XYZ123", reference: "Tesla Model S", color: "Red"), Vehicle(id:"", type: "Motobike", plate: "AAA123", reference: "Husq Varna", color: "Black")]
                 self.profileImage = UIImage(systemName: "person.fill")
             }
         }
-    
 
-
-    private let imagePicker = UIImagePickerController()
-
-    override init() {
-        super.init()
-        imagePicker.delegate = self
-    }
-
-    func selectImage(sourceType: UIImagePickerController.SourceType) {
-        imagePicker.sourceType = sourceType
-        if sourceType == .camera {
-            imagePicker.cameraCaptureMode = .photo
-        }
-
-        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
-            rootViewController.present(imagePicker, animated: true, completion: nil)
-        }
-    }
-
-    func saveFormData() {
-        if let selectedImage = profileImage {
-            userModel.profileImage = selectedImage.jpegData(compressionQuality: 0.5)
-        }
-    }
+//    func saveFormData() {
+//        if let selectedImage = profileImage {
+//            userModel.profileImage = selectedImage.jpegData(compressionQuality: 0.5)
+//        }
+//    }
     
     func fetchUserData() {
             guard let uid = SessionManager.shared.currentUserProfile?.uid else {
@@ -80,6 +60,34 @@ class ProfileViewModel: NSObject, ObservableObject {
                 }
             }
         }
+    
+    func updateVehicleImage(for index: Int, with newImage: UIImage) {
+        guard let userUID = SessionManager.shared.currentUserProfile?.uid, vehicles.indices.contains(index) else {
+            print("Invalid user UID or vehicle index")
+            return
+        }
+
+        let vehicle = vehicles[index]
+
+        // First, upload the image to Firebase Storage
+        FireStorageManager.shared.uploadVehicleImage(newImage, forVehicleWithID: vehicle.id, userUID: userUID) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let url):
+                    // update the Firestore document for the user with the new image URL for this vehicle
+                    FirestoreManager.shared.updateVehicleImage(with: vehicle.id, imageUrl: url.absoluteString, forUserUID: userUID)
+
+                    // Optionally, update the local vehicle's imageUrl if your model holds it
+                    self?.vehicles[index].image = url.absoluteString // Assuming your Vehicle model has an `imageUrl` property
+                    // Notify the UI or perform further actions as needed
+                    
+                case .failure(let error):
+                    print("Error uploading image: \(error.localizedDescription)")
+                    // Handle the error, e.g., show an alert to the user
+                }
+            }
+        }
+    }
     
     func removeVehicle(at index: Int) {
         guard vehicles.indices.contains(index) else { return }
@@ -110,17 +118,3 @@ class ProfileViewModel: NSObject, ObservableObject {
 
 }
 
-extension ProfileViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            picker.dismiss(animated: true, completion: nil)
-            return
-        }
-        profileImage = selectedImage
-        picker.dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
