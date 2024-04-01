@@ -125,7 +125,7 @@ class FirestoreManager {
             // Find the index of the vehicle to update
             if let index = vehicles.firstIndex(where: { $0["id"] as? String == vehicleID }) {
                 // Update the imageUrl for the found vehicle
-                vehicles[index]["imageUrl"] = imageUrl
+                vehicles[index]["image"] = imageUrl
                 
                 // Update the entire vehicles array in Firestore
                 userDocRef.updateData(["vehicles": vehicles]) { error in

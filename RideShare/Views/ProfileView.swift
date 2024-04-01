@@ -53,9 +53,7 @@ struct ProfileView: View {
                                         .onTapGesture {
                                             self.viewModel.selectedVehicleIndex = index
                                         }
-                                        .onAppear{
-                                            viewModel.fetchUserData()
-                                        }
+                                    
                                 }
                             }
                         }
@@ -85,7 +83,7 @@ struct ProfileView: View {
                             }
                             .sheet(isPresented: $isShowingImagePicker) {
                                 ImagePickerView(sourceType: self.imagePickerSourceType) { image in
-                                    // Handle the selected image
+                                    
                                     viewModel.updateVehicleImage(for: index, with: image)
                                 }
                                             
@@ -139,17 +137,17 @@ struct VehicleImageView: View {
     var body: some View {
         Group {
             if let urlString = vehicle.image, !urlString.isEmpty {
-                // Attempt to load and display the image from URL
+                
                 if let imageData = loader.imageData, let image = UIImage(data: imageData) {
                     Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                 } else {
-                    ProgressView() //loading indicator
+                    ProgressView()
                         .aspectRatio(contentMode: .fit)
                 }
             } else {
-                // Placeholder when image URL is not available or loading failed
+                
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray)
                     .overlay(
