@@ -9,120 +9,120 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject private var viewModel = ProfileViewModel()
-
+    
     @State private var isShowingNewCarView = false // State to control navigation
     
     @State private var isShowingImagePicker = false
     @State private var isTakingPhoto = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
-
-
+    
+    
     
     init(viewModel: ProfileViewModel) {
-            self.viewModel = viewModel
-        }
+        self.viewModel = viewModel
+    }
     
     
     var body: some View {
-        NavigationView{
-            ScrollView {
-                VStack(spacing: 20) {
-                    Text("Tu Perfil")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.top, 20)
-
-                    if let userProfile = viewModel.userProfile {
-                        VStack(alignment: .leading, spacing: 10) {
-                            ProfileTextFiles(label: "Nombre", value: userProfile.name)
-                            ProfileTextFiles(label: "Rating", value: userProfile.rating ?? "0.0")
-                            ProfileTextFiles(label: "Tipo de pago preferido", value: userProfile.payment ?? "Not assigned")
-                        }
-                        .padding(.horizontal)
-                    }
-
-                    VStack(spacing: 20) {
-                        Text("Vehículos")
-                            .font(.title2)
-                            .fontWeight(.bold)
-
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 10) {
-                                ForEach(Array(viewModel.vehicles.enumerated()), id: \.element) { index, vehicle in
-                                    VehicleImageView(vehicle: vehicle, index: index)
-                                        .onTapGesture {
-                                            self.viewModel.selectedVehicleIndex = index
-                                        }
-                                    
-                                }
-                            }
-                        }
-                        .frame(height: 120)
-                        .padding(.vertical)
-                        .padding(.horizontal,30)
-
-                        if let index = viewModel.selectedVehicleIndex {
-                            
-                            VehicleDetailsView(vehicle: viewModel.vehicles[index])
-                            
-                            
-                            HStack {
-                                BlueButton(title: "Escoger foto", action: {
-                                    self.imagePickerSourceType = .photoLibrary
-                                    self.isShowingImagePicker = true
-                                })
-                                .padding(.horizontal,30)
-                                
-                                BlueButton(title: "Tomar foto", action: {
-                                    self.imagePickerSourceType = .camera
-                                    self.isShowingImagePicker = true
-                                })
-                                .padding(.horizontal,30)
-                                
-                                            
-                            }
-                            .sheet(isPresented: $isShowingImagePicker) {
-                                ImagePickerView(sourceType: self.imagePickerSourceType) { image in
-                                    
-                                    viewModel.updateVehicleImage(for: index, with: image)
-                                }
-                                            
-                            }
-                            
-                                
-                            
-                            RedButton(title: "Eliminar Vehiculo") {
-                                                    // Implement vehicle removal logic here
-                                                    viewModel.removeVehicle(at: index)
-                                                }
-                                                .padding(.horizontal,30)
-                            
-                            
-                        } else {
-                            Text("(Selecciona un vehículo para ver los detalles)")
-                        }
-                    }
-                    
+        
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("Your Profile")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
                 
-                    if viewModel.vehicles.count < 3 {
-                        GreenButton(tittle: "Añadir Vehiculo") {
-                            self.isShowingNewCarView = true
-                            
-                        }
-                        .padding(.horizontal,30)
-                        .sheet(isPresented: $isShowingNewCarView) {
-                            NewCarView(onVehicleAdded: {
-                                self.viewModel.fetchUserData()
-                                self.isShowingNewCarView = false
-                            })
+                if let userProfile = viewModel.userProfile {
+                    VStack(alignment: .leading, spacing: 10) {
+                        ProfileTextFiles(label: "Name", value: userProfile.name)
+                        ProfileTextFiles(label: "Rating", value: userProfile.rating ?? "0.0")
+                        ProfileTextFiles(label: "Preferred payment method", value: userProfile.payment ?? "Not assigned")
+                    }
+                    .padding(.horizontal)
+                }
+                
+                VStack(spacing: 20) {
+                    Text("Vehicles")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(Array(viewModel.vehicles.enumerated()), id: \.element) { index, vehicle in
+                                VehicleImageView(vehicle: vehicle, index: index)
+                                    .onTapGesture {
+                                        self.viewModel.selectedVehicleIndex = index
+                                    }
+                                
+                            }
                         }
                     }
+                    .frame(height: 120)
+                    .padding(.vertical)
+                    .padding(.horizontal,30)
                     
+                    if let index = viewModel.selectedVehicleIndex {
+                        
+                        VehicleDetailsView(vehicle: viewModel.vehicles[index])
+                        
+                        
+                        HStack {
+                            BlueButton(title: "Choose picture", action: {
+                                self.imagePickerSourceType = .photoLibrary
+                                self.isShowingImagePicker = true
+                            })
+                            .padding(.horizontal,30)
+                            
+                            BlueButton(title: "Take picture", action: {
+                                self.imagePickerSourceType = .camera
+                                self.isShowingImagePicker = true
+                            })
+                            .padding(.horizontal,30)
+                            
+                            
+                        }
+                        .sheet(isPresented: $isShowingImagePicker) {
+                            ImagePickerView(sourceType: self.imagePickerSourceType) { image in
+                                
+                                viewModel.updateVehicleImage(for: index, with: image)
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        RedButton(title: "Eliminar Vehiculo") {
+                            // Implement vehicle removal logic here
+                            viewModel.removeVehicle(at: index)
+                        }
+                        .padding(.horizontal,30)
+                        
+                        
+                    } else {
+                        Text("(Selecciona un vehículo para ver los detalles)")
+                    }
                 }
-                .onAppear {
-                    viewModel.fetchUserData() // Fetch user data when the view appears
+                
+                
+                if viewModel.vehicles.count < 3 {
+                    GreenButton(tittle: "Añadir Vehiculo") {
+                        self.isShowingNewCarView = true
+                        
+                    }
+                    .padding(.horizontal,30)
+                    .sheet(isPresented: $isShowingNewCarView) {
+                        NewCarView(onVehicleAdded: {
+                            self.viewModel.fetchUserData()
+                            self.isShowingNewCarView = false
+                        })
+                    }
                 }
+                
             }
+            .onAppear {
+                viewModel.fetchUserData() // Fetch user data when the view appears
+            }
+            
             
         }
         
@@ -152,8 +152,8 @@ struct VehicleImageView: View {
                     .fill(Color.gray)
                     .overlay(
                         Text("\(index + 1)")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
                     )
             }
         }

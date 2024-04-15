@@ -9,24 +9,67 @@ import Foundation
 import SwiftUI
 struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
-    @State private var navigateToVehicleForm = false
-    
+
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 35) {
                 Text("Sign Up")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 
-                CustomTextField(title: "Username", text: $viewModel.name).textFieldStyle(.plain)
-                CustomTextField(title: "Email", text: $viewModel.email, keyboardType: .emailAddress).textFieldStyle(.plain)
-                CustomTextField(title: "Password", text: $viewModel.password, isSecure: true).textFieldStyle(.plain)
+                // Username field with immediate validation feedback
+                CustomTextField(title: "Username", text: $viewModel.name)
+                    .textFieldStyle(.plain)
+                    .onChange(of: viewModel.name) { _ in
+                        viewModel.validateName()  // Ensure this matches the method name in ViewModel
+                    }
+                    .overlay(
+                        Group {
+                            if let error = viewModel.nameError, !error.isEmpty {
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .offset(y: 30)
+                            }
+                        }
+                    )
+                    
+                // Email field with immediate validation feedback
+                CustomTextField(title: "Email", text: $viewModel.email, isSecure: false)
+                    .textFieldStyle(.plain)
+                    .onChange(of: viewModel.email) { _ in
+                        viewModel.validateEmail()  // Ensure this matches the method name in ViewModel
+                    }
+                    .overlay(
+                        Group {
+                            if let error = viewModel.emailError, !error.isEmpty {
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .offset(y: 30)
+                            }
+                        }
+                    )
+
+                // Password field with immediate validation feedback
+                CustomTextField(title: "Password", text: $viewModel.password, isSecure: true)
+                    .textFieldStyle(.plain)
+                    .onChange(of: viewModel.password) { _ in
+                        viewModel.validatePassword()  // Ensure this matches the method name in ViewModel
+                    }
+                    .overlay(
+                        Group {
+                            if let error = viewModel.passwordError, !error.isEmpty {
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .offset(y: 30)
+                            }
+                        }
+                    )
                 
                 Toggle(isOn: $viewModel.isDriver) {
                     Text("I am a driver (Optional)")
                 }.tint(.green)
-                
+
                 Toggle(isOn: $viewModel.wantsNewsletter) {
                     Text("I would like to receive your newsletter and other promotional information.")
                 }.tint(.green)
@@ -35,24 +78,19 @@ struct SignUpView: View {
                     viewModel.registerUser()
                 }
                 .disabled(!viewModel.isFormValid)
-
-                NavigationLink(destination: NewCarView(onVehicleAdded: {
-                    
-                }), isActive: $viewModel.registrationSuccessful) { EmptyView() }
+                
+                NavigationLink(destination: NewCarView(onVehicleAdded: {}),
+                               isActive: $viewModel.registrationSuccessful) { EmptyView() }
+                
             }
             .padding()
             .background(Color.white)
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
-            }
         }
     }
 }
 
-struct SignUpView_Preview: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create a temporary binding for isAuthenticated
-        // For preview purposes, we initialize it with false
         SignUpView()
     }
 }

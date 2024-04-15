@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
+		5E3C68022BCC804F00ED04AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E3C68012BCC804F00ED04AB /* GoogleService-Info.plist */; };
+		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
 		5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */; };
@@ -19,7 +21,6 @@
 		5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */; };
 		5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DF2BADFF240001D379 /* FirebaseAuth */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
-		5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */; };
 		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
 		5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B92BB27E71008826C1 /* SessionManager.swift */; };
 		5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */; };
@@ -79,13 +80,14 @@
 /* Begin PBXFileReference section */
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
+		5E3C68012BCC804F00ED04AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E3C68032BCC805500ED04AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		5E4A43ED2BAC9ED700DCB02C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
-		5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		5EA875B92BB27E71008826C1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			files = (
 				5E7AD2D82BADF0CD0001D379 /* FirebaseFirestore in Frameworks */,
 				5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */,
+				5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */,
 				5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */,
 				5EC001D82BBA69C80000C8EC /* FirebaseStorage in Frameworks */,
 				5E7AD2DC2BADFEB40001D379 /* FirebaseFirestoreSwift in Frameworks */,
@@ -213,7 +216,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5EA875B52BB2728D008826C1 /* GoogleService-Info.plist */,
+				5E3C68032BCC805500ED04AB /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -325,6 +328,7 @@
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
 				5EA875B92BB27E71008826C1 /* SessionManager.swift */,
+				5E3C68012BCC804F00ED04AB /* GoogleService-Info.plist */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -363,6 +367,7 @@
 				5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */,
 				5E7AD2DF2BADFF240001D379 /* FirebaseAuth */,
 				5EC001D72BBA69C80000C8EC /* FirebaseStorage */,
+				5E3C68052BCCE1A200ED04AB /* KeychainAccess */,
 			);
 			productName = RideShare;
 			productReference = 5EF05F362B8D4E8B00885CC1 /* RideShare.app */;
@@ -438,6 +443,7 @@
 			mainGroup = 5EF05F2D2B8D4E8B00885CC1;
 			packageReferences = (
 				5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5E3C68042BCCE18F00ED04AB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 5EF05F372B8D4E8B00885CC1 /* Products */;
 			projectDirPath = "";
@@ -456,7 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				5EA875B62BB2728D008826C1 /* GoogleService-Info.plist in Resources */,
+				5E3C68022BCC804F00ED04AB /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -855,6 +861,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5E3C68042BCCE18F00ED04AB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -866,6 +880,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5E3C68052BCCE1A200ED04AB /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E3C68042BCCE18F00ED04AB /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		5E7AD2D72BADF0CD0001D379 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -6,7 +6,7 @@
 //
 
 import Firebase
-import Combine
+import LocalAuthentication
 
 import Firebase
 import Combine
@@ -80,8 +80,32 @@ class SessionManager: ObservableObject {
             Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
         }
     }
+    
+    func authenticateUserUsingFaceID(completion: @escaping (Bool, Error?) -> Void) {
+        let context = LAContext()
+        var error: NSError?
 
-    // Method to sign out the current user
+        // Check if Face ID is available
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Authenticate with Face ID to access your account securely."
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        completion(true, nil)
+                    } else {
+                        completion(false, authenticationError)
+                    }
+                }
+            }
+        } else {
+            // Face ID not available
+            DispatchQueue.main.async {
+                completion(false, error)
+            }
+        }
+    }
+
+    // sign out the current user
     func signOut() {
         do {
             try Auth.auth().signOut()
@@ -91,5 +115,4 @@ class SessionManager: ObservableObject {
         }
     }
 
-    // Add other session-related functionalities as needed
 }
