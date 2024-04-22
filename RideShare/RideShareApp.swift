@@ -17,14 +17,13 @@ struct RideShareApp: App {
             FirebaseApp.configure()
         }
     
-    var userSession = UserSession()
+
         
     var body: some Scene {
         
         WindowGroup {
 
             ContentView()
-                .environmentObject(userSession)
 
         }
     }

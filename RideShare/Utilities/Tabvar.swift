@@ -19,36 +19,33 @@ struct Tabvar: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            NavigationView {
-                MapView()
-            }
+            
+            MapView()
             .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
+            
             .tag(Tab.home) // Tag this view with the corresponding enum value
 
-            NavigationView {
-                LoginView()
-            }
+            
+            Text("Services")
             .tabItem {
                 Image(systemName: "circle.grid.3x3.fill")
                 Text("Services")
             }
             .tag(Tab.services)
 
-            NavigationView {
-                RegistrationView()
-            }
+            
+            Text("Activity")
             .tabItem {
                 Image(systemName: "bolt.fill")
                 Text("Activity")
             }
             .tag(Tab.activity)
 
-            NavigationView {
-                ProfileView()
-            }
+
+            ProfileView(viewModel: ProfileViewModel(mock: true))
             .tabItem {
                 Image(systemName: "person.fill")
                 Text("Account")

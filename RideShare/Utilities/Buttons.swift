@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 struct GreenButton: View {
-    var title: String
+    var tittle: String
     var action: () -> Void
     var body: some View {
-        Button(title, action: action)
+        Button(tittle, action: action)
             .frame(maxWidth: .infinity)
             .padding()
             .foregroundColor(.white)
@@ -19,3 +19,31 @@ struct GreenButton: View {
             .cornerRadius(10)
     }
 }
+
+struct RedButton: View {
+    var title: String
+    var action: () -> Void
+    var body: some View {
+        Button(title, action: action)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.red)
+            .cornerRadius(10)
+    }
+}
+
+struct BlueButton: View {
+    var title: String
+    var action: () -> Void
+    var body: some View {
+        Button(title, action: action)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.mint)
+            .cornerRadius(10)
+    }
+}
+
+

@@ -27,12 +27,12 @@ struct RegistrationView: View {
                         VStack(spacing: 20) {
                             
                             NavigationLink(destination: SignUpView()) {
-                                GreenButton(title: "Sign Up") {
+                                GreenButton(tittle: "Sign Up") {
                                     // Trigger any additional actions
                                 }
                             }
                             NavigationLink(destination: LoginView()) {
-                                GreenButton(title: "Log In") {
+                                GreenButton(tittle: "Log In") {
                                     // Trigger any additional actions
                                 }
                             }
