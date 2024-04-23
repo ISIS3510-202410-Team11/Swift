@@ -13,6 +13,7 @@ class ProfileViewModel: NSObject, ObservableObject {
     
     @Published var userProfile: UserProfile?
     @Published var vehicles: [Vehicle] = []
+    @Published var isUploadingImage = false
     
     @Published var profileImage: UIImage?
     
@@ -62,10 +63,14 @@ class ProfileViewModel: NSObject, ObservableObject {
         }
 
         let vehicle = vehicles[index]
-
-       
+        if vehicle.image != nil {
+                    print("Ya se ha subido una imagen para este vehículo y no se puede cambiar.")
+                    return
+                }
+        isUploadingImage = true
         FireStorageManager.shared.uploadVehicleImage(newImage, forVehicleWithID: vehicle.id, userUID: userUID) { [weak self] result in
             DispatchQueue.main.async {
+                self?.isUploadingImage = false
                 switch result {
                 case .success(let url):
                     
@@ -73,6 +78,7 @@ class ProfileViewModel: NSObject, ObservableObject {
 
                     
                     self?.vehicles[index].image = url.absoluteString
+                    
                     
                     
                 case .failure(let error):

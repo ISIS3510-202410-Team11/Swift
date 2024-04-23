@@ -49,7 +49,7 @@ struct ProfileView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(Array(viewModel.vehicles.enumerated()), id: \.element) { index, vehicle in
-                                VehicleImageView(vehicle: vehicle, index: index)
+                                VehicleImageView(vehicle: vehicle, index: index, viewModel: viewModel)
                                     .onTapGesture {
                                         self.viewModel.selectedVehicleIndex = index
                                     }
@@ -133,21 +133,28 @@ struct VehicleImageView: View {
     @StateObject private var loader = AsyncImageLoader()
     var vehicle: Vehicle
     var index: Int
-    
+    @ObservedObject var viewModel: ProfileViewModel // Agregar una referencia al viewModel
+
     var body: some View {
         Group {
             if let urlString = vehicle.image, !urlString.isEmpty {
-                
                 if let imageData = loader.imageData, let image = UIImage(data: imageData) {
                     Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                } else {
+                } else if viewModel.isUploadingImage { // Verificar si se está subiendo una imagen
                     ProgressView()
                         .aspectRatio(contentMode: .fit)
+                } else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray)
+                        .overlay(
+                            Text("\(index + 1)")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        )
                 }
             } else {
-                
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray)
                     .overlay(
