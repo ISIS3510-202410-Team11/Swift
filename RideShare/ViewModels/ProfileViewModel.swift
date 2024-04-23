@@ -10,22 +10,28 @@ import UIKit
 
 class ProfileViewModel: NSObject, ObservableObject {
     @Published var userModel = UserProfile(uid: "", name: "",email:"", driver: false, newsletter: false, rating: "", payment: nil, profileImage: nil)
-    
     @Published var userProfile: UserProfile?
     @Published var vehicles: [Vehicle] = []
     @Published var isUploadingImage = false
-    
     @Published var profileImage: UIImage?
-    
     @Published var selectedVehicleIndex: Int? = nil
     
-    // Initialize with mock data for previews or testing
+    override init() {
+        super.init()
+        loadUserProfileFromCache()
+        
+    }
+    
         init(mock: Bool = false) {
+            super.init()
             if mock {
-
                 self.userProfile = UserProfile(uid: "123", name: "Gandalf",email:"gandalf@thegray.com", driver: true, newsletter: false, rating: "5.0", payment: "Efe", profileImage: nil)
                 self.vehicles = [Vehicle(id:"", type: "Car", plate: "XYZ123", reference: "Tesla Model S", color: "Red"), Vehicle(id:"", type: "Motobike", plate: "AAA123", reference: "Husq Varna", color: "Black")]
                 self.profileImage = UIImage(systemName: "person.fill")
+                saveUserProfileToCache()
+            }
+            else {
+                loadUserProfileFromCache()
             }
         }
     
@@ -52,6 +58,27 @@ class ProfileViewModel: NSObject, ObservableObject {
                     } else {
                         self.vehicles = [] 
                     }
+                    self.saveUserProfileToCache()
+                    
+                }
+            }
+        }
+    
+    
+    func saveUserProfileToCache() {
+            if let userProfile = userProfile {
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(userProfile) {
+                    UserDefaults.standard.set(encoded, forKey: "UserProfile")
+                }
+            }
+        }
+
+    func loadUserProfileFromCache() {
+            if let savedUserData = UserDefaults.standard.object(forKey: "UserProfile") as? Data {
+                let decoder = JSONDecoder()
+                if let loadedUser = try? decoder.decode(UserProfile.self, from: savedUserData) {
+                    userProfile = loadedUser
                 }
             }
         }
