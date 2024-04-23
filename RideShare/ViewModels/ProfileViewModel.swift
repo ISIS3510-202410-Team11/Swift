@@ -19,6 +19,8 @@ class ProfileViewModel: NSObject, ObservableObject {
     override init() {
         super.init()
         loadUserProfileFromCache()
+        loadVehiclesFromCache()
+        printUserDefaultsContents()
         
     }
     
@@ -32,7 +34,9 @@ class ProfileViewModel: NSObject, ObservableObject {
             }
             else {
                 loadUserProfileFromCache()
+                loadVehiclesFromCache()
             }
+            printUserDefaultsContents()
         }
     
     func fetchUserData() {
@@ -59,6 +63,8 @@ class ProfileViewModel: NSObject, ObservableObject {
                         self.vehicles = [] 
                     }
                     self.saveUserProfileToCache()
+                    self.saveVehiclesToCache()
+                    self.printUserDefaultsContents()
                     
                 }
             }
@@ -82,6 +88,46 @@ class ProfileViewModel: NSObject, ObservableObject {
                 }
             }
         }
+    func printUserDefaultsContents() {
+            print("Contents of UserDefaults for 'UserProfile':")
+            if let userData = UserDefaults.standard.object(forKey: "UserProfile") as? Data {
+                if let userDataAsString = String(data: userData, encoding: .utf8) {
+                    print(userDataAsString)
+                } else {
+                    print("Could not decode user data to string.")
+                }
+            } else {
+                print("No user data found in UserDefaults for UserProfile.")
+            }
+            
+            print("Contents of UserDefaults for 'UserVehicles':")
+            if let vehiclesData = UserDefaults.standard.object(forKey: "UserVehicles") as? Data {
+                if let vehiclesDataAsString = String(data: vehiclesData, encoding: .utf8) {
+                    print(vehiclesDataAsString)
+                } else {
+                    print("Could not decode vehicles data to string.")
+                }
+            } else {
+                print("No vehicles data found in UserDefaults.")
+            }
+        }
+    
+    func saveVehiclesToCache() {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(vehicles) {
+                UserDefaults.standard.set(encoded, forKey: "UserVehicles")
+            }
+        }
+
+        func loadVehiclesFromCache() {
+            if let savedVehiclesData = UserDefaults.standard.object(forKey: "UserVehicles") as? Data {
+                let decoder = JSONDecoder()
+                if let loadedVehicles = try? decoder.decode([Vehicle].self, from: savedVehiclesData) {
+                    vehicles = loadedVehicles
+                }
+            }
+        }
+
     
     func updateVehicleImage(for index: Int, with newImage: UIImage) {
         guard let userUID = SessionManager.shared.currentUserProfile?.uid, vehicles.indices.contains(index) else {
@@ -142,4 +188,5 @@ class ProfileViewModel: NSObject, ObservableObject {
     }
 
 }
+
 
