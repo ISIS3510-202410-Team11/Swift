@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13BDDAEB2BD6FAAF00E572C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13BDDAEA2BD6FAAF00E572C1 /* GoogleService-Info.plist */; };
 		13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */; };
 		13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */; };
 		13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */; };
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
+		5E1A636E2BD8AAAB00252E97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -81,13 +81,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13BDDAEA2BD6FAAF00E572C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ended_trips.swift; sourceTree = "<group>"; };
 		13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultImages.xcassets; sourceTree = "<group>"; };
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
-		5E3C68032BCC805500ED04AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -222,7 +221,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5E3C68032BCC805500ED04AB /* GoogleService-Info.plist */,
+				5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -246,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				5EE339252BAD25D00064B3F7 /* Info.plist */,
-				13BDDAEA2BD6FAAF00E572C1 /* GoogleService-Info.plist */,
 				5EF05F632B8D4EA100885CC1 /* Fonts */,
 				5EF05F672B8D4EF600885CC1 /* Utilities */,
 				5EF05F662B8D4EE900885CC1 /* Services */,
@@ -471,8 +469,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				13BDDAEB2BD6FAAF00E572C1 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
+				5E1A636E2BD8AAAB00252E97 /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
