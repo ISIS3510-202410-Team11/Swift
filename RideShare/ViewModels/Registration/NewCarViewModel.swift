@@ -20,7 +20,7 @@ class NewCarViewModel: ObservableObject {
     
     @Published var vehicleType: String = "Car" // Default or initial value
     
-    let vehicleTypes: [String] = ["Car", "Truck", "Motorcycle", "Bycicle"]
+    let vehicleTypes: [String] = ["Car", "Truck", "Motorcycle", "Bicycle"]
     
     
     let vehicleColors: [String] = ["White", "Black", "Gray",

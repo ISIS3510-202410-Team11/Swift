@@ -108,74 +108,14 @@ struct ProfileView: View {
     }
 }
 
-struct VehicleImageView: View {
-    @StateObject private var loader = AsyncImageLoader()
-    var vehicle: Vehicle
-    var index: Int
-    @ObservedObject var viewModel: ProfileViewModel
-
-    var body: some View {
-        Group {
-            if let urlString = vehicle.image, !urlString.isEmpty {
-                if let imageData = loader.imageData, let image = UIImage(data: imageData) {
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } else if viewModel.isUploadingImage {
-                    ProgressView()
-                        .aspectRatio(contentMode: .fit)
-                } else {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.gray)
-                        .overlay(
-                            Text("\(index + 1)")
-                                .font(.largeTitle)
-                                .foregroundColor(.white)
-                        )
-                }
-            } else {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray)
-                    .overlay(
-                        Text("\(index + 1)")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                    )
-            }
-        }
-        .frame(width: 100, height: 100)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .onAppear {
-            if let urlString = vehicle.image, !urlString.isEmpty {
-                loader.loadImage(from: urlString)
-            }
-        }
-        .onChange(of: vehicle.image) { newImageUrl in
-            if let newImageUrl = newImageUrl, !newImageUrl.isEmpty {
-                loader.loadImage(from: newImageUrl)
-            }
-        }
-    }
-}
-
-struct VehicleDetailsView: View {
-    var vehicle: Vehicle
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            ProfileTextFiles(label: "Type", value: vehicle.type)
-            ProfileTextFiles(label: "Plate", value: vehicle.plate)
-            ProfileTextFiles(label: "Referencia", value: vehicle.reference)
-            ProfileTextFiles(label: "Color", value: vehicle.color)
-        }
-        .padding(.horizontal)
-    }
-}
 
 
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(viewModel: ProfileViewModel(mock: true))
-    }
-}
+
+
+
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(viewModel: ProfileViewModel(mock: true))
+//    }
+//}
