@@ -43,8 +43,8 @@ struct RowView: View {
     }
 }
 
-struct RowView_Previews: PreviewProvider {
-    static var previews: some View {
-        RowView(trip: Ended_Trips(driverUID: "Hola", startHour:"9:20", initialAddress: "Calle 6a #88d-60", finalAddress: "Universidad de los andes", Image: Image(systemName: "person.fill")))
-    }
-}
+//struct RowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RowView(trip: Ended_Trips(driverUID: "Hola", startHour:"9:20", initialAddress: "Calle 6a #88d-60", finalAddress: "Universidad de los andes", Image: Image(systemName: "person.fill")))
+//    }
+//}
