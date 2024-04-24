@@ -695,13 +695,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -714,7 +714,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -730,13 +730,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -749,7 +749,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

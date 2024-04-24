@@ -26,7 +26,7 @@ struct MapRepresentable: UIViewRepresentable{
     }
     //Updateview
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        //print("DEBUG: Map state is \(mapState)")
+        print("DEBUG: Map state is \(mapState)")
         switch mapState {
         case .noInput:
             context.coordinator.clearMapView()
