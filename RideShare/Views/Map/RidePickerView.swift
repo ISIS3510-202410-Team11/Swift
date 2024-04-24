@@ -20,7 +20,8 @@ struct RidePickerView: View {
                             Image(systemName: "car")
                             
                             VStack{
-                                Text(driver)
+                                Text("Placa")
+                                Text("Marca")
                                 Text("3:30")
                                     .font(.system(size: 15))
                                     .foregroundColor(.gray)

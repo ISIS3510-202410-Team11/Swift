@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LocationSearchView: View {
     @State private var startLocationText = ""
-    @State private var endLocationText = ""
-    @StateObject var viewModel = LocationSearchViewModel()
+    @Binding var mapState: MapViewState
+    @EnvironmentObject var viewModel: LocationSearchViewModel
 
     var body: some View {
         NavigationView{
@@ -21,26 +21,27 @@ struct LocationSearchView: View {
                     VStack{
                         Circle()
                             .fill(Color(.red))
-                            .frame(width: 8, height: 15)
+                            .frame(width: 6, height: 6)
                             
                         Rectangle()
                             .fill(Color(.black))
-                            .frame(width: 1, height: 30)
+                            .frame(width: 1, height: 24)
                         Rectangle()
                             .fill(Color.green)
-                            .frame(width: 8, height: 8)
+                            .frame(width: 6, height: 6)
                     }
                     
                     VStack{
                         TextField("  Current location", text: $startLocationText)
                             .frame(height: 32)
-                            .background(Color(.systemGroupedBackground))
+                            .background(Color(.systemGroupedBackground))    
                             .cornerRadius(15)
                             .overlay(
                                     RoundedRectangle(cornerRadius: 20) // Match the corner radius with the fill
                                         .stroke(Color.black, lineWidth: 1) // Apply stroke as overlay
                                 )
                             .padding(.bottom)
+                            .disabled(true) //no editable
                         
                             
                         TextField("  Where to?", text: $viewModel.queryFragment)
@@ -61,20 +62,21 @@ struct LocationSearchView: View {
                     .padding(.vertical)
                 //list
                 ScrollView{
-                    VStack(alignment: .leading){
-                        ForEach(viewModel.results, id: \.self){
-                            result in
-                            NavigationLink(destination: RidePickerView()){
-                                LocationCell(
-                                    title: result.title,
-                                    subtitle: result.subtitle) //Object cell
-                            }
+                        VStack(alignment: .leading){
+                            ForEach(viewModel.results, id: \.self){
+                                result in
+                                    LocationCell(
+                                        title: result.title,
+                                        subtitle: result.subtitle) //Object cell
+                                    .onTapGesture {
+                                        withAnimation(.spring()){
+                                            viewModel.selectLocation(result)
+                                            mapState = .locationSelected
+                                        }
+                                }
                         }
                     }
                 }
-                
-                
-                
                 //button
                 NavigationLink(destination: SpeedView()){
                     Text("Check speed")
@@ -83,9 +85,7 @@ struct LocationSearchView: View {
                         .frame(width: 170, height: 48)
                         .background(.green)
                         .cornerRadius(12)
-
                 }
-
             }
             .background(Color.clear)
     }
@@ -93,5 +93,5 @@ struct LocationSearchView: View {
 }
 
 #Preview {
-    LocationSearchView()
+    LocationSearchView(mapState: .constant(.searchingForLocation))
 }

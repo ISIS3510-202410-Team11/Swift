@@ -8,46 +8,48 @@
 import SwiftUI
 
 struct MapView: View {
-    @State private var showSearchView = false
+    @State private var mapState = MapViewState.noInput
+    // aaa @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     var body: some View {
-        ZStack(alignment: .top) {
-            MapRepresentable()
-                .ignoresSafeArea()
-            
-            // Use HStack for horizontal layout of SearchBar and OptionsButton
-            HStack(alignment: .top, spacing: 8) { // Adjust spacing as needed
+        ZStack(alignment:.bottom) {
+            ZStack(alignment: .top){
                 
-                // OptionsButtonView on the left
-                OptionsButtonView(showLocationSearchView: $showSearchView)
-//                    .padding(.leading)
-                    .padding(.top, 4)
+                MapRepresentable(mapState: $mapState)
+                    .ignoresSafeArea()
+                
 
                 
-                if showSearchView {
-                    MapView()
-                        .fullScreenCover(isPresented: $showSearchView, content: {
-                            LocationSearchView()
-                                .background(Color.white.opacity(0.5))
-                                .edgesIgnoringSafeArea(.all)
-                        })
-                } else {
+                if mapState == .searchingForLocation{
+                    LocationSearchView(mapState: $mapState)
+                }else if mapState == .noInput{
                     SearchBarView()
+                        .padding(.top, 72)
                         .onTapGesture {
-                            withAnimation(.spring()) {
-                                showSearchView.toggle()
+                            withAnimation(.spring()){
+                                mapState = .searchingForLocation
                             }
                         }
-
                 }
+                OptionsButtonView(mapState: $mapState)
+                    .padding(.leading)
+                    .padding(.top,4)
                 
             }
-            .padding(.top, 30)
-            .padding(.horizontal,10)// Apply padding here to affect the whole HStack
-            .padding([.leading, .trailing]) // Adjust horizontal paddings as needed
-            
-            Spacer()
+            if mapState == .locationSelected || mapState == .polylineaddded{
+                RideRequestView()
+                    .transition(.move(edge: .bottom))
+            }
         }
+        .edgesIgnoringSafeArea(.bottom)
+        //executes when a value is received from a publisher
+        //.onReceive(LocationService.shared.$userLocation, perform: {
+        //    location in
+        //    if let location = location {
+        //        locationViewModel.userLocation = location
+        //    }
+        //})
+
     }
 }
 
