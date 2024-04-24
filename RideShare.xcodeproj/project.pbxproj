@@ -18,6 +18,8 @@
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
 		5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */; };
 		5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4A43ED2BAC9ED700DCB02C /* .gitignore */; };
+		5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7032822BD8C9BF00B5C87C /* VehicleImageView.swift */; };
+		5E7032852BD8CA0300B5C87C /* VehicleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7032842BD8CA0300B5C87C /* VehicleDetailsView.swift */; };
 		5E7AD2D82BADF0CD0001D379 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2D72BADF0CD0001D379 /* FirebaseFirestore */; };
 		5E7AD2DA2BADF0EC0001D379 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */; };
 		5E7AD2DC2BADFEB40001D379 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DB2BADFEB40001D379 /* FirebaseFirestoreSwift */; };
@@ -48,6 +50,10 @@
 		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+		864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */; };
+		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
+		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
+		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
 		86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */; };
 		86858E4E2BADED6100113E4B /* SpeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4D2BADED6100113E4B /* SpeedViewModel.swift */; };
@@ -91,6 +97,8 @@
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		5E4A43ED2BAC9ED700DCB02C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5E7032822BD8C9BF00B5C87C /* VehicleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleImageView.swift; sourceTree = "<group>"; };
+		5E7032842BD8CA0300B5C87C /* VehicleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsView.swift; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
@@ -120,6 +128,10 @@
 		5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
+		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
 		86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		86858E4D2BADED6100113E4B /* SpeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +178,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E7032862BD8CA1800B5C87C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
+				5E7032822BD8C9BF00B5C87C /* VehicleImageView.swift */,
+				5E7032842BD8CA0300B5C87C /* VehicleDetailsView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		5EC001D62BBA69C80000C8EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +218,7 @@
 				86858E5F2BADF36700113E4B /* RidePickerView.swift */,
 				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
 				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
+				864AFF352BD8A677006183A3 /* RideRequestView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -221,7 +244,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */,
+				864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -298,6 +321,8 @@
 				5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */,
 				5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */,
 				5EA875B72BB27B26008826C1 /* AuthData.swift */,
+				864AFF312BD8A046006183A3 /* Location.swift */,
+				864AFF332BD8A05E006183A3 /* MapViewState.swift */,
 				13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */,
 			);
 			path = Models;
@@ -335,7 +360,6 @@
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
 				5EA875B92BB27E71008826C1 /* SessionManager.swift */,
-				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -345,9 +369,10 @@
 			children = (
 				5EDA89A52BB3735700023634 /* Map */,
 				5EDA89A42BB3729500023634 /* Registration */,
+				5E7032862BD8CA1800B5C87C /* Profile */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
-				5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */,
 				5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */,
+				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,8 +494,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
+				864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
-				5E1A636E2BD8AAAB00252E97 /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -516,25 +541,30 @@
 				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */,
+				864AFF322BD8A046006183A3 /* Location.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
 				13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */,
 				5E7AD2DA2BADF0EC0001D379 /* FirestoreManager.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
+				864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */,
 				13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
 				13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */,
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
+				864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
 				5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
+				5E7032852BD8CA0300B5C87C /* VehicleDetailsView.swift in Sources */,
 				86858E5C2BADEE5F00113E4B /* SearchBarView.swift in Sources */,
 				5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */,
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
+				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 				5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */,
 			);
@@ -695,18 +725,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,7 +744,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -730,18 +760,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Permitir usar la cámara";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "FaceID to grant access";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location while you use the app";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow me to use your location ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -749,7 +779,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

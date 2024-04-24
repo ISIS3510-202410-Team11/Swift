@@ -57,9 +57,9 @@ final class SpeedViewModel: ObservableObject{
 
             self.data=[self.x, self.y, self.z] //añadir en data
 
-            print("Eje X \(self.x)")
-            print("Eje Y \(self.y)")
-            print("Eje Z \(self.z)")
+            //print("Eje X \(self.x)")
+            //print("Eje Y \(self.y)")
+            //print("Eje Z \(self.z)")
         }
     }
     func removeData(){

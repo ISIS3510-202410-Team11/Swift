@@ -11,7 +11,7 @@ import Firebase
 
 @main
 struct RideShareApp: App {
-    
+    @StateObject var locationViewModel = LocationSearchViewModel()
     // Firebase initialization
         init() {
             FirebaseApp.configure()
@@ -24,6 +24,7 @@ struct RideShareApp: App {
         WindowGroup {
 
             ContentView()
+                .environmentObject(locationViewModel)
 
         }
     }
