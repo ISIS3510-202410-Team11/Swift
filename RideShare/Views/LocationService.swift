@@ -10,7 +10,7 @@ import CoreLocation
 class LocationService: NSObject, ObservableObject{
     private let locationservice = CLLocationManager()
     //similar to env object
-    //aaa static let shared = LocationService()
+    //static let shared = LocationService()
     //aaa @Published var userLocation: CLLocationCoordinate2D?
 
     override init(){

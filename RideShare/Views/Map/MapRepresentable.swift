@@ -12,7 +12,8 @@ import MapKit
 struct MapRepresentable: UIViewRepresentable{
     //this class does not publish, just observes
     let mapView = MKMapView()
-    //let locationservice = LocationService.shared
+    let locationservice = LocationService() //it needs to be initiallized, it has the permissions
+    
     @Binding var mapState: MapViewState
     @EnvironmentObject var locationViewModel: LocationSearchViewModel //Another instance that does not know about selectedLocation
 
@@ -73,8 +74,15 @@ extension MapRepresentable{
                     latitudeDelta: 0.05, //more zoom the smaller it is
                     longitudeDelta: 0.05) //more zoom the smaller it is
             )
-            self.currentRegion=region //update users region
-            parent.mapView.setRegion(region, animated: true)//set map region on users location
+            //print("DEBUG: bug bug bug")
+            if self.parent.mapState != .polylineaddded && self.parent.mapState != .noInput{
+                print("DEBUG: user region will be defined")
+                self.currentRegion=region
+                parent.mapView.setRegion(region, animated: true)
+            }
+            //generates bug of always setting users location region
+            //self.currentRegion=region //update users region
+            //parent.mapView.setRegion(region, animated: true)//set map region on users location
         }
         //delegate method to draw
         /* IT NEEDS TO BE TESTED IF POLYLINE NEEDS TO BE RESET BEFORE DRAWING, EDITOR IS CRAZY*/
@@ -101,7 +109,7 @@ extension MapRepresentable{
                 let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect,
                                                                edgePadding: .init(top:64,left: 32,
                                                                                   bottom: 300,right: 32))
-                self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+                self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)//rect is rectangle
             }
         }
 

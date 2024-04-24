@@ -41,6 +41,7 @@ struct LocationSearchView: View {
                                         .stroke(Color.black, lineWidth: 1) // Apply stroke as overlay
                                 )
                             .padding(.bottom)
+                            .disabled(true) //no editable
                         
                             
                         TextField("  Where to?", text: $viewModel.queryFragment)

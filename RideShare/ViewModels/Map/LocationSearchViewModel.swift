@@ -73,7 +73,7 @@ class LocationSearchViewModel: NSObject, ObservableObject{
         let formater = DateFormatter()
         formater.dateFormat = "hh:mm a"
         pickUpTime = formater.string(from: Date())
-        dropOffTime = formater.string(from: Date() + expectedTravelTime)
+        dropOffTime = formater.string(from: Date() + expectedTravelTime * 1.5)
     }
 }
 
