@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */; };
+		13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */; };
+		13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */; };
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
+		5E1A636E2BD8AAAB00252E97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -81,8 +85,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ended_trips.swift; sourceTree = "<group>"; };
+		13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultImages.xcassets; sourceTree = "<group>"; };
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
+		5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 				5EF05F392B8D4E8B00885CC1 /* RideShareApp.swift */,
 				5EF05F3B2B8D4E8B00885CC1 /* ContentView.swift */,
 				5EF05F3D2B8D4E8C00885CC1 /* Assets.xcassets */,
+				13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */,
 				5EF05F3F2B8D4E8C00885CC1 /* Preview Content */,
 			);
 			path = RideShare;
@@ -300,6 +309,7 @@
 				5EA875B72BB27B26008826C1 /* AuthData.swift */,
 				864AFF312BD8A046006183A3 /* Location.swift */,
 				864AFF332BD8A05E006183A3 /* MapViewState.swift */,
+				13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +346,8 @@
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
 				5EA875B92BB27E71008826C1 /* SessionManager.swift */,
+				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
+
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -471,6 +483,7 @@
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
 				864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
+				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +530,7 @@
 				13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */,
 				864AFF322BD8A046006183A3 /* Location.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
+				13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */,
 				5E7AD2DA2BADF0EC0001D379 /* FirestoreManager.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
 				864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */,
@@ -524,6 +538,7 @@
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
+				13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */,
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
 				864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,

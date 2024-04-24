@@ -2,29 +2,22 @@
 //  SwiftUIView.swift
 //  RideShare
 //
-//  Created by Pablo Junco on 21/03/24.
+//  Created by Sebastian Pedraza on 21/03/24.
 //
 
 import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject private var viewModel = ProfileViewModel()
-    
-    @State private var isShowingNewCarView = false // State to control navigation
-    
+    @State private var isShowingNewCarView = false
     @State private var isShowingImagePicker = false
-    @State private var isTakingPhoto = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
-    
-    
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
     }
     
-    
     var body: some View {
-        
         ScrollView {
             VStack(spacing: 20) {
                 Text("Your Profile")
@@ -49,67 +42,55 @@ struct ProfileView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(Array(viewModel.vehicles.enumerated()), id: \.element) { index, vehicle in
-                                VehicleImageView(vehicle: vehicle, index: index)
+                                VehicleImageView(vehicle: vehicle, index: index, viewModel: viewModel)
                                     .onTapGesture {
                                         self.viewModel.selectedVehicleIndex = index
                                     }
-                                
                             }
                         }
                     }
                     .frame(height: 120)
                     .padding(.vertical)
-                    .padding(.horizontal,30)
+                    .padding(.horizontal, 30)
                     
                     if let index = viewModel.selectedVehicleIndex {
-                        
                         VehicleDetailsView(vehicle: viewModel.vehicles[index])
                         
-                        
-                        HStack {
-                            BlueButton(title: "Choose picture", action: {
-                                self.imagePickerSourceType = .photoLibrary
-                                self.isShowingImagePicker = true
-                            })
-                            .padding(.horizontal,30)
-                            
-                            BlueButton(title: "Take picture", action: {
-                                self.imagePickerSourceType = .camera
-                                self.isShowingImagePicker = true
-                            })
-                            .padding(.horizontal,30)
-                            
-                            
-                        }
-                        .sheet(isPresented: $isShowingImagePicker) {
-                            ImagePickerView(sourceType: self.imagePickerSourceType) { image in
+                        if viewModel.vehicles[index].image == nil || viewModel.vehicles[index].image?.isEmpty == true {
+                            HStack {
+                                BlueButton(title: "Choose picture", action: {
+                                    self.imagePickerSourceType = .photoLibrary
+                                    self.isShowingImagePicker = true
+                                })
+                                .padding(.horizontal, 30)
                                 
-                                viewModel.updateVehicleImage(for: index, with: image)
+                                BlueButton(title: "Take picture", action: {
+                                    self.imagePickerSourceType = .camera
+                                    self.isShowingImagePicker = true
+                                })
+                                .padding(.horizontal, 30)
                             }
-                            
+                            .sheet(isPresented: $isShowingImagePicker) {
+                                ImagePickerView(sourceType: self.imagePickerSourceType) { image in
+                                    viewModel.updateVehicleImage(for: index, with: image)
+                                }
+                            }
                         }
-                        
-                        
                         
                         RedButton(title: "Eliminar Vehiculo") {
-                            // Implement vehicle removal logic here
                             viewModel.removeVehicle(at: index)
                         }
-                        .padding(.horizontal,30)
-                        
-                        
+                        .padding(.horizontal, 30)
                     } else {
                         Text("(Selecciona un vehículo para ver los detalles)")
                     }
                 }
                 
-                
                 if viewModel.vehicles.count < 3 {
                     GreenButton(tittle: "Añadir Vehiculo") {
                         self.isShowingNewCarView = true
-                        
                     }
-                    .padding(.horizontal,30)
+                    .padding(.horizontal, 30)
                     .sheet(isPresented: $isShowingNewCarView) {
                         NewCarView(onVehicleAdded: {
                             self.viewModel.fetchUserData()
@@ -117,15 +98,13 @@ struct ProfileView: View {
                         })
                     }
                 }
-                
             }
             .onAppear {
-                viewModel.fetchUserData() // Fetch user data when the view appears
+                if !viewModel.isDataLoaded{
+                    viewModel.checkConnectivityAndFetchData()
+                }
             }
-            
-            
         }
-        
     }
 }
 
@@ -133,21 +112,28 @@ struct VehicleImageView: View {
     @StateObject private var loader = AsyncImageLoader()
     var vehicle: Vehicle
     var index: Int
-    
+    @ObservedObject var viewModel: ProfileViewModel
+
     var body: some View {
         Group {
             if let urlString = vehicle.image, !urlString.isEmpty {
-                
                 if let imageData = loader.imageData, let image = UIImage(data: imageData) {
                     Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                } else {
+                } else if viewModel.isUploadingImage {
                     ProgressView()
                         .aspectRatio(contentMode: .fit)
+                } else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray)
+                        .overlay(
+                            Text("\(index + 1)")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        )
                 }
             } else {
-                
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray)
                     .overlay(
@@ -188,9 +174,8 @@ struct VehicleDetailsView: View {
 
 
 
-// ProfileView_Previews with a mock FormViewModel
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(viewModel: ProfileViewModel(mock: true)) // Pass a mock viewModel instance
+        ProfileView(viewModel: ProfileViewModel(mock: true))
     }
 }
