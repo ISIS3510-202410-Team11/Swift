@@ -10,9 +10,10 @@
 		13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */; };
 		13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */; };
 		13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */; };
+		13C2D9E52BD9B886002B06FB /* NewTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C2D9E42BD9B886002B06FB /* NewTripViewModel.swift */; };
+		13D450CB2BD9AC32007ABB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13D450CA2BD9AC32007ABB8B /* GoogleService-Info.plist */; };
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
-		5E1A636E2BD8AAAB00252E97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -50,7 +51,6 @@
 		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
-		864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */; };
 		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
 		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
 		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
@@ -90,9 +90,10 @@
 		13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ended_trips.swift; sourceTree = "<group>"; };
 		13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultImages.xcassets; sourceTree = "<group>"; };
+		13C2D9E42BD9B886002B06FB /* NewTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewModel.swift; sourceTree = "<group>"; };
+		13D450CA2BD9AC32007ABB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
-		5E1A636D2BD8AAAB00252E97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
-		864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
@@ -178,6 +178,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13C2D9E32BD9B85C002B06FB /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				13C2D9E42BD9B886002B06FB /* NewTripViewModel.swift */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
+		13C2D9E62BD9C69B002B06FB /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
 		5E7032862BD8CA1800B5C87C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +260,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */,
+				13D450CA2BD9AC32007ABB8B /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -331,6 +347,7 @@
 		5EF05F652B8D4EDA00885CC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				13C2D9E32BD9B85C002B06FB /* Trip */,
 				5EDA89A72BB3EB6400023634 /* Map */,
 				5EDA89A62BB3EB3500023634 /* Registration */,
 				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
@@ -367,12 +384,12 @@
 		5EF05F6C2B8D4F7100885CC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				13C2D9E62BD9C69B002B06FB /* Trip */,
 				5EDA89A52BB3735700023634 /* Map */,
 				5EDA89A42BB3729500023634 /* Registration */,
 				5E7032862BD8CA1800B5C87C /* Profile */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
 				5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */,
-				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,8 +511,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
+				13D450CB2BD9AC32007ABB8B /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -566,6 +583,7 @@
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
 				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
+				13C2D9E52BD9B886002B06FB /* NewTripViewModel.swift in Sources */,
 				5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
