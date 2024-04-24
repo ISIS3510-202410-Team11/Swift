@@ -23,8 +23,7 @@ struct RideShareApp: App {
         
         WindowGroup {
 
-            //ContentView()
-            MapView()
+            ContentView()
                 .environmentObject(locationViewModel)
 
         }
