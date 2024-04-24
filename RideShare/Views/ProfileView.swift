@@ -100,7 +100,9 @@ struct ProfileView: View {
                 }
             }
             .onAppear {
-                viewModel.fetchUserData()
+                if !viewModel.isDataLoaded{
+                    viewModel.checkConnectivityAndFetchData()
+                }
             }
         }
     }

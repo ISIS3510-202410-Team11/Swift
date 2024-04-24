@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import SwiftUI
+import Network
+
 
 class ProfileViewModel: NSObject, ObservableObject {
     @Published var userModel = UserProfile(uid: "", name: "",email:"", driver: false, newsletter: false, rating: "", payment: nil, profileImage: nil)
@@ -15,6 +18,7 @@ class ProfileViewModel: NSObject, ObservableObject {
     @Published var isUploadingImage = false
     @Published var profileImage: UIImage?
     @Published var selectedVehicleIndex: Int? = nil
+    @Published var isDataLoaded = false
     
     override init() {
         super.init()
@@ -31,12 +35,12 @@ class ProfileViewModel: NSObject, ObservableObject {
                 self.vehicles = [Vehicle(id:"", type: "Car", plate: "XYZ123", reference: "Tesla Model S", color: "Red"), Vehicle(id:"", type: "Motobike", plate: "AAA123", reference: "Husq Varna", color: "Black")]
                 self.profileImage = UIImage(systemName: "person.fill")
                 saveUserProfileToCache()
+                saveVehiclesToCache()
+                printUserDefaultsContents()
             }
             else {
-                loadUserProfileFromCache()
-                loadVehiclesFromCache()
+                
             }
-            printUserDefaultsContents()
         }
     
     func fetchUserData() {
@@ -44,31 +48,52 @@ class ProfileViewModel: NSObject, ObservableObject {
                 print("User not logged in")
                 return
             }
-            
+
             FirestoreManager.shared.fetchUserData(uid: uid) { [weak self] userProfile, vehicles, error in
                 DispatchQueue.main.async {
                     guard let self = self else { return }
-                    
+
                     if let error = error {
                         print("Error fetching user data: \(error)")
+                        self.loadUserProfileFromCache()
+                        self.loadVehiclesFromCache()
                         return
                     }
-                    
-                    self.userProfile = userProfile
-                    
-                    // Update to handle an array of vehicles
+
+                    if let userProfile = userProfile {
+                        self.userProfile = userProfile
+                        self.saveUserProfileToCache()
+                    }
+
                     if let vehicles = vehicles {
                         self.vehicles = vehicles
+                        self.saveVehiclesToCache()
                     } else {
-                        self.vehicles = [] 
+                        self.vehicles = []
                     }
-                    self.saveUserProfileToCache()
-                    self.saveVehiclesToCache()
+
+                    self.isDataLoaded = true
                     self.printUserDefaultsContents()
-                    
                 }
             }
         }
+    
+    func checkConnectivityAndFetchData() {
+            let monitor = NWPathMonitor()
+            monitor.pathUpdateHandler = { [weak self] path in
+                if path.status == .satisfied {
+                    self?.fetchUserData()
+                } else {
+                    self?.loadUserProfileFromCache()
+                    self?.loadVehiclesFromCache()
+                }
+                monitor.cancel()
+            }
+            let queue = DispatchQueue(label: "Monitor")
+            monitor.start(queue: queue)
+        }
+
+    
     
     
     func saveUserProfileToCache() {
@@ -112,6 +137,7 @@ class ProfileViewModel: NSObject, ObservableObject {
             }
         }
     
+    
     func saveVehiclesToCache() {
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(vehicles) {
@@ -125,6 +151,8 @@ class ProfileViewModel: NSObject, ObservableObject {
                 if let loadedVehicles = try? decoder.decode([Vehicle].self, from: savedVehiclesData) {
                     vehicles = loadedVehicles
                 }
+                printUserDefaultsContents()
+            
             }
         }
 
@@ -188,5 +216,4 @@ class ProfileViewModel: NSObject, ObservableObject {
     }
 
 }
-
 
