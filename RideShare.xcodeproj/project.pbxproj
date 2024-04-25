@@ -25,6 +25,9 @@
 		5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */; };
 		5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DF2BADFF240001D379 /* FirebaseAuth */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
+		5E901E7D2BDA1210000267DA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E901E7C2BDA1210000267DA /* Security.framework */; };
+		5E901E7F2BDA13D1000267DA /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E901E7E2BDA13D1000267DA /* KeychainHelper.swift */; };
+		5E901E812BDA1889000267DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E901E802BDA1889000267DA /* GoogleService-Info.plist */; };
 		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
 		5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B92BB27E71008826C1 /* SessionManager.swift */; };
 		5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */; };
@@ -49,11 +52,11 @@
 		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+
 		86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */; };
 		86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC52BDA0B3400347BC8 /* ClickService.swift */; };
 		86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC72BDA114400347BC8 /* PaymentView.swift */; };
 		86205ECA2BDA186200347BC8 /* LocalPaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC92BDA186200347BC8 /* LocalPaymentMethods.swift */; };
-		864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */; };
 		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
 		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
 		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
@@ -103,6 +106,9 @@
 		5E7032842BD8CA0300B5C87C /* VehicleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsView.swift; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		5E901E7C2BDA1210000267DA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5E901E7E2BDA13D1000267DA /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		5E901E802BDA1889000267DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		5EA875B92BB27E71008826C1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
@@ -134,7 +140,6 @@
 		86205EC52BDA0B3400347BC8 /* ClickService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClickService.swift; path = RideShare/Views/Map/ClickService.swift; sourceTree = SOURCE_ROOT; };
 		86205EC72BDA114400347BC8 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		86205EC92BDA186200347BC8 /* LocalPaymentMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPaymentMethods.swift; sourceTree = "<group>"; };
-		864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E901E7D2BDA1210000267DA /* Security.framework in Frameworks */,
 				5E7AD2D82BADF0CD0001D379 /* FirebaseFirestore in Frameworks */,
 				5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */,
 				5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */,
@@ -197,6 +203,7 @@
 		5EC001D62BBA69C80000C8EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E901E7C2BDA1210000267DA /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,7 +259,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				864AFF2F2BD89FF8006183A3 /* GoogleService-Info.plist */,
+				5E901E802BDA1889000267DA /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -370,6 +377,7 @@
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
 				5EA875B92BB27E71008826C1 /* SessionManager.swift */,
+				5E901E7E2BDA13D1000267DA /* KeychainHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -504,8 +512,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
-				864AFF302BD89FF8006183A3 /* GoogleService-Info.plist in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
+				5E901E812BDA1889000267DA /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -553,6 +561,7 @@
 				13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */,
 				864AFF322BD8A046006183A3 /* Location.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
+				5E901E7F2BDA13D1000267DA /* KeychainHelper.swift in Sources */,
 				13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */,
 				5E7AD2DA2BADF0EC0001D379 /* FirestoreManager.swift in Sources */,
 				5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */,
@@ -739,7 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
+				DEVELOPMENT_TEAM = 3L3R79WHCG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -758,7 +767,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -774,7 +783,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
+				DEVELOPMENT_TEAM = 3L3R79WHCG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -793,7 +802,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

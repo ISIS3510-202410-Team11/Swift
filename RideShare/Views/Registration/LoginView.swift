@@ -89,10 +89,10 @@ struct LoginView: View {
     }
 }
 
-struct Login_View_Preview: PreviewProvider {
-    static var previews: some View {
-        // Create a temporary binding for isAuthenticated
-        // For preview purposes, we initialize it with false
-        LoginView()
-    }
-}
+//struct Login_View_Preview: PreviewProvider {
+//    static var previews: some View {
+//        // Create a temporary binding for isAuthenticated
+//        // For preview purposes, we initialize it with false
+//        LoginView()
+//    }
+//}
