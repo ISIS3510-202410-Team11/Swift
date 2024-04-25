@@ -29,11 +29,13 @@ struct RegistrationView: View {
                             NavigationLink(destination: SignUpView()) {
                                 GreenButton(tittle: "Sign Up") {
                                     // Trigger any additional actions
+                                    ClickCounter.shared.incrementCount()
                                 }
                             }
                             NavigationLink(destination: LoginView()) {
                                 GreenButton(tittle: "Log In") {
                                     // Trigger any additional actions
+                                    ClickCounter.shared.incrementCount()
                                 }
                             }
                         }

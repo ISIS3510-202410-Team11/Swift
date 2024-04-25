@@ -45,6 +45,7 @@ struct NewCarView: View {
                 
                 
                 GreenButton(tittle: "Register new vehicle") {
+                    ClickCounter.shared.incrementCount()
                     viewModel.registerVehicle()
                 }
                 .disabled(!viewModel.isFormValid)

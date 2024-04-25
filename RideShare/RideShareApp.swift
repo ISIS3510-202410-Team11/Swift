@@ -12,6 +12,7 @@ import Firebase
 @main
 struct RideShareApp: App {
     @StateObject var locationViewModel = LocationSearchViewModel()
+    let clickCounter = ClickCounter.shared
     // Firebase initialization
         init() {
             FirebaseApp.configure()
@@ -22,7 +23,7 @@ struct RideShareApp: App {
     var body: some Scene {
         
         WindowGroup {
-
+            
             ContentView()
                 .environmentObject(locationViewModel)
 
