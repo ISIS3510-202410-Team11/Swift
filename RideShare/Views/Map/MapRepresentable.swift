@@ -43,6 +43,8 @@ struct MapRepresentable: UIViewRepresentable{
             break
         case .polylineaddded:
             break
+        case .rideOffers:
+            break
         }
     }
 
@@ -74,8 +76,8 @@ extension MapRepresentable{
                     latitudeDelta: 0.05, //more zoom the smaller it is
                     longitudeDelta: 0.05) //more zoom the smaller it is
             )
-            //print("DEBUG: bug bug bug")
-            if self.parent.mapState != .polylineaddded && self.parent.mapState != .noInput{
+            //print("DEBUG: bug bug bug") CAREFUL WITH LOGIC, PAST WAS: "IF STATE NOT POLYLINE AND NO NOINPUT" BUT NEW STATES CHANGE ALL
+            if self.parent.mapState == .locationSelected || self.parent.mapState == .searchingForLocation{
                 print("DEBUG: user region will be defined")
                 self.currentRegion=region
                 parent.mapView.setRegion(region, animated: true)

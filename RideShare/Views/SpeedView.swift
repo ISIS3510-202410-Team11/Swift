@@ -30,6 +30,7 @@ struct SpeedView: View {
         }
         .frame(height: 400)
         Button("Reset"){
+            ClickCounter.shared.incrementCount()
             vm_speed.removeData()
         }
     }

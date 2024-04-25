@@ -13,6 +13,7 @@ struct OptionsButtonView: View {
 
     var body: some View {
         Button{
+            ClickCounter.shared.incrementCount()
             withAnimation(.spring()){
                 actionForState(mapState)
             }
@@ -37,6 +38,8 @@ struct OptionsButtonView: View {
             //solve bug of keeping a past location
             mapState = .noInput
             viewModel.selectedLocation = nil
+        case .rideOffers: //DONE
+            mapState = .polylineaddded
         }
     }
     func imageNameForState(_ state: MapViewState)-> String{
@@ -44,6 +47,8 @@ struct OptionsButtonView: View {
         case .noInput:
             return "line.3.horizontal"
         case .searchingForLocation, .locationSelected, .polylineaddded:
+            return "arrow.left"
+        case .rideOffers:
             return "arrow.left"
         }
     }

@@ -35,6 +35,7 @@ struct LoginView: View {
                 
                 
                 GreenButton(tittle: "Login", action: {
+                    ClickCounter.shared.incrementCount()
                     loginViewModel.login { success, errorMessage in
                         if success {
                             print("Login successful")
@@ -48,6 +49,7 @@ struct LoginView: View {
                 .disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
                 
                 GreenButton(tittle: "Login with Face ID", action: {
+                    ClickCounter.shared.incrementCount()
                     loginViewModel.authenticateUserUsingFaceID { success, error in
                         if success {
                             self.navigateToMapView = true
@@ -87,10 +89,10 @@ struct LoginView: View {
     }
 }
 
-struct Login_View_Preview: PreviewProvider {
-    static var previews: some View {
-        // Create a temporary binding for isAuthenticated
-        // For preview purposes, we initialize it with false
-        LoginView()
-    }
-}
+//struct Login_View_Preview: PreviewProvider {
+//    static var previews: some View {
+//        // Create a temporary binding for isAuthenticated
+//        // For preview purposes, we initialize it with false
+//        LoginView()
+//    }
+//}

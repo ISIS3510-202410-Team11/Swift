@@ -75,6 +75,7 @@ struct SignUpView: View {
                 }.tint(.green)
                 
                 GreenButton(tittle: "Register") {
+                    ClickCounter.shared.incrementCount()
                     viewModel.registerUser()
                 }
                 .disabled(!viewModel.isFormValid)

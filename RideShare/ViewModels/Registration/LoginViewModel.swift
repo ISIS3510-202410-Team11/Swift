@@ -31,7 +31,7 @@ class LoginViewModel: ObservableObject {
                     completion(false, error.localizedDescription)
                 } else if let user = authResult?.user {
                     print("Login successful, user ID: \(user.uid)")
-                    self?.storeCredentials()
+                    KeychainHelper.storeData(email: self?.username ?? "", password: self?.password ?? "")
                     SessionManager.shared.fetchUserProfile(uid: user.uid)
                     completion(true, nil)
                 }
@@ -40,6 +40,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func recoverPassword(for email: String, completion: @escaping (Bool, String?) -> Void) {
+        KeychainHelper.deleteAllCredentials()
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -53,64 +54,64 @@ class LoginViewModel: ObservableObject {
     }
     
     
-    private func storeCredentials() {
-        do {
-            try keychain
-                .accessibility(.whenUnlockedThisDeviceOnly)
-                .set(password, key: username)
-            print("Credentials stored successfully in Keychain")
-        } catch let error {
-            print("Error storing to keychain: \(error)")
-            self.authenticationFailed = true
-            self.authenticationErrorMessage = "Failed to store credentials securely."
-            
-            print("Error storing credentials in Keychain: \(error)")
-        }
-    }
-    
-    func authenticateUserUsingFaceID(completion: @escaping (Bool, Error?) -> Void) {
-        let context = LAContext()
-        var error: NSError?
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Authenticate with Face ID to access your account securely."
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                DispatchQueue.main.async {
-                    if success {
-                        self.useCredentialsForLogin(completion: completion)
-                    } else {
-                        print("Face ID authentication failed: \(String(describing: authenticationError))")
-                        completion(false, authenticationError)
+    func authenticateUserUsingFaceID(completion: @escaping (Bool, String?) -> Void) {
+            let context = LAContext()
+            var error: NSError?
+
+
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                let reason = "Authenticate using Face ID to access your account"
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
+                    DispatchQueue.main.async {
+                        if success {
+                            
+                            self?.loginWithKeychainCredentials(completion: completion)
+                        } else {
+
+                            print("Face ID authentication failed: \(String(describing: authenticationError))")
+                            self?.authenticationFailed = true
+                            self?.authenticationErrorMessage = authenticationError?.localizedDescription ?? "Failed to authenticate using Face ID"
+                            completion(false, self?.authenticationErrorMessage)
+                        }
                     }
                 }
+            } else {
+
+                print("Face ID not available or configured: \(String(describing: error))")
+                authenticationFailed = true
+                authenticationErrorMessage = error?.localizedDescription ?? "Face ID not available or configured"
+                completion(false, authenticationErrorMessage)
             }
-        } else {
-            print("Face ID not available: \(String(describing: error))")
-            completion(false, error)
         }
-    }
-    
-    private func useCredentialsForLogin(completion: @escaping (Bool, Error?) -> Void) {
-        guard let password = try? keychain.get(username) else {
-            print("No credentials available in Keychain for username: \(username)")
-            completion(false, nil)
-            return
-        }
-        Auth.auth().signIn(withEmail: username, password: password) { [weak self] authResult, error in
-            DispatchQueue.main.async {
-                if let user = authResult?.user {
-                    print("Successfully authenticated with Face ID for user: \(user.uid)")
-                    SessionManager.shared.fetchUserProfile(uid: user.uid)
-                    completion(true, nil)
-                } else if let error = error {
-                    print("Authentication using stored credentials failed: \(error.localizedDescription)")
-                    self?.authenticationFailed = true
-                    self?.authenticationErrorMessage = error.localizedDescription
-                    completion(false, error)
+
+        private func loginWithKeychainCredentials(completion: @escaping (Bool, String?) -> Void) {
+
+            let credentials = KeychainHelper.retrieveCredentials()
+            if let email = credentials.email, let password = credentials.password {
+
+                Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            print("Login error with Keychain credentials: \(error.localizedDescription)")
+                            self?.authenticationFailed = true
+                            self?.authenticationErrorMessage = error.localizedDescription
+                            completion(false, error.localizedDescription)
+                        } else if let user = authResult?.user {
+                            print("Login successful with Keychain, user ID: \(user.uid)")
+                            SessionManager.shared.fetchUserProfile(uid: user.uid)
+                            completion(true, nil)
+                        }
+                    }
                 }
+            } else {
+
+                authenticationFailed = true
+                authenticationErrorMessage = "You need to authenticate one time successfully to activate Face ID."
+                completion(false, authenticationErrorMessage)
             }
         }
-    }
+    
+    
     
     
     
