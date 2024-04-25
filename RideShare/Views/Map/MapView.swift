@@ -18,7 +18,10 @@ struct MapView: View {
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
                 
-
+                //new
+                if mapState == .rideOffers{
+                    RidePickerView()
+                }
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
@@ -37,7 +40,7 @@ struct MapView: View {
                 
             }
             if mapState == .locationSelected || mapState == .polylineaddded{
-                RideRequestView()
+                RideRequestView(mapState: $mapState)
                     .transition(.move(edge: .bottom))
             }
         }

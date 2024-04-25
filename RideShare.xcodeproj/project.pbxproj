@@ -52,6 +52,11 @@
 		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+
+		86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */; };
+		86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC52BDA0B3400347BC8 /* ClickService.swift */; };
+		86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC72BDA114400347BC8 /* PaymentView.swift */; };
+		86205ECA2BDA186200347BC8 /* LocalPaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC92BDA186200347BC8 /* LocalPaymentMethods.swift */; };
 		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
 		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
 		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
@@ -131,6 +136,10 @@
 		5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidePickerCell.swift; sourceTree = "<group>"; };
+		86205EC52BDA0B3400347BC8 /* ClickService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClickService.swift; path = RideShare/Views/Map/ClickService.swift; sourceTree = SOURCE_ROOT; };
+		86205EC72BDA114400347BC8 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		86205EC92BDA186200347BC8 /* LocalPaymentMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPaymentMethods.swift; sourceTree = "<group>"; };
 		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
@@ -223,6 +232,8 @@
 				86858E592BADEE4200113E4B /* OptionsButtonView.swift */,
 				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
 				864AFF352BD8A677006183A3 /* RideRequestView.swift */,
+				86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */,
+				86205EC72BDA114400347BC8 /* PaymentView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -328,6 +339,7 @@
 				864AFF312BD8A046006183A3 /* Location.swift */,
 				864AFF332BD8A05E006183A3 /* MapViewState.swift */,
 				13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */,
+				86205EC92BDA186200347BC8 /* LocalPaymentMethods.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +363,7 @@
 				5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */,
 				5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */,
 				5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */,
+				86205EC52BDA0B3400347BC8 /* ClickService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -561,8 +574,11 @@
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
 				864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
+				86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */,
 				5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
+				86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */,
+				86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
 				5E7032852BD8CA0300B5C87C /* VehicleDetailsView.swift in Sources */,
@@ -570,6 +586,7 @@
 				5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */,
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
+				86205ECA2BDA186200347BC8 /* LocalPaymentMethods.swift in Sources */,
 				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 				5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */,

@@ -59,12 +59,14 @@ struct ProfileView: View {
                         if viewModel.vehicles[index].image == nil || viewModel.vehicles[index].image?.isEmpty == true {
                             HStack {
                                 BlueButton(title: "Choose picture", action: {
+                                    ClickCounter.shared.incrementCount()
                                     self.imagePickerSourceType = .photoLibrary
                                     self.isShowingImagePicker = true
                                 })
                                 .padding(.horizontal, 30)
                                 
                                 BlueButton(title: "Take picture", action: {
+                                    ClickCounter.shared.incrementCount()
                                     self.imagePickerSourceType = .camera
                                     self.isShowingImagePicker = true
                                 })
@@ -78,6 +80,7 @@ struct ProfileView: View {
                         }
                         
                         RedButton(title: "Eliminar Vehiculo") {
+                            ClickCounter.shared.incrementCount()
                             viewModel.removeVehicle(at: index)
                         }
                         .padding(.horizontal, 30)
@@ -88,6 +91,7 @@ struct ProfileView: View {
                 
                 if viewModel.vehicles.count < 3 {
                     GreenButton(tittle: "Añadir Vehiculo") {
+                        ClickCounter.shared.incrementCount()
                         self.isShowingNewCarView = true
                     }
                     .padding(.horizontal, 30)

@@ -79,12 +79,16 @@ struct LocationSearchView: View {
                 }
                 //button
                 NavigationLink(destination: SpeedView()){
-                    Text("Check speed")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 170, height: 48)
-                        .background(.green)
-                        .cornerRadius(12)
+                    Button{
+                        ClickCounter.shared.incrementCount()
+                    }label:{
+                        Text("Check speed")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 170, height: 48)
+                            .background(.green)
+                            .cornerRadius(12)
+                    }
                 }
             }
             .background(Color.clear)

@@ -38,6 +38,7 @@ struct LocationDetail: View {
                 }
                 Spacer()
                 Button{
+                    ClickCounter.shared.incrementCount()
                     show.toggle()
                     mapSelection=nil
                 } label: {
