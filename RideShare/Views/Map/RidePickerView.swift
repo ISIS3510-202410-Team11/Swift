@@ -9,34 +9,34 @@ import SwiftUI
 
 struct RidePickerView: View {
     let drivers = driverslist
+    //@Binding var mapState: MapViewState
     
     var body: some View {
-        NavigationView{
-            List{
-                ForEach(drivers, id: \.self){ driver in
-                    NavigationLink(destination: Text(driver)){
-                        
-                        HStack{
-                            Image(systemName: "car")
-                            
-                            VStack{
-                                Text("Placa")
-                                Text("Marca")
-                                Text("3:30")
-                                    .font(.system(size: 15))
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.leading, 8)
-                            .padding(.vertical, 8)
-                            
-                            Spacer()
-                            
-                            Text("$4.000")
+        NavigationStack{
+            ScrollView{
+                LazyVStack{
+                    ForEach(0 ... 10, id:\.self){ cell in
+                        NavigationLink(destination: PaymentView()){
+                            RidePickerCell()
                         }
-                        .padding(.leading)
                     }
                 }
-                .navigationTitle("Pick your ride")
+            }
+            .refreshable {
+                print("DEBUG: refresh")
+            }
+            .navigationTitle("Available Rides")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        //IT IS NOT SHOWN VIA REAL PHONE, UPDATE THIS MF
+        .toolbar{
+            ToolbarItem(placement: .topBarTrailing){
+                Button {
+                    ClickCounter.shared.incrementCount()
+                } label:{
+                    Image(systemName: "arrow.counterclockwise")
+                        .foregroundColor(.black)
+                }
             }
         }
     }
@@ -44,4 +44,5 @@ struct RidePickerView: View {
 
 #Preview {
     RidePickerView()
+    
 }

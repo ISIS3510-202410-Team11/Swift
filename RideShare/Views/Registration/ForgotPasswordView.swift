@@ -28,6 +28,7 @@ struct ForgotPasswordView: View {
                     .padding()
                 
                 GreenButton(tittle:"Recover Password") {
+                    ClickCounter.shared.incrementCount()
                     loginViewModel.recoverPassword(for: email) { success, message in
                         alertMessage = success ? "Check your email to reset your password." : (message ?? "An error occurred.")
                         showAlert = true
