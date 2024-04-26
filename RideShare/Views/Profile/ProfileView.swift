@@ -20,6 +20,7 @@ struct ProfileView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                
                 Text("Your Profile")
                     .font(.title)
                     .fontWeight(.bold)
