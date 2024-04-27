@@ -45,6 +45,8 @@ struct MapRepresentable: UIViewRepresentable{
             break
         case .rideOffers:
             break
+        case .payment:
+            break
         }
     }
 

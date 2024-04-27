@@ -17,11 +17,15 @@ struct MapView: View {
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
-                
+                //new
+                if mapState == .payment{
+                    PaymentView()
+                }
                 //new
                 if mapState == .rideOffers{
-                    RidePickerView()
+                    RidePickerView(mapState: $mapState)
                 }
+
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
@@ -45,14 +49,6 @@ struct MapView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        //executes when a value is received from a publisher
-        //.onReceive(LocationService.shared.$userLocation, perform: {
-        //    location in
-        //    if let location = location {
-        //        locationViewModel.userLocation = location
-        //    }
-        //})
-
     }
 }
 

@@ -20,11 +20,10 @@ struct OptionsButtonView: View {
         } label: {
             Image(systemName: imageNameForState(mapState))
                 .font(.title2)
-                .foregroundColor(.black)
+                .foregroundColor(.green)
                 .padding()
                 .background(.white)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .shadow(color: .black, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         }
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
     }
@@ -38,8 +37,10 @@ struct OptionsButtonView: View {
             //solve bug of keeping a past location
             mapState = .noInput
             viewModel.selectedLocation = nil
-        case .rideOffers: //DONE
+        case .rideOffers:
             mapState = .polylineaddded
+        case .payment:
+            mapState = .rideOffers
         }
     }
     func imageNameForState(_ state: MapViewState)-> String{
@@ -48,7 +49,7 @@ struct OptionsButtonView: View {
             return "line.3.horizontal"
         case .searchingForLocation, .locationSelected, .polylineaddded:
             return "arrow.left"
-        case .rideOffers:
+        case .rideOffers, .payment:
             return "arrow.left"
         }
     }

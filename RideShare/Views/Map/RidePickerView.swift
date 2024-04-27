@@ -9,40 +9,41 @@ import SwiftUI
 
 struct RidePickerView: View {
     let drivers = driverslist
-    //@Binding var mapState: MapViewState
+    @Binding var mapState: MapViewState
     
     var body: some View {
-        NavigationStack{
+        //NavigationStack{
+        VStack{
+            Text("Choose your prefered ride")
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+            Divider()
             ScrollView{
                 LazyVStack{
                     ForEach(0 ... 10, id:\.self){ cell in
-                        NavigationLink(destination: PaymentView()){
-                            RidePickerCell()
-                        }
+                        RidePickerCell()
                     }
                 }
             }
             .refreshable {
                 print("DEBUG: refresh")
             }
-            .navigationTitle("Available Rides")
-            .navigationBarTitleDisplayMode(.inline)
         }
-        //IT IS NOT SHOWN VIA REAL PHONE, UPDATE THIS MF
-        .toolbar{
-            ToolbarItem(placement: .topBarTrailing){
-                Button {
-                    ClickCounter.shared.incrementCount()
-                } label:{
-                    Image(systemName: "arrow.counterclockwise")
-                        .foregroundColor(.black)
-                }
-            }
+        //}
+        //.navigationTitle("Available Rides")
+        //.navigationBarTitleDisplayMode(.inline)
+        
+
+    }
+    func actionState(_ state: MapViewState){
+        if state == .rideOffers{
+            mapState = .payment
         }
     }
+    
 }
 
 #Preview {
-    RidePickerView()
+    RidePickerView(mapState: .constant(.rideOffers))
     
 }
