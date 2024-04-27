@@ -22,6 +22,9 @@ struct RidePickerView: View {
                 LazyVStack{
                     ForEach(0 ... 10, id:\.self){ cell in
                         RidePickerCell()
+                            .onTapGesture {
+                                actionState(mapState)
+                            }
                     }
                 }
             }
@@ -29,6 +32,7 @@ struct RidePickerView: View {
                 print("DEBUG: refresh")
             }
         }
+        .background(Color.white)
         //}
         //.navigationTitle("Available Rides")
         //.navigationBarTitleDisplayMode(.inline)

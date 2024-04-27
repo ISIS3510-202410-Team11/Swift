@@ -19,21 +19,21 @@ struct PaymentView: View {
             //lIST
             List{
                 ForEach(payments, id: \.name){ payment in
-                                    Button(action: {
-                                        selectedPayment = payment // Set selected payment
-                                    }) {
-                                        HStack(spacing: 8){
-                                            Image(systemName: payment.image)
-                                                .padding(2)
-                                                .foregroundColor(.black)
-                                            Text(payment.name)
-                                                .foregroundColor(.black)
-                                        }
-                                    }
-                                    .listRowBackground(selectedPayment == payment ? Color.green : Color.clear) // Highlight selected row
-                                }
+                    Button(action: {
+                        selectedPayment = payment // Set selected payment
+                    }) {
+                        HStack(spacing: 8){
+                            Image(systemName: payment.image)
+                                .padding(2)
+                                .foregroundColor(.black)
+                            Text(payment.name)
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .listRowBackground(selectedPayment == payment ? Color.green : Color.clear) // Highlight selected row
+                }
             }
-            }
+            .background(Color.white)
             //BUTTON
             GreenButton(tittle: "Pay Now"){
                 guard let selectedPayment = selectedPayment else { return }
@@ -41,8 +41,12 @@ struct PaymentView: View {
                 ClickCounter.shared.incrementCount()
                 ClickCounter.shared.incrementRidesPayed()
             }
+            .padding(.bottom,90)
         }
+        .background(Color.white)
+        
     }
+}
 
 
 #Preview {
