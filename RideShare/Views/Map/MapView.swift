@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MapView: View {
     @State private var mapState = MapViewState.noInput
-    // aaa @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @State private var showAlert = false
+    @ObservedObject var networkManager = NetworkManager()
     
     var body: some View {
         ZStack(alignment:.bottom) {
@@ -34,8 +35,22 @@ struct MapView: View {
                         .padding(.top, 72)
                         .onTapGesture {
                             withAnimation(.spring()){
-                                mapState = .searchingForLocation
+                                if !networkManager.isConnected{
+                                    print("NO INTERNET")
+                                    showAlert =  true
+                                } else{
+                                    showAlert = false
+                                    mapState = .searchingForLocation
+                                }
+                                
                             }
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("No hay conexión a internet"),
+                                message: Text("Por favor, verifica tu conexión e intenta nuevamente."),
+                                dismissButton: .default(Text("Aceptar"))
+                            )
                         }
                 }
                 OptionsButtonView(mapState: $mapState)
