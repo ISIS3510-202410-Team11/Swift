@@ -14,6 +14,7 @@ class LocationSearchViewModel: NSObject, ObservableObject{
     @Published var selectedLocation: Location?
     @Published var pickUpTime: String?
     @Published var dropOffTime: String?
+    @Published var locationError = false //BUG STILL OPEN: WHEN LOCATION NOT FOUND, NOTHING SHOULD BE SHOWN BUT AN ALERT
     
     private let searchCompleter = MKLocalSearchCompleter()
     var queryFragment: String = ""{
@@ -33,8 +34,9 @@ class LocationSearchViewModel: NSObject, ObservableObject{
         locationSearch(forLocalSearchCompletion: location){response, error in
             if let error = error{
                 print("DEBUG: Location search failed with error \(error.localizedDescription)")
+                self.locationError = true
                 return //because we wanna go out the function
-            }
+            } else { self.locationError = false }
             guard let item = response?.mapItems.first //map item where we can get coords
             else {return}
             let coordinate = item.placemark.coordinate

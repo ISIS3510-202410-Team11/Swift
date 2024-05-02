@@ -11,6 +11,7 @@ struct MapView: View {
     @State private var mapState = MapViewState.noInput
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
     
     var body: some View {
         ZStack(alignment:.bottom) {
@@ -36,7 +37,7 @@ struct MapView: View {
                         .onTapGesture {
                             withAnimation(.spring()){
                                 if !networkManager.isConnected{
-                                    print("NO INTERNET")
+                                    //print("DEBUG: NO INTERNET")
                                     showAlert =  true
                                 } else{
                                     showAlert = false
@@ -47,9 +48,9 @@ struct MapView: View {
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(
-                                title: Text("No hay conexión a internet"),
-                                message: Text("Por favor, verifica tu conexión e intenta nuevamente."),
-                                dismissButton: .default(Text("Aceptar"))
+                                title: Text("There is not connection to internet"),
+                                message: Text("Please check your connection and try again later."),
+                                dismissButton: .default(Text("Accept"))
                             )
                         }
                 }

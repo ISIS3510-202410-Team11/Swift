@@ -33,12 +33,22 @@ struct MapRepresentable: UIViewRepresentable{
             context.coordinator.clearMapView()
             break
         case .locationSelected:
-            if let coordinate = locationViewModel.selectedLocation?.coordinate{
-                print("DEBUG: Adding stuff to map")
-                context.coordinator.addSelectAnnotation(withCoordinate: coordinate)//call function to set annotation
-                context.coordinator.createPolyline(withDestinationCoordinate: coordinate)
+            //HERE WE MUST CHANGE TO SOLVE LOCATION NOT FOUND BUG
+            if !locationViewModel.locationError{
+                //IF EVERYTHING IS OK
+                if let coordinate = locationViewModel.selectedLocation?.coordinate{
+                    print("DEBUG: Adding stuff to map")
+                    context.coordinator.addSelectAnnotation(withCoordinate: coordinate)//call function to set annotation
+                    context.coordinator.createPolyline(withDestinationCoordinate: coordinate)
+                }
+            } else{
+                //DO NOTHING
+                //WE SHOULD GO BACK TO LOCATION SEARCH VIEW
+                print("DEBUG: GOING HOME HARD")
+                mapState = .searchingForLocation //THIS SHOULD BE DONE AFTER ALERT MESSAGE
             }
             break
+
         case .searchingForLocation:
             break
         case .polylineaddded:

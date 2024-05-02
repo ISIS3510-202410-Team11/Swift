@@ -10,6 +10,8 @@ import SwiftUI
 struct PaymentView: View {
     @State private var payments = Payment.preview()
     @State private var selectedPayment: Payment?
+    @State private var showAlert = false
+    @ObservedObject var networkManager = NetworkManager()
     
     var body: some View {
         VStack(spacing: 8){
@@ -40,8 +42,24 @@ struct PaymentView: View {
                 print("DEBUG: Selected Payment method is \(selectedPayment.name)")
                 ClickCounter.shared.incrementCount()
                 ClickCounter.shared.incrementRidesPayed()
+                withAnimation(.spring()) {
+                        if !networkManager.isConnected {
+                            //print("DEBUG: NO INTERNET")
+                            showAlert = true
+                        } else {
+                            //Need to be defined
+                            //Change mapState from here
+                        }
+                    }
             }
             .padding(.bottom,90)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("No Internet Connection"),
+                    message: Text("Please check your internet connection and try again."),
+                    dismissButton: .default(Text("Accept"))
+                )
+            }
         }
         .background(Color.white)
         

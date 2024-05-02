@@ -12,7 +12,6 @@ struct RidePickerView: View {
     @Binding var mapState: MapViewState
     
     var body: some View {
-        //NavigationStack{
         VStack{
             Text("Choose your prefered ride")
                 .fontWeight(.bold)
@@ -33,10 +32,6 @@ struct RidePickerView: View {
             }
         }
         .background(Color.white)
-        //}
-        //.navigationTitle("Available Rides")
-        //.navigationBarTitleDisplayMode(.inline)
-        
 
     }
     func actionState(_ state: MapViewState){
