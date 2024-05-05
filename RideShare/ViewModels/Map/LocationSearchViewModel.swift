@@ -11,10 +11,11 @@ import MapKit
 class LocationSearchViewModel: NSObject, ObservableObject{
     //MARKS
     @Published var results = [MKLocalSearchCompletion]()
-    @Published var selectedLocation: Location?
+    @Published var selectedLocation: Location? //location selected by user
     @Published var pickUpTime: String?
     @Published var dropOffTime: String?
     @Published var locationError = false //BUG STILL OPEN: WHEN LOCATION NOT FOUND, NOTHING SHOULD BE SHOWN BUT AN ALERT
+    @Published var instructions: [String] = [] //list of instructions that determines the route
     
     private let searchCompleter = MKLocalSearchCompleter()
     var queryFragment: String = ""{
@@ -29,7 +30,10 @@ class LocationSearchViewModel: NSObject, ObservableObject{
         searchCompleter.delegate = self
         searchCompleter.queryFragment = queryFragment
     }
-    
+    func getselectedLocation()-> Location{
+        print("DEBUG: I WAS CALLED")
+        return self.selectedLocation!
+    }
     func selectLocation(_ location:MKLocalSearchCompletion){
         locationSearch(forLocalSearchCompletion: location){response, error in
             if let error = error{
@@ -39,9 +43,11 @@ class LocationSearchViewModel: NSObject, ObservableObject{
             } else { self.locationError = false }
             guard let item = response?.mapItems.first //map item where we can get coords
             else {return}
+            //print("DEBUG: ITEM'S NAME IS \(item.name)")
             let coordinate = item.placemark.coordinate
             self.selectedLocation = Location(title: location.title, coordinate: coordinate) //save value
-            print("DEBUG: Location coordinate \(coordinate)")
+            //print("DEBUG: Location coordinate \(coordinate)")
+            //print("DEBUG: Location full is: \(self.selectedLocation?.title)")
         }
     }
     func locationSearch(forLocalSearchCompletion localSearch:MKLocalSearchCompletion,
@@ -68,6 +74,14 @@ class LocationSearchViewModel: NSObject, ObservableObject{
             }
             guard let route = response?.routes.first else {return}//the first one is usually the fastest
             self.configureTime(with: route.expectedTravelTime)
+            //print("DEBUG: The route for this travel is: \(route.steps)")
+            for step in route.steps{
+                if step.instructions != "" && step.instructions != " "{
+                    //print("DEBUG: Instruction: \(step.instructions)")
+                    self.instructions.append(step.instructions)
+                }
+            }
+            //print("DEBUG: Final instructions list: \(self.instructions)")
             completion(route)
         }
     }

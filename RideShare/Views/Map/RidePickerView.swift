@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RidePickerView: View {
-    let drivers = driverslist
     @Binding var mapState: MapViewState
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject private var viewModel: RidePickerViewModel = RidePickerViewModel()
     
     var body: some View {
         VStack{
@@ -21,8 +21,8 @@ struct RidePickerView: View {
             Divider()
             ScrollView{
                 LazyVStack{
-                    ForEach(0 ... 10, id:\.self){ cell in
-                        RidePickerCell()
+                    ForEach(Array(viewModel.activeTrips.enumerated()), id: \.element){index, trip in
+                        RidePickerCell(trip: trip, index: index)
                             .onTapGesture {
                                 if !networkManager.isConnected {
                                     // Show alert will occur
@@ -33,7 +33,7 @@ struct RidePickerView: View {
                                     actionState(mapState)
                                 }
                             }
-                    }
+                    }//end for each
                 }
             }
             .refreshable {
@@ -56,10 +56,8 @@ struct RidePickerView: View {
             mapState = .payment
         }
     }
-    
 }
 
 #Preview {
     RidePickerView(mapState: .constant(.rideOffers))
-    
 }

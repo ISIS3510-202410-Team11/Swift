@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PaymentView: View {
-    @State private var payments = Payment.preview()
     @State private var selectedPayment: Payment?
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject private var viewModel: PaymentViewModel = PaymentViewModel()
     
     var body: some View {
         VStack(spacing: 8){
@@ -20,20 +20,37 @@ struct PaymentView: View {
                 .fontWeight(.bold)
             //lIST
             List{
-                ForEach(payments, id: \.name){ payment in
+                ForEach(Array(viewModel.paymentMethods.enumerated()), id: \.element){ index, payment in
                     Button(action: {
                         selectedPayment = payment // Set selected payment
                     }) {
                         HStack(spacing: 8){
-                            Image(systemName: payment.image)
+                            Image(systemName: payment.logo)
                                 .padding(2)
                                 .foregroundColor(.black)
                             Text(payment.name)
                                 .foregroundColor(.black)
                         }
                     }
-                    .listRowBackground(selectedPayment == payment ? Color.green : Color.clear) // Highlight selected row
+                    // Highlight selected row
+                    .listRowBackground(selectedPayment == payment ? Color.green : Color.clear)
+                    
                 }
+                Button{
+                    //code
+                    Task{
+                        try await viewModel.createPayment()
+                    }
+                }label: {
+                    HStack(spacing: 8){
+                        Image(systemName: "plus.app")
+                            .foregroundColor(.green)
+                            .padding(2)
+                        Text("Add new payment method")
+                            .foregroundColor(.black)
+                    }
+                }
+                
             }
             .background(Color.white)
             //BUTTON

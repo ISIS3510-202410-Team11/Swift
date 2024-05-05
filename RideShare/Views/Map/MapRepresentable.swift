@@ -44,8 +44,9 @@ struct MapRepresentable: UIViewRepresentable{
             } else{
                 //DO NOTHING
                 //WE SHOULD GO BACK TO LOCATION SEARCH VIEW
+                //ERROR STILL OPEN, NEED TO CHECK LATER
                 print("DEBUG: GOING HOME HARD")
-                mapState = .searchingForLocation //THIS SHOULD BE DONE AFTER ALERT MESSAGE
+                mapState = .searchingForLocation //THIS SHOULD BE DONE AFTER ALERT MESSAGE (HOW TO TALK TO VIEW WHEN WE DON'T PUBLISH)
             }
             break
 
@@ -99,7 +100,8 @@ extension MapRepresentable{
             //parent.mapView.setRegion(region, animated: true)//set map region on users location
         }
         //delegate method to draw
-        /* IT NEEDS TO BE TESTED IF POLYLINE NEEDS TO BE RESET BEFORE DRAWING, EDITOR IS CRAZY*/
+        /* IT NEEDS TO BE TESTED IF POLYLINE NEEDS TO BE RESET BEFORE DRAWING, EDITOR IS CRAZY
+        04 of May: Works ok, not drawing problems, check connectivity and redraw cases without internet (block triggers) */
         func mapView(_ mapView: MKMapView, rendererFor overlay: any MKOverlay) -> MKOverlayRenderer {
             let polyline = MKPolylineRenderer(overlay: overlay)
             polyline.strokeColor = .systemBlue

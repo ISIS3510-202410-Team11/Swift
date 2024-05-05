@@ -86,8 +86,7 @@ struct LocationSearchView: View {
                             .onTapGesture {
                                 withAnimation(.spring()){
                                     if !networkManager.isConnected {
-                                        // Show alert will occur
-                                        //print("DEBUG: NO INTERNET")
+                                        
                                         showAlert = true
                                     } else {
                                         viewModel.selectLocation(result)

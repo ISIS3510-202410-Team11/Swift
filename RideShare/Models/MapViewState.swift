@@ -11,7 +11,7 @@ enum MapViewState{
     case noInput
     case locationSelected
     case searchingForLocation
-    case polylineaddded //bug solver
+    case polylineaddded
     case rideOffers
     case payment
 }
