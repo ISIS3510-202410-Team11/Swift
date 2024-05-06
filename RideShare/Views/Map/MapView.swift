@@ -12,6 +12,8 @@ struct MapView: View {
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
+    @ObservedObject private var sessionManager = SessionManager.shared
+
     
     var body: some View {
         ZStack(alignment:.bottom) {
@@ -19,15 +21,13 @@ struct MapView: View {
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
-                //new
-                if mapState == .payment{
-                    PaymentView()
+                
+                if SessionManager.shared.isDriver {
+                    DriverInteractionView(mapState: $mapState)
+                } else {
+                    RiderInteractionView(mapState: $mapState)
                 }
-                //new
-                if mapState == .rideOffers{
-                    RidePickerView(mapState: $mapState)
-                }
-
+                
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
@@ -48,7 +48,7 @@ struct MapView: View {
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(
-                                title: Text("There is not connection to internet"),
+                                title: Text("There is no connection to internet"),
                                 message: Text("Please check your connection and try again later."),
                                 dismissButton: .default(Text("Accept"))
                             )
@@ -68,6 +68,10 @@ struct MapView: View {
     }
 }
 
-#Preview {
-    MapView()
-}
+
+
+
+
+//#Preview {
+//    MapView()
+//}

@@ -106,6 +106,6 @@ struct PaymentView: View {
 }
 
 
-#Preview {
-    PaymentView()
-}
+//#Preview {
+//    PaymentView()
+//}

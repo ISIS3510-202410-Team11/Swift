@@ -140,8 +140,14 @@ class FirestoreManager {
                 print("Vehicle not found")
             }
         }
-    }
-    
+    }    
+    static func updateDriverStatus(uid: String, isDriver: Bool, completion: @escaping (Error?) -> Void) {
+            let document = Firestore.firestore().collection("users").document(uid)
+            document.updateData(["driver": isDriver]) { error in
+                completion(error)
+            }
+        }
+
     func fetchActiveTripsData() async throws -> [ActiveTrips] {
         // Reference to active trips collection
         let activeTripsDocRef = db.collection("active_trips")
@@ -297,4 +303,5 @@ class FirestoreManager {
                     
             }
         }
-    }
+}
+

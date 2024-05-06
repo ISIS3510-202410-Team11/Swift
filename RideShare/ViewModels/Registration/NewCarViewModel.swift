@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class NewCarViewModel: ObservableObject {
-    @Published var type: String = ""
+//    @Published var type: String = ""
     @Published var plate: String = ""
     @Published var reference: String = ""
     @Published var color: String = ""
@@ -53,7 +53,7 @@ class NewCarViewModel: ObservableObject {
     }
     
     private func resetForm() {
-        type = ""
+        vehicleType = ""
         plate = ""
         reference = ""
         color = ""
