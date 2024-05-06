@@ -54,6 +54,7 @@
 		86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */; };
 		86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC52BDA0B3400347BC8 /* ClickService.swift */; };
 		86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC72BDA114400347BC8 /* PaymentView.swift */; };
+		863159302BE8240F00C9C9A0 /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631592F2BE8240F00C9C9A0 /* DropDownMenuView.swift */; };
 		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
 		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
 		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
@@ -141,6 +142,7 @@
 		86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidePickerCell.swift; sourceTree = "<group>"; };
 		86205EC52BDA0B3400347BC8 /* ClickService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClickService.swift; path = RideShare/Views/Map/ClickService.swift; sourceTree = SOURCE_ROOT; };
 		86205EC72BDA114400347BC8 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		8631592F2BE8240F00C9C9A0 /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				864AFF352BD8A677006183A3 /* RideRequestView.swift */,
 				86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */,
 				86205EC72BDA114400347BC8 /* PaymentView.swift */,
+				8631592F2BE8240F00C9C9A0 /* DropDownMenuView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */,
 				86803BBB2BE2F64A00C84894 /* NetworkManager.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
+				863159302BE8240F00C9C9A0 /* DropDownMenuView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
 				13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */,

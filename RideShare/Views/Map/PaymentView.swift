@@ -8,19 +8,40 @@
 import SwiftUI
 
 struct PaymentView: View {
+    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var viewModel: PaymentViewModel = PaymentViewModel()
+    
     @State private var selectedPayment: Payment?
     @State private var showAlert = false
-    @ObservedObject var networkManager = NetworkManager()
-    @ObservedObject private var viewModel: PaymentViewModel = PaymentViewModel()
+    @State private var selectedMake: String?
+    @State private var isShowingNewView = false
+    
+    private let paymentOptions = [
+        "PayPal",
+        "DaviPlata",
+        "PSE",
+        "Bold"
+    ]
     
     var body: some View {
         VStack(spacing: 8){
             //TITLE
-            Text("Choose your payment method")
-                .fontWeight(.bold)
-            //lIST
+            HStack {
+                Text("Choose your payment method")
+                    .fontWeight(.bold)
+                Button{
+                    Task{
+                        //neg async
+                        viewModel.fetchPaymentsData()
+                    }
+                    //viewModel.fetchPaymentsData()
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
+            //LIST
             List{
-                ForEach(Array(viewModel.paymentMethods.enumerated()), id: \.element){ index, payment in
+                ForEach(Array(viewModel.paymentMethods2.enumerated()), id: \.element){ index, payment in
                     Button(action: {
                         selectedPayment = payment // Set selected payment
                     }) {
@@ -37,10 +58,7 @@ struct PaymentView: View {
                     
                 }
                 Button{
-                    //code
-                    Task{
-                        try await viewModel.createPayment()
-                    }
+                    isShowingNewView.toggle()
                 }label: {
                     HStack(spacing: 8){
                         Image(systemName: "plus.app")
@@ -50,7 +68,11 @@ struct PaymentView: View {
                             .foregroundColor(.black)
                     }
                 }
-                
+                .sheet(isPresented: $isShowingNewView){
+                    DropDownMenuView(title: "Select new payment method", prompt: "Select", options: paymentOptions, selection: $selectedMake, isPresented: $isShowingNewView)
+                        .presentationDetents([.height(350), .medium])
+                        .presentationDragIndicator(.visible)
+                }
             }
             .background(Color.white)
             //BUTTON
@@ -78,8 +100,8 @@ struct PaymentView: View {
                 )
             }
         }
+        //ends vstack
         .background(Color.white)
-        
     }
 }
 

@@ -27,7 +27,6 @@ class RidePickerViewModel: NSObject, ObservableObject{
             await fetchActiveTripsData()
         }
     }
-    
     func fetchActiveTripsData() async {
         do {
             let rides = try await FirestoreManager.shared.fetchActiveTripsData()
@@ -42,7 +41,6 @@ class RidePickerViewModel: NSObject, ObservableObject{
         selectedLocation = location
         print("DEBUG: Selected Location from ridePicker is: \(selectedLocation ?? "Not working")")
     }
-    //next func
 }
 /*
  Use dispatch.main to update UI
