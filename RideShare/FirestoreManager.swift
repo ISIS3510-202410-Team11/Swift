@@ -140,6 +140,13 @@ class FirestoreManager {
             }
         }
     }
+    
+    static func updateDriverStatus(uid: String, isDriver: Bool, completion: @escaping (Error?) -> Void) {
+            let document = Firestore.firestore().collection("users").document(uid)
+            document.updateData(["driver": isDriver]) { error in
+                completion(error)
+            }
+        }
 
     
 }
