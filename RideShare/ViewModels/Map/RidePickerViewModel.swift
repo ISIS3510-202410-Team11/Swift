@@ -14,7 +14,7 @@ class RidePickerViewModel: NSObject, ObservableObject{
     //vars
     @Published var activeTrips: [ActiveTrips] = []
     @Published var selectedLocation: String?
-    //@EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @EnvironmentObject var locationViewModel: LocationSearchViewModel
     //init
     override init() {
         super.init()
