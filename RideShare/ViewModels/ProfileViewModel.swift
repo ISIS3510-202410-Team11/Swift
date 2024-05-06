@@ -215,20 +215,7 @@ class ProfileViewModel: NSObject, ObservableObject {
         
     }
     
-    func toggleUserRole() {
-            guard var editableProfile = self.userProfile else { return }
-            editableProfile.driver = !editableProfile.driver
-            
-        FirestoreManager.updateDriverStatus(uid: editableProfile.uid, isDriver: editableProfile.driver) { [weak self] error in
-                if let error = error {
-                    print("Error updating driver status: \(error)")
-                } else {
-                    DispatchQueue.main.async {
-                        self?.userProfile = editableProfile
-                    }
-                }
-            }
-        }
+    
 
 }
 

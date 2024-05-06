@@ -12,6 +12,8 @@ struct MapView: View {
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
+    @ObservedObject private var sessionManager = SessionManager.shared
+
     
     var body: some View {
         ZStack(alignment:.bottom) {
@@ -19,6 +21,9 @@ struct MapView: View {
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
+                
+                RideInteractionView(isDriver: sessionManager.isDriver)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 //new
                 if mapState == .payment{
                     PaymentView()
@@ -65,6 +70,35 @@ struct MapView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+struct RideInteractionView: View {
+    
+    var isDriver: Bool  // Boolean indicating if the user is a driver
+
+    var body: some View {
+        if isDriver {
+            DriverView()
+        } else {
+            RiderView()
+        }
+    }
+
+    private func RiderView() -> some View {
+        VStack {
+            // Components related to reservation and payment for riders
+            Text("Book your ride")
+            // Other UI components...
+        }
+    }
+
+    private func DriverView() -> some View {
+        VStack {
+            // Components related to creating a ride for drivers
+            Text("Create a new ride")
+            // Other UI components...
+        }
     }
 }
 
