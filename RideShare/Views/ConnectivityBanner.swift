@@ -17,7 +17,7 @@ struct ConnectivityBanner: View {
                 Text("No Internet Connection")
                     .foregroundColor(.white)
                     .padding()
-                    .frame(maxWidth: .infinity, maxHeight: 80)
+                    .frame(maxWidth: .infinity, maxHeight: 60)
                     .background(Color.red)
                     .transition(.move(edge: .top))
             }

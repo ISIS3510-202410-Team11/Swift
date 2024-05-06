@@ -169,6 +169,46 @@ class FirestoreManager {
             throw error
         }
     }
+    func fetchActiveTripsDataFiltered(location: String, completion: @escaping ([ActiveTrips]?, Error?) -> Void) {
+        // Reference to active trips collection
+        let activeTripsDocRef = db.collection("active_trips")
+        
+        // Filter by end_location
+        let query = activeTripsDocRef.whereField("end_location", isEqualTo: location)
+        
+        // Access documents and perform the query
+        query.getDocuments { querySnapshot, error in
+            if let error = error {
+                // Error obtaining the documents: connection or something
+                completion(nil, error)
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                // No documents found
+                completion(nil, NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"]))
+                return
+            }
+            
+            // Map each document to ActiveTrips
+            let activeTrips = documents.compactMap { document -> ActiveTrips? in
+                do {
+                    let activeTrip = try document.data(as: ActiveTrips.self)
+                    return activeTrip
+                } catch {
+                    // Active trips could not be decoded
+                    print("Error decoding ActiveTrips: \(error)")
+                    return nil
+                }
+            }
+            
+            // Return the filtered active trips list
+            completion(activeTrips, nil)
+        }
+    }
+
+
+
     func fetchPaymentData() async throws -> [Payment] {
         // Reference to active trips collection
         let paymentDocRef = db.collection("payment")
