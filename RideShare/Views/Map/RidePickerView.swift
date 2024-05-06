@@ -58,6 +58,6 @@ struct RidePickerView: View {
     }
 }
 
-#Preview {
-    RidePickerView(mapState: .constant(.rideOffers))
-}
+//#Preview {
+//    RidePickerView(mapState: .constant(.rideOffers))
+//}

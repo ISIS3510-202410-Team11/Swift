@@ -22,17 +22,12 @@ struct MapView: View {
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
                 
-                RideInteractionView(isDriver: sessionManager.isDriver)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                //new
-                if mapState == .payment{
-                    PaymentView()
+                if SessionManager.shared.isDriver {
+                    DriverInteractionView(mapState: $mapState)
+                } else {
+                    RiderInteractionView(mapState: $mapState)
                 }
-                //new
-                if mapState == .rideOffers{
-                    RidePickerView(mapState: $mapState)
-                }
-
+                
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
@@ -53,7 +48,7 @@ struct MapView: View {
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(
-                                title: Text("There is not connection to internet"),
+                                title: Text("There is no connection to internet"),
                                 message: Text("Please check your connection and try again later."),
                                 dismissButton: .default(Text("Accept"))
                             )
@@ -73,35 +68,10 @@ struct MapView: View {
     }
 }
 
-struct RideInteractionView: View {
-    
-    var isDriver: Bool  // Boolean indicating if the user is a driver
 
-    var body: some View {
-        if isDriver {
-            DriverView()
-        } else {
-            RiderView()
-        }
-    }
 
-    private func RiderView() -> some View {
-        VStack {
-            // Components related to reservation and payment for riders
-            Text("Book your ride")
-            // Other UI components...
-        }
-    }
 
-    private func DriverView() -> some View {
-        VStack {
-            // Components related to creating a ride for drivers
-            Text("Create a new ride")
-            // Other UI components...
-        }
-    }
-}
 
-#Preview {
-    MapView()
-}
+//#Preview {
+//    MapView()
+//}

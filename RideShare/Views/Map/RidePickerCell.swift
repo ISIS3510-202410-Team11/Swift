@@ -51,6 +51,6 @@ struct RidePickerCell: View {
     }
 }
 
-#Preview {
-    RidePickerCell(trip: ActiveTrips(id:"edwe",driver_id: "defult", end_location: "location", passengers: ["p1","p2"], route: ["1,2,3"], start_location: "", start_time: "10:00"), index:0)
-}
+//#Preview {
+//    RidePickerCell(trip: ActiveTrips(id:"edwe",driver_id: "defult", end_location: "location", passengers: ["p1","p2"], route: ["1,2,3"], start_location: "", start_time: "10:00"), index:0)
+//}

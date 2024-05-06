@@ -39,6 +39,9 @@
 		5EC001DA2BBA6AC30000C8EC /* FireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */; };
 		5EC001DC2BBA72190000C8EC /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */; };
 		5EC1EEB62BE8809900DB1CDC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1EEB52BE8809900DB1CDC /* GoogleService-Info.plist */; };
+		5EC1EEBA2BE8A4C700DB1CDC /* DriverInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1EEB92BE8A4C700DB1CDC /* DriverInteractionView.swift */; };
+		5EC1EEBC2BE8A51E00DB1CDC /* RiderInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1EEBB2BE8A51E00DB1CDC /* RiderInteractionView.swift */; };
+		5EC1EEBE2BE8A70500DB1CDC /* CreateRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1EEBD2BE8A70500DB1CDC /* CreateRideView.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
@@ -128,6 +131,9 @@
 		5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireStorageManager.swift; path = RideShare/Views/FireStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageLoader.swift; path = RideShare/Views/AsyncImageLoader.swift; sourceTree = SOURCE_ROOT; };
 		5EC1EEB52BE8809900DB1CDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5EC1EEB92BE8A4C700DB1CDC /* DriverInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverInteractionView.swift; sourceTree = "<group>"; };
+		5EC1EEBB2BE8A51E00DB1CDC /* RiderInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderInteractionView.swift; sourceTree = "<group>"; };
+		5EC1EEBD2BE8A70500DB1CDC /* CreateRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRideView.swift; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -227,6 +233,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5EC1EEB72BE8A39100DB1CDC /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				5EC1EEBB2BE8A51E00DB1CDC /* RiderInteractionView.swift */,
+				5EC1EEBD2BE8A70500DB1CDC /* CreateRideView.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		5EC1EEB82BE8A39C00DB1CDC /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				5EC1EEB92BE8A4C700DB1CDC /* DriverInteractionView.swift */,
+			);
+			path = Rider;
+			sourceTree = "<group>";
+		};
 		5EDA89A42BB3729500023634 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +265,9 @@
 		5EDA89A52BB3735700023634 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				86205EC72BDA114400347BC8 /* PaymentView.swift */,
+				5EC1EEB82BE8A39C00DB1CDC /* Rider */,
+				5EC1EEB72BE8A39100DB1CDC /* Driver */,
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				86858E4F2BADED9900113E4B /* LocationCell.swift */,
 				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
@@ -252,7 +278,6 @@
 				86858E5B2BADEE5F00113E4B /* SearchBarView.swift */,
 				864AFF352BD8A677006183A3 /* RideRequestView.swift */,
 				86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */,
-				86205EC72BDA114400347BC8 /* PaymentView.swift */,
 				8631592F2BE8240F00C9C9A0 /* DropDownMenuView.swift */,
 			);
 			path = Map;
@@ -605,6 +630,7 @@
 				13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */,
 				86803BBB2BE2F64A00C84894 /* NetworkManager.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
+				5EC1EEBE2BE8A70500DB1CDC /* CreateRideView.swift in Sources */,
 				863159302BE8240F00C9C9A0 /* DropDownMenuView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
@@ -619,12 +645,14 @@
 				86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */,
 				86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */,
 				5EEB89ED2B8E275200F37097 /* SignUpView.swift in Sources */,
+				5EC1EEBC2BE8A51E00DB1CDC /* RiderInteractionView.swift in Sources */,
 				5EEB89F12B8E5B5E00F37097 /* SignUpViewModel.swift in Sources */,
 				5E7032852BD8CA0300B5C87C /* VehicleDetailsView.swift in Sources */,
 				86858E5C2BADEE5F00113E4B /* SearchBarView.swift in Sources */,
 				5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */,
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
+				5EC1EEBA2BE8A4C700DB1CDC /* DriverInteractionView.swift in Sources */,
 				5E1DF4F72BE8760900559071 /* ServicesView.swift in Sources */,
 				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
