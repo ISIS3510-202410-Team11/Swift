@@ -15,7 +15,7 @@ class FirestoreManager {
     let db = Firestore.firestore()
     
     private init() {} // Private initialization to ensure singleton instance
-
+    
     func addUser(user: UserProfile, completion: @escaping (Error?) -> Void) {
         do {
             
@@ -40,7 +40,7 @@ class FirestoreManager {
                 completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert JSON data to dictionary"]))
                 return
             }
-
+            
             // Now use the dictionary to update the Firestore document
             let userDocRef = db.collection("users").document(userUID)
             userDocRef.updateData([
@@ -48,7 +48,7 @@ class FirestoreManager {
             ]) { error in
                 completion(error)
             }
-
+            
         } catch let error {
             completion(error)
         }
@@ -91,14 +91,14 @@ class FirestoreManager {
     
     func removeVehicle(forUserUID userUID: String, vehicleID: String, completion: @escaping (Error?) -> Void) {
         let userDocRef = db.collection("users").document(userUID)
-
+        
         userDocRef.getDocument { (document, error) in
             if let document = document, let data = document.data(), var vehiclesArray = data["vehicles"] as? [[String: Any]] {
                 // Find the index of the vehicle to remove
                 if let indexToRemove = vehiclesArray.firstIndex(where: { $0["id"] as? String == vehicleID }) {
                     // Remove the vehicle from the array
                     vehiclesArray.remove(at: indexToRemove)
-
+                    
                     
                     userDocRef.updateData(["vehicles": vehiclesArray]) { error in
                         completion(error)
@@ -112,11 +112,11 @@ class FirestoreManager {
         }
     }
     
-
+    
     func updateVehicleImage(with vehicleID: String, imageUrl: String, forUserUID userUID: String) {
         
         let userDocRef = db.collection("users").document(userUID)
-
+        
         userDocRef.getDocument { (document, error) in
             guard let document = document, var data = document.data(), var vehicles = data["vehicles"] as? [[String: Any]] else {
                 print("Document does not exist or vehicles array cannot be fetched")
@@ -141,7 +141,7 @@ class FirestoreManager {
             }
         }
     }
-
+    
     func fetchActiveTripsData() async throws -> [ActiveTrips] {
         // Reference to active trips collection
         let activeTripsDocRef = db.collection("active_trips")
@@ -169,6 +169,46 @@ class FirestoreManager {
             throw error
         }
     }
+    func fetchActiveTripsDataFiltered(location: String, completion: @escaping ([ActiveTrips]?, Error?) -> Void) {
+        // Reference to active trips collection
+        let activeTripsDocRef = db.collection("active_trips")
+        
+        // Filter by end_location
+        let query = activeTripsDocRef.whereField("end_location", isEqualTo: location)
+        
+        // Access documents and perform the query
+        query.getDocuments { querySnapshot, error in
+            if let error = error {
+                // Error obtaining the documents: connection or something
+                completion(nil, error)
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                // No documents found
+                completion(nil, NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"]))
+                return
+            }
+            
+            // Map each document to ActiveTrips
+            let activeTrips = documents.compactMap { document -> ActiveTrips? in
+                do {
+                    let activeTrip = try document.data(as: ActiveTrips.self)
+                    return activeTrip
+                } catch {
+                    // Active trips could not be decoded
+                    print("Error decoding ActiveTrips: \(error)")
+                    return nil
+                }
+            }
+            
+            // Return the filtered active trips list
+            completion(activeTrips, nil)
+        }
+    }
+
+
+
     func fetchPaymentData() async throws -> [Payment] {
         // Reference to active trips collection
         let paymentDocRef = db.collection("payment")
@@ -220,42 +260,41 @@ class FirestoreManager {
         }
     }
     func fetchPayments2(completion: @escaping ([Payment]?, Error?) -> Void) {
-            //Reference to active trips collection
-            let payDocRef = db.collection("payment")
+        //Reference to active trips collection
+        let payDocRef = db.collection("payment")
+        
+        //Access document and do query: query for activeTripsDocRef
+        payDocRef.getDocuments { querySnapshot, error in
+            if let error = error {
+                // Error obtaining the documents: connection or something
+                print("DEBUG: ERROR 1")
+                completion(nil, error)
+                return
+            }
+            guard (querySnapshot?.documents) != nil else {
+                // No documents found:
+                print("DEBUG: ERROR 2")
+                completion(nil, NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"]))
+                return
+            }
+            //Map each document
+            let payments = querySnapshot?.documents.compactMap { document -> Payment? in
+                guard let pay = try? document.data(as: Payment.self) else {
+                    // Active trips could not be decoded
+                    return nil
+                }
+                return pay
+            }
+            // Return active trips list
+            completion(payments, nil)
+        }
+    }
             
-            //Access document and do query: query for activeTripsDocRef
-            payDocRef.getDocuments { querySnapshot, error in
-                if let error = error {
-                    // Error obtaining the documents: connection or something
-                    print("DEBUG: ERROR 1")
-                    completion(nil, error)
-                    return
-                }
-                guard (querySnapshot?.documents) != nil else {
-                    // No documents found:
-                    print("DEBUG: ERROR 2")
-                    completion(nil, NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"]))
-                    return
-                }
-                //Map each document
-                let payments = querySnapshot?.documents.compactMap { document -> Payment? in
-                            guard let pay = try? document.data(as: Payment.self) else {
-                                // Active trips could not be decoded
-                                return nil
-                            }
-                            return pay
-                        }
-                // Return active trips list
-                completion(payments, nil)
-
-    
     static func updateDriverStatus(uid: String, isDriver: Bool, completion: @escaping (Error?) -> Void) {
-            let document = Firestore.firestore().collection("users").document(uid)
+        let document = Firestore.firestore().collection("users").document(uid)
             document.updateData(["driver": isDriver]) { error in
                 completion(error)
-
+                    
             }
         }
-
-
-}
+    }

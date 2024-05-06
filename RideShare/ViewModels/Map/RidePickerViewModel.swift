@@ -14,7 +14,6 @@ class RidePickerViewModel: NSObject, ObservableObject{
     //vars
     @Published var activeTrips: [ActiveTrips] = []
     @Published var selectedLocation: String?
-    //@EnvironmentObject var locationViewModel: LocationSearchViewModel
     //init
     override init() {
         super.init()
@@ -29,6 +28,8 @@ class RidePickerViewModel: NSObject, ObservableObject{
     }
     func fetchActiveTripsData() async {
         do {
+            //imprimir variable de entorno
+            //print("DEBUG: Location selected is: \(locationViewModel.selectedLocation?.title)")
             let rides = try await FirestoreManager.shared.fetchActiveTripsData()
             DispatchQueue.main.async { // Communicate with main thread so he publishes
                 self.activeTrips = rides
@@ -37,9 +38,27 @@ class RidePickerViewModel: NSObject, ObservableObject{
             print("Error fetching active trips data: \(error)")
         }
     }
+    func fetchActiveTripsDataFiltered(){
+        //print("DEBUG: Selected location inside is: \(selectedLocation)")
+        FirestoreManager.shared.fetchActiveTripsDataFiltered(location: self.selectedLocation ?? "None"){ [weak self] rides, error in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                
+                if let error = error {
+                    print("Error fetching active trips data: \(error)")
+                    return
+                }
+                if let rides = rides {
+                    self.activeTrips = rides
+                } else{
+                    self.activeTrips = []
+                }
+            }
+        }
+    }
     func updateSelectedLocation(_ location: String) {
         selectedLocation = location
-        print("DEBUG: Selected Location from ridePicker is: \(selectedLocation ?? "Not working")")
+        //print("DEBUG: Selected Location from ridePicker is: \(selectedLocation ?? "Not working")")
     }
 }
 /*

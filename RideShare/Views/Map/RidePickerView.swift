@@ -11,13 +11,27 @@ struct RidePickerView: View {
     @Binding var mapState: MapViewState
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
+    @EnvironmentObject var locationViewModel: LocationSearchViewModel
     @ObservedObject private var viewModel: RidePickerViewModel = RidePickerViewModel()
+    
     
     var body: some View {
         VStack{
-            Text("Choose your prefered ride")
-                .fontWeight(.bold)
-                .foregroundColor(.black)
+            HStack{
+                Text("Choose your prefered ride")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                if let location = locationViewModel.selectedLocation{
+                    Button{
+                        viewModel.updateSelectedLocation(location.title)
+                        //fetch data filtered
+                        viewModel.fetchActiveTripsDataFiltered()
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                }
+            }
+            
             Divider()
             ScrollView{
                 LazyVStack{
@@ -58,6 +72,6 @@ struct RidePickerView: View {
     }
 }
 
-#Preview {
-    RidePickerView(mapState: .constant(.rideOffers))
-}
+//#Preview {
+//    RidePickerView(mapState: .constant(.rideOffers), locationViewModel: AnyClass)
+//}
