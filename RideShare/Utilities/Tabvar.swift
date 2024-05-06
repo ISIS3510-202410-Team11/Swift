@@ -52,14 +52,18 @@ struct Tabvar: View {
             }
             .tag(Tab.account)
         }
+        .overlayConnectivityBanner()
+        .onAppear {
+            print("Current connectivity status: \(ConnectivityManager.shared.isConnected)")
+        }
         .accentColor(.green)
         
     }
 }
 
-// Preview with a specific starting tab
-struct Tabvar_Previews: PreviewProvider {
-    static var previews: some View {
-        Tabvar(startingTab: .account)
-    }
-}
+//// Preview with a specific starting tab
+//struct Tabvar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Tabvar(startingTab: .account)
+//    }
+//}

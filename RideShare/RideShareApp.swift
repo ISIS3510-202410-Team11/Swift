@@ -26,6 +26,7 @@ struct RideShareApp: App {
             
             ContentView()
                 .environmentObject(locationViewModel)
+                
 
         }
     }
