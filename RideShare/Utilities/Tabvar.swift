@@ -29,7 +29,7 @@ struct Tabvar: View {
             .tag(Tab.home) // Tag this view with the corresponding enum value
 
             
-            Text("Services")
+            ServicesView()
             .tabItem {
                 Image(systemName: "circle.grid.3x3.fill")
                 Text("Services")

@@ -15,6 +15,8 @@
 		5E1DF4F12BE85CBA00559071 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */; };
 		5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */; };
 		5E1DF4F52BE861D600559071 /* ConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */; };
+		5E1DF4F72BE8760900559071 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F62BE8760900559071 /* ServicesView.swift */; };
+		5E1DF4F92BE87B1700559071 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F82BE87B1700559071 /* Cards.swift */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -108,6 +110,8 @@
 		5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayConnectivityBanner.swift; sourceTree = "<group>"; };
 		5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityBanner.swift; sourceTree = "<group>"; };
+		5E1DF4F62BE8760900559071 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		5E1DF4F82BE87B1700559071 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 			children = (
 				5EF05F702B8D4FF900885CC1 /* Buttons.swift */,
 				5EEB89EE2B8E57E100F37097 /* TextFields.swift */,
+				5E1DF4F82BE87B1700559071 /* Cards.swift */,
 				86858E632BADF7C700113E4B /* ObjectsLocalList.swift */,
 				13FF5C022BAE2FD200CE7121 /* Tabvar.swift */,
 				13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */,
@@ -410,6 +415,7 @@
 				5EDA89A42BB3729500023634 /* Registration */,
 				5E7032862BD8CA1800B5C87C /* Profile */,
 				86858E5D2BADEE7800113E4B /* SpeedView.swift */,
+				5E1DF4F62BE8760900559071 /* ServicesView.swift */,
 				5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */,
 				13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */,
 				5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */,
@@ -568,6 +574,7 @@
 				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
 				5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */,
+				5E1DF4F92BE87B1700559071 /* Cards.swift in Sources */,
 				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
 				5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
@@ -618,6 +625,8 @@
 				5E47E1FD2BAE1212004FFD67 /* Vehicle.swift in Sources */,
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
+				86205ECA2BDA186200347BC8 /* LocalPaymentMethods.swift in Sources */,
+				5E1DF4F72BE8760900559071 /* ServicesView.swift in Sources */,
 				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 				5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */,
