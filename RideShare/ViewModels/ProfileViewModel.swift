@@ -214,8 +214,5 @@ class ProfileViewModel: NSObject, ObservableObject {
         
         
     }
-    
-    
-
 }
 
