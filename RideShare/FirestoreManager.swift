@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
+import FirebaseAuth //new
 
 class FirestoreManager {
     static let shared = FirestoreManager()
@@ -140,15 +141,121 @@ class FirestoreManager {
             }
         }
     }
+
+    func fetchActiveTripsData() async throws -> [ActiveTrips] {
+        // Reference to active trips collection
+        let activeTripsDocRef = db.collection("active_trips")
+        
+        do {
+            // Fetch documents asynchronously
+            let querySnapshot = try await activeTripsDocRef.getDocuments()
+            
+            // Check if documents were found
+            guard !querySnapshot.documents.isEmpty else {
+                throw NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"])
+            }
+            
+            // Map each document to ActiveTrips
+            let activeTrips = try querySnapshot.documents.compactMap { document -> ActiveTrips in
+                guard let activeTrip = try document.data(as: ActiveTrips?.self) else {
+                    throw NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode ActiveTrips"])
+                }
+                return activeTrip
+            }
+            
+            return activeTrips
+        } catch {
+            // Handle errors
+            throw error
+        }
+    }
+    func fetchPaymentData() async throws -> [Payment] {
+        // Reference to active trips collection
+        let paymentDocRef = db.collection("payment")
+        
+        do {
+            // Fetch documents asynchronously
+            let querySnapshot = try await paymentDocRef.getDocuments()
+            
+            // Check if documents were found
+            guard !querySnapshot.documents.isEmpty else {
+                throw NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"])
+            }
+            
+            // Map each document to ActiveTrips
+            let payments = try querySnapshot.documents.compactMap { document -> Payment in
+                guard let eachPayment = try document.data(as: Payment?.self) else {
+                    throw NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode ActiveTrips"])
+                }
+                return eachPayment
+            }
+            
+            return payments
+        } catch {
+            // Handle errors
+            throw error
+        }
+    }
+    func createPayment(payment: Payment) async throws {
+        // Create JSON Encoder
+        let encoder = JSONEncoder()
+        
+        do {
+            // Convert Payment object to JSON Data
+            let jsonData = try encoder.encode(payment)
+            
+            // Convert JSON Data to NSDictionary
+            guard let paymentDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
+                throw NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to convert Payment to JSON dictionary"])
+            }
+            
+            // Reference to the "payments" collection
+            let paymentDocRef = db.collection("payment").document(payment.id)
+            
+            // Save the payment dictionary to Firestore
+            try await paymentDocRef.setData(paymentDict)
+        } catch {
+            // Handle errors
+            throw error
+        }
+    }
+    func fetchPayments2(completion: @escaping ([Payment]?, Error?) -> Void) {
+            //Reference to active trips collection
+            let payDocRef = db.collection("payment")
+            
+            //Access document and do query: query for activeTripsDocRef
+            payDocRef.getDocuments { querySnapshot, error in
+                if let error = error {
+                    // Error obtaining the documents: connection or something
+                    print("DEBUG: ERROR 1")
+                    completion(nil, error)
+                    return
+                }
+                guard (querySnapshot?.documents) != nil else {
+                    // No documents found:
+                    print("DEBUG: ERROR 2")
+                    completion(nil, NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "No documents were found"]))
+                    return
+                }
+                //Map each document
+                let payments = querySnapshot?.documents.compactMap { document -> Payment? in
+                            guard let pay = try? document.data(as: Payment.self) else {
+                                // Active trips could not be decoded
+                                return nil
+                            }
+                            return pay
+                        }
+                // Return active trips list
+                completion(payments, nil)
+
     
     static func updateDriverStatus(uid: String, isDriver: Bool, completion: @escaping (Error?) -> Void) {
             let document = Firestore.firestore().collection("users").document(uid)
             document.updateData(["driver": isDriver]) { error in
                 completion(error)
+
             }
         }
 
-    
-}
-  
 
+}

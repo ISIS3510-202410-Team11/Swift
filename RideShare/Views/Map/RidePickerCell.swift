@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RidePickerCell: View {
+    var trip: ActiveTrips
+    var index: Int
+
     var body: some View {
         VStack {
             HStack{
@@ -17,15 +20,15 @@ struct RidePickerCell: View {
                     .accentColor(.white)
                     .frame(width: 40, height: 40)
                 VStack{
-                    Text("Placa")
+                    Text(trip.end_location)//Placa
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
-                    Text("Marca")
+                    Text(trip.driver_id)//Marca
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.black)
-                    Text("3:30pm")
+                    Text(trip.start_time)
                         .font(.footnote)
                         .foregroundColor(.black)
                 }
@@ -49,5 +52,5 @@ struct RidePickerCell: View {
 }
 
 #Preview {
-    RidePickerCell()
+    RidePickerCell(trip: ActiveTrips(id:"edwe",driver_id: "defult", end_location: "location", passengers: ["p1","p2"], route: ["1,2,3"], start_location: "", start_time: "10:00"), index:0)
 }

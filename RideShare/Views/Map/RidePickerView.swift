@@ -8,41 +8,56 @@
 import SwiftUI
 
 struct RidePickerView: View {
-    let drivers = driverslist
-    //@Binding var mapState: MapViewState
+    @Binding var mapState: MapViewState
+    @State private var showAlert = false
+    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject private var viewModel: RidePickerViewModel = RidePickerViewModel()
     
     var body: some View {
-        NavigationStack{
+        VStack{
+            Text("Choose your prefered ride")
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+            Divider()
             ScrollView{
                 LazyVStack{
-                    ForEach(0 ... 10, id:\.self){ cell in
-                        NavigationLink(destination: PaymentView()){
-                            RidePickerCell()
-                        }
-                    }
+                    ForEach(Array(viewModel.activeTrips.enumerated()), id: \.element){index, trip in
+                        RidePickerCell(trip: trip, index: index)
+                            .onTapGesture {
+                                if !networkManager.isConnected {
+                                    // Show alert will occur
+                                    //print("DEBUG: NO INTERNET")
+                                    showAlert = true
+                                } else {
+                                    showAlert = false
+                                    actionState(mapState)
+                                }
+                            }
+                    }//end for each
                 }
             }
             .refreshable {
                 print("DEBUG: refresh")
             }
-            .navigationTitle("Available Rides")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        //IT IS NOT SHOWN VIA REAL PHONE, UPDATE THIS MF
-        .toolbar{
-            ToolbarItem(placement: .topBarTrailing){
-                Button {
-                    ClickCounter.shared.incrementCount()
-                } label:{
-                    Image(systemName: "arrow.counterclockwise")
-                        .foregroundColor(.black)
-                }
+            //another alert for each element on the scroll view
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("There is not connection to internet"),
+                    message: Text("Please check your internet connection and try again."),
+                    dismissButton: .default(Text("Accept"))
+                )
             }
+        }
+        .background(Color.white)
+
+    }
+    func actionState(_ state: MapViewState){
+        if state == .rideOffers{
+            mapState = .payment
         }
     }
 }
 
 #Preview {
-    RidePickerView()
-    
+    RidePickerView(mapState: .constant(.rideOffers))
 }

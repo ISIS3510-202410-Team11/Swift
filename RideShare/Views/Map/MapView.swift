@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MapView: View {
     @State private var mapState = MapViewState.noInput
-    // aaa @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @State private var showAlert = false
+    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
     
     var body: some View {
         ZStack(alignment:.bottom) {
@@ -17,11 +19,15 @@ struct MapView: View {
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
-                
+                //new
+                if mapState == .payment{
+                    PaymentView()
+                }
                 //new
                 if mapState == .rideOffers{
-                    RidePickerView()
+                    RidePickerView(mapState: $mapState)
                 }
+
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
@@ -30,8 +36,22 @@ struct MapView: View {
                         .padding(.top, 72)
                         .onTapGesture {
                             withAnimation(.spring()){
-                                mapState = .searchingForLocation
+                                if !networkManager.isConnected{
+                                    //print("DEBUG: NO INTERNET")
+                                    showAlert =  true
+                                } else{
+                                    showAlert = false
+                                    mapState = .searchingForLocation
+                                }
+                                
                             }
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("There is not connection to internet"),
+                                message: Text("Please check your connection and try again later."),
+                                dismissButton: .default(Text("Accept"))
+                            )
                         }
                 }
                 OptionsButtonView(mapState: $mapState)
@@ -45,14 +65,6 @@ struct MapView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        //executes when a value is received from a publisher
-        //.onReceive(LocationService.shared.$userLocation, perform: {
-        //    location in
-        //    if let location = location {
-        //        locationViewModel.userLocation = location
-        //    }
-        //})
-
     }
 }
 

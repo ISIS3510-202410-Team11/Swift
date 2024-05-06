@@ -9,7 +9,10 @@ import SwiftUI
 
 struct LocationSearchView: View {
     @State private var startLocationText = ""
+    @State private var previousQueryFragment = ""
+    @State private var showAlert = false
     @Binding var mapState: MapViewState
+    @ObservedObject var networkManager = NetworkManager()
     @EnvironmentObject var viewModel: LocationSearchViewModel
 
     var body: some View {
@@ -43,16 +46,28 @@ struct LocationSearchView: View {
                             .padding(.bottom)
                             .disabled(true) //no editable
                         
-                            
                         TextField("  Where to?", text: $viewModel.queryFragment)
                             .frame(height: 32)
-                            
                             .background(Color(.systemGroupedBackground))
                             .cornerRadius(15)
                             .overlay(
                                     RoundedRectangle(cornerRadius: 20) // Match the corner radius with the fill
                                         .stroke(Color.green, lineWidth: 1) // Apply stroke as overlay
                                 )
+                            .onTapGesture {
+                                if !networkManager.isConnected {
+                                    //print("DEBUG: NO INTERNET")
+                                    showAlert = true
+                                }
+                            }
+                            // Alert shown when there is no internet
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("There is not connection to internet"),
+                                    message: Text("The search cannot be done because there is no internet connection."),
+                                    dismissButton: .default(Text("Accept"))
+                                )
+                            }
                     }
                 }
                 .padding(.horizontal)
@@ -62,20 +77,33 @@ struct LocationSearchView: View {
                     .padding(.vertical)
                 //list
                 ScrollView{
-                        VStack(alignment: .leading){
-                            ForEach(viewModel.results, id: \.self){
-                                result in
-                                    LocationCell(
-                                        title: result.title,
-                                        subtitle: result.subtitle) //Object cell
-                                    .onTapGesture {
-                                        withAnimation(.spring()){
-                                            viewModel.selectLocation(result)
-                                            mapState = .locationSelected
-                                        }
+                    VStack(alignment: .leading){
+                        ForEach(viewModel.results, id: \.self){
+                            result in
+                            LocationCell(
+                                title: result.title,
+                                subtitle: result.subtitle) //Object cell
+                            .onTapGesture {
+                                withAnimation(.spring()){
+                                    if !networkManager.isConnected {
+                                        
+                                        showAlert = true
+                                    } else {
+                                        viewModel.selectLocation(result)
+                                        mapState = .locationSelected
+                                    }
                                 }
+                            }
                         }
                     }
+                }
+                //another alert for each element on the scroll view
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("There is not connection to internet"),
+                        message: Text("Please check your internet connection and try again."),
+                        dismissButton: .default(Text("Accept"))
+                    )
                 }
                 //button
                 NavigationLink(destination: SpeedView()){
