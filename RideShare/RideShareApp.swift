@@ -11,11 +11,12 @@ import Firebase
 
 @main
 struct RideShareApp: App {
-    @StateObject var locationViewModel = LocationSearchViewModel()
+    @StateObject var locationViewModel: LocationSearchViewModel
     let clickCounter = ClickCounter.shared
     // Firebase initialization
     init() {
         FirebaseApp.configure()
+        _locationViewModel = StateObject(wrappedValue: LocationSearchViewModel()) 
     }
     
     
