@@ -10,8 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     @ObservedObject private var viewModel = ProfileViewModel()
     @ObservedObject private var connectivityManager = ConnectivityManager.shared
-    @ObservedObject private var sessionManager = SessionManager.shared
-
     @State private var isShowingNewCarView = false
     @State private var isShowingImagePicker = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -35,43 +33,25 @@ struct ProfileView: View {
                     .fontWeight(.bold)
                     .padding(.top, 20)
                 
-
-                if let userProfile = sessionManager.currentUserProfile {
-                    Button(action: {
-                        let newRole = !sessionManager.isDriver
-                        if connectivityManager.isConnected {
-                            sessionManager.updateRole(isDriver: newRole)
-
                 if let userProfile = viewModel.userProfile {
                     Button(action: {
                         if connectivityManager.isConnected {
                             viewModel.toggleUserRole()
-
                         } else {
                             alertMessage = "No internet connection is available. Please connect to the internet to continue."
                             showAlert = true
                         }
                     }) {
-
-                        Text(sessionManager.isDriver ? "Switch to Rider" : "Switch to Driver")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(sessionManager.isDriver ? Color.blue : Color.green)
-
                         Text(userProfile.driver ? "Switch to Rider" : "Switch to Driver")
                             .foregroundColor(.white)
                             .padding()
                             .background(userProfile.driver ? Color.blue : Color.green)
-
                             .cornerRadius(10)
                     }
                     .padding(.bottom, 20)
                     .alert(isPresented: $showAlert) {
                         Alert(title: Text("Connection Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                     }
-
-                    
-
                     VStack(alignment: .leading, spacing: 10) {
                         ProfileTextFiles(label: "Name", value: userProfile.name)
                         ProfileTextFiles(label: "Rating", value: userProfile.rating ?? "0.0")
@@ -79,8 +59,7 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
                 }
-
-                if sessionManager.isDriver {
+                if viewModel.userProfile?.driver ?? false {
                     VStack(spacing: 20) {
                         Text("Vehicles")
                             .font(.title2)

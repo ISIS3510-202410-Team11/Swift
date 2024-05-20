@@ -34,33 +34,20 @@ class LocationSearchViewModel: NSObject, ObservableObject{
         print("DEBUG: I WAS CALLED")
         return self.selectedLocation!
     }
-    func getSelectedLocationTitle() -> String {
-            guard let location = selectedLocation else {
-                print("DEBUG: No location selected")
-                return "not working yet"  // Return an empty string or a default string if no location is selected
-            }
-            print("DEBUG: Selected location title was called: \(location.title)")
-            return location.title
-        }
-    func selectLocation(_ completion: MKLocalSearchCompletion) {
-        let searchRequest = MKLocalSearch.Request(completion: completion)
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { response, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("DEBUG: Location search failed with error \(error.localizedDescription)")
-                    self.locationError = true
-                    return
-                }
-                self.locationError = false
-                guard let item = response?.mapItems.first else {
-                    print("DEBUG: No map items found.")
-                    return
-                }
-                let coordinate = item.placemark.coordinate
-                self.selectedLocation = Location(title: item.name ?? "Unknown location", coordinate: coordinate)
-                print("DEBUG: Location set with title: \(self.selectedLocation?.title ?? "No Title") and coordinates: \(coordinate)")
-            }
+    func selectLocation(_ location:MKLocalSearchCompletion){
+        locationSearch(forLocalSearchCompletion: location){response, error in
+            if let error = error{
+                print("DEBUG: Location search failed with error \(error.localizedDescription)")
+                self.locationError = true
+                return //because we wanna go out the function
+            } else { self.locationError = false }
+            guard let item = response?.mapItems.first //map item where we can get coords
+            else {return}
+            //print("DEBUG: ITEM'S NAME IS \(item.name)")
+            let coordinate = item.placemark.coordinate
+            self.selectedLocation = Location(title: location.title, coordinate: coordinate) //save value
+            //print("DEBUG: Location coordinate \(coordinate)")
+            //print("DEBUG: Location full is: \(self.selectedLocation?.title)")
         }
     }
     func locationSearch(forLocalSearchCompletion localSearch:MKLocalSearchCompletion,
