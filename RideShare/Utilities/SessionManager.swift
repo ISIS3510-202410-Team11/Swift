@@ -17,6 +17,9 @@ class SessionManager: ObservableObject {
 
     private var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle?
     private var db = Firestore.firestore()
+    var isDriver: Bool {
+                currentUserProfile?.driver ?? false
+            }
 
     private init() {
         authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
@@ -28,6 +31,24 @@ class SessionManager: ObservableObject {
             }
         }
     }
+    
+    func updateRole(isDriver: Bool) {
+            guard var profile = currentUserProfile else {
+                print("No user profile available")
+                return
+            }
+            profile.driver = isDriver
+            currentUserProfile = profile
+            objectWillChange.send() // Notifying observers about the change
+
+            FirestoreManager.updateDriverStatus(uid: profile.uid, isDriver: profile.driver) { error in
+                if let error = error {
+                    print("Failed to update driver status in Firestore: \(error)")
+                } else {
+                    print("Driver status updated successfully")
+                }
+            }
+        }
 
     func fetchUserProfile(uid: String) {
         let docRef = db.collection("users").document(uid)

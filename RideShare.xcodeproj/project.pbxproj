@@ -15,6 +15,7 @@
 		5E1DF4F12BE85CBA00559071 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */; };
 		5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */; };
 		5E1DF4F52BE861D600559071 /* ConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */; };
+		5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -61,7 +62,6 @@
 		864AFF322BD8A046006183A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF312BD8A046006183A3 /* Location.swift */; };
 		864AFF342BD8A05E006183A3 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF332BD8A05E006183A3 /* MapViewState.swift */; };
 		864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AFF352BD8A677006183A3 /* RideRequestView.swift */; };
-		8652054B2BDC92F800D61A7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8652054A2BDC92F800D61A7F /* GoogleService-Info.plist */; };
 		866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1F8B2BAC041500EF6663 /* LocationDetail.swift */; };
 		86803BBB2BE2F64A00C84894 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86803BBA2BE2F64A00C84894 /* NetworkManager.swift */; };
 		86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */; };
@@ -108,6 +108,7 @@
 		5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayConnectivityBanner.swift; sourceTree = "<group>"; };
 		5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityBanner.swift; sourceTree = "<group>"; };
+		5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		864AFF312BD8A046006183A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		864AFF332BD8A05E006183A3 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		864AFF352BD8A677006183A3 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
-		8652054A2BDC92F800D61A7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		866A1F8B2BAC041500EF6663 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
 		86803BBA2BE2F64A00C84894 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		86858E4B2BADED3300113E4B /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				8652054A2BDC92F800D61A7F /* GoogleService-Info.plist */,
+				5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -536,7 +536,7 @@
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
-				8652054B2BDC92F800D61A7F /* GoogleService-Info.plist in Resources */,
+				5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -779,7 +779,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
+				DEVELOPMENT_TEAM = 3L3R79WHCG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -798,7 +798,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -814,7 +814,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CNSJ9NLM6;
+				DEVELOPMENT_TEAM = 3L3R79WHCG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -833,7 +833,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.caro.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
