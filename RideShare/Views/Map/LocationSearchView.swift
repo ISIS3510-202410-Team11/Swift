@@ -108,8 +108,8 @@ struct LocationSearchView: View {
                 //button
                 NavigationLink(destination: SpeedView()){
                     Button{
-                        AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["LocationDetailView":"Select Specific Location"])
-                        AnalyticsManager.shared.logEvent(name: "User Navigates To CheckSpeed", params: ["SpeedView":"CheckSpeed Button"])
+                        AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["LocationDetailView":"Select Specific Location"])
+                        AnalyticsManager.shared.logEvent(name: "UserNavigates2CheckSpeed", params: ["SpeedView":"CheckSpeed Button"])
                         //remove in future
                         ClickCounter.shared.incrementCount()
                     }label:{

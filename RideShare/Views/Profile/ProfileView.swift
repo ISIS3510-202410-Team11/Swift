@@ -85,8 +85,8 @@ struct ProfileView: View {
                             if viewModel.vehicles[index].image == nil || viewModel.vehicles[index].image?.isEmpty == true {
                                 HStack {
                                     BlueButton(title: "Choose picture", action: {
-                                        AnalyticsManager.shared.logEvent(name: "User Chooses Car Picture", params: ["ProfileView":"Choose Picture Button"])
-                                        AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["ProfileView":"Choose Picture"])
+                                        AnalyticsManager.shared.logEvent(name: "UserChoosesCarPicture", params: ["ProfileView":"Choose Picture Button"])
+                                        AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["ProfileView":"Choose Picture"])
                                         //remove future
                                         ClickCounter.shared.incrementCount()
                                         self.imagePickerSourceType = .photoLibrary
@@ -95,8 +95,8 @@ struct ProfileView: View {
                                     .padding(.horizontal, 30)
                                     
                                     BlueButton(title: "Take picture", action: {
-                                        AnalyticsManager.shared.logEvent(name: "User Takes Car Picture", params: ["ProfileView":"Take Picture Button"])
-                                        AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["ProfileView":"Take Picture"])
+                                        AnalyticsManager.shared.logEvent(name: "UserTakesCarPicture", params: ["ProfileView":"Take Picture Button"])
+                                        AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["ProfileView":"Take Picture"])
                                         //remove future
                                         ClickCounter.shared.incrementCount()
                                         self.imagePickerSourceType = .camera
@@ -142,8 +142,8 @@ struct ProfileView: View {
                     
                     if viewModel.vehicles.count < 3 {
                         GreenButton(tittle: "Add Vehicle") {
-                            AnalyticsManager.shared.logEvent(name: "User Adds New Car", params: ["ProfileView":"Add Vehicle Button"])
-                            AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["ProfileView":"Add Vehicle Button"])
+                            AnalyticsManager.shared.logEvent(name: "UserAddsNewCar", params: ["ProfileView":"Add Vehicle Button"])
+                            AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["ProfileView":"Add Vehicle Button"])
                             //remove future
                             ClickCounter.shared.incrementCount()
                             self.isShowingNewCarView = true

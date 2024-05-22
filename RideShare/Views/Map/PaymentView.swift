@@ -81,9 +81,9 @@ struct PaymentView: View {
                 guard let selectedPayment = selectedPayment else { return }
                 print("DEBUG: Selected Payment method is \(selectedPayment.name)")
                 
-                AnalyticsManager.shared.logEvent(name: "User Pays Ride", params: ["PaymentView":"Pay Now Button"])
-                AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["PaymentView":"Pay Now Button"])
-                AnalyticsManager.shared.logEvent(name: "BQ3.1", params: ["PaymentOption":"\(selectedPayment.name)"])
+                AnalyticsManager.shared.logEvent(name: "UserPays4Ride", params: ["PaymentView":"Pay Now Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["PaymentView":"Pay Now Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ3_1", params: ["PaymentOption":"\(selectedPayment.name)"])
                 //remove both future
                 ClickCounter.shared.incrementCount()
                 ClickCounter.shared.incrementRidesPayed()

@@ -28,7 +28,7 @@ struct ForgotPasswordView: View {
                     .padding()
                 
                 GreenButton(tittle:"Recover Password") {
-                    AnalyticsManager.shared.logEvent(name: "User Recovers Passwords", params: ["ForgotPassword View":"RecoverPassword Button"])
+                    AnalyticsManager.shared.logEvent(name: "UserRecoverPassword", params: ["ForgotPasswordView":"RecoverPassword Button"])
                     //remove in the future
                     ClickCounter.shared.incrementCount()
                     loginViewModel.recoverPassword(for: email) { success, message in
