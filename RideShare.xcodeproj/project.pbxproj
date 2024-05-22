@@ -80,6 +80,12 @@
 		868A13132BE6B597003AF582 /* ActiveTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13122BE6B597003AF582 /* ActiveTrips.swift */; };
 		868A13152BE72A50003AF582 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13142BE72A50003AF582 /* PaymentViewModel.swift */; };
 		868A13192BE7380A003AF582 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13182BE7380A003AF582 /* Payment.swift */; };
+		86E045AC2BFD7CF2006C66EF /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E045AB2BFD7CF2006C66EF /* PQRView.swift */; };
+		86E045AE2BFD7D26006C66EF /* PQRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */; };
+		86E045B02BFD7D91006C66EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 86E045AF2BFD7D91006C66EF /* FirebaseAnalytics */; };
+		86E045B22BFD7D91006C66EF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E045B12BFD7D91006C66EF /* FirebaseAnalyticsSwift */; };
+		86E045B42BFD7DA2006C66EF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E045B32BFD7DA2006C66EF /* AdSupport.framework */; };
+		86E045B62BFD7DC5006C66EF /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E045B52BFD7DC5006C66EF /* AnalyticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +177,10 @@
 		868A13122BE6B597003AF582 /* ActiveTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTrips.swift; sourceTree = "<group>"; };
 		868A13142BE72A50003AF582 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		868A13182BE7380A003AF582 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		86E045AB2BFD7CF2006C66EF /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRViewModel.swift; sourceTree = "<group>"; };
+		86E045B32BFD7DA2006C66EF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		86E045B52BFD7DC5006C66EF /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnalyticsManager.swift; path = RideShare/ViewModels/Map/AnalyticsManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +188,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E045B22BFD7D91006C66EF /* FirebaseAnalyticsSwift in Frameworks */,
+				86E045B42BFD7DA2006C66EF /* AdSupport.framework in Frameworks */,
 				5E901E7D2BDA1210000267DA /* Security.framework in Frameworks */,
 				5E7AD2D82BADF0CD0001D379 /* FirebaseFirestore in Frameworks */,
+				86E045B02BFD7D91006C66EF /* FirebaseAnalytics in Frameworks */,
 				5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */,
 				5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */,
 				5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */,
@@ -218,6 +231,7 @@
 		5EC001D62BBA69C80000C8EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86E045B32BFD7DA2006C66EF /* AdSupport.framework */,
 				5E901E7C2BDA1210000267DA /* Security.framework */,
 			);
 			name = Frameworks;
@@ -250,6 +264,7 @@
 				86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */,
 				86205EC72BDA114400347BC8 /* PaymentView.swift */,
 				8631592F2BE8240F00C9C9A0 /* DropDownMenuView.swift */,
+				86E045AB2BFD7CF2006C66EF /* PQRView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -271,6 +286,7 @@
 				86803BBA2BE2F64A00C84894 /* NetworkManager.swift */,
 				868A13102BE6B4B6003AF582 /* RidePickerViewModel.swift */,
 				868A13142BE72A50003AF582 /* PaymentViewModel.swift */,
+				86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -384,6 +400,7 @@
 				5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */,
 				5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */,
 				86205EC52BDA0B3400347BC8 /* ClickService.swift */,
+				86E045B52BFD7DC5006C66EF /* AnalyticsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -441,6 +458,8 @@
 				5E7AD2DF2BADFF240001D379 /* FirebaseAuth */,
 				5EC001D72BBA69C80000C8EC /* FirebaseStorage */,
 				5E3C68052BCCE1A200ED04AB /* KeychainAccess */,
+				86E045AF2BFD7D91006C66EF /* FirebaseAnalytics */,
+				86E045B12BFD7D91006C66EF /* FirebaseAnalyticsSwift */,
 			);
 			productName = RideShare;
 			productReference = 5EF05F362B8D4E8B00885CC1 /* RideShare.app */;
@@ -601,11 +620,14 @@
 				863159302BE8240F00C9C9A0 /* DropDownMenuView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
+				86E045AC2BFD7CF2006C66EF /* PQRView.swift in Sources */,
 				13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */,
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
 				864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
 				86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */,
+				86E045AE2BFD7D26006C66EF /* PQRViewModel.swift in Sources */,
+				86E045B62BFD7DC5006C66EF /* AnalyticsManager.swift in Sources */,
 				5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */,
 				868A13132BE6B597003AF582 /* ActiveTrips.swift in Sources */,
 				5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */,
@@ -1003,6 +1025,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		86E045AF2BFD7D91006C66EF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		86E045B12BFD7D91006C66EF /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EE339282BAD2DC30064B3F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

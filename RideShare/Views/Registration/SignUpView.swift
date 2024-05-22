@@ -75,6 +75,8 @@ struct SignUpView: View {
                 }.tint(.green)
                 
                 GreenButton(tittle: "Register") {
+                    AnalyticsManager.shared.logEvent(name: "User Registers", params: ["SignUpView":"Register Button"])
+                    //remove in future
                     ClickCounter.shared.incrementCount()
                     viewModel.registerUser()
                 }

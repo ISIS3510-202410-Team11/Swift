@@ -59,6 +59,7 @@ struct PaymentView: View {
                 }
                 Button{
                     isShowingNewView.toggle()
+                    AnalyticsManager.shared.logEvent(name: "BQ3.0", params: ["NewPaymentOption":"New Payment Option Needed"])
                 }label: {
                     HStack(spacing: 8){
                         Image(systemName: "plus.app")
@@ -79,6 +80,11 @@ struct PaymentView: View {
             GreenButton(tittle: "Pay Now"){
                 guard let selectedPayment = selectedPayment else { return }
                 print("DEBUG: Selected Payment method is \(selectedPayment.name)")
+                
+                AnalyticsManager.shared.logEvent(name: "User Pays Ride", params: ["PaymentView":"Pay Now Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ2.0", params: ["PaymentView":"Pay Now Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ3.1", params: ["PaymentOption":"\(selectedPayment.name)"])
+                //remove both future
                 ClickCounter.shared.incrementCount()
                 ClickCounter.shared.incrementRidesPayed()
                 withAnimation(.spring()) {

@@ -29,12 +29,16 @@ struct RegistrationView: View {
                             NavigationLink(destination: SignUpView()) {
                                 GreenButton(tittle: "Sign Up") {
                                     // Trigger any additional actions
+                                    AnalyticsManager.shared.logEvent(name: "User Navigates To SignUp", params: ["RegistrationView":"SignUp Button"])
+                                    //remove in future
                                     ClickCounter.shared.incrementCount()
                                 }
                             }
                             NavigationLink(destination: LoginView()) {
                                 GreenButton(tittle: "Log In") {
                                     // Trigger any additional actions
+                                    AnalyticsManager.shared.logEvent(name: "User Navigates To LogIn", params: ["RegistrationView":"LogIn Button"])
+                                    //remove in future
                                     ClickCounter.shared.incrementCount()
                                 }
                             }
