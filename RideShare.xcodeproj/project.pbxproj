@@ -29,6 +29,8 @@
 		5E7AD2DE2BADFF120001D379 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DD2BADFF120001D379 /* FirebaseDatabase */; };
 		5E7AD2E02BADFF240001D379 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7AD2DF2BADFF240001D379 /* FirebaseAuth */; };
 		5E8A23312BADB25F008A2B16 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */; };
+		5E8D89212C0638120063ED13 /* CreateRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D891F2C0638110063ED13 /* CreateRideView.swift */; };
+		5E8D89242C0638190063ED13 /* DriverInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D89222C0638190063ED13 /* DriverInteractionView.swift */; };
 		5E901E7D2BDA1210000267DA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E901E7C2BDA1210000267DA /* Security.framework */; };
 		5E901E7F2BDA13D1000267DA /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E901E7E2BDA13D1000267DA /* KeychainHelper.swift */; };
 		5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA875B72BB27B26008826C1 /* AuthData.swift */; };
@@ -124,6 +126,8 @@
 		5E7032842BD8CA0300B5C87C /* VehicleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsView.swift; sourceTree = "<group>"; };
 		5E7AD2D92BADF0EC0001D379 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreManager.swift; path = RideShare/FirestoreManager.swift; sourceTree = SOURCE_ROOT; };
 		5E8A23302BADB25F008A2B16 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		5E8D891F2C0638110063ED13 /* CreateRideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRideView.swift; sourceTree = "<group>"; };
+		5E8D89222C0638190063ED13 /* DriverInteractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverInteractionView.swift; sourceTree = "<group>"; };
 		5E901E7C2BDA1210000267DA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5E901E7E2BDA13D1000267DA /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		5EA875B72BB27B26008826C1 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
@@ -230,6 +234,23 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		5E8D89202C0638110063ED13 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				5E8D891F2C0638110063ED13 /* CreateRideView.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		5E8D89232C0638190063ED13 /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				5E8D89222C0638190063ED13 /* DriverInteractionView.swift */,
+			);
+			name = Rider;
+			path = RideShare/Views/Map/Rider;
+			sourceTree = SOURCE_ROOT;
+		};
 		5EC001D62BBA69C80000C8EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +275,8 @@
 		5EDA89A52BB3735700023634 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				5E8D89232C0638190063ED13 /* Rider */,
+				5E8D89202C0638110063ED13 /* Driver */,
 				866A1F8B2BAC041500EF6663 /* LocationDetail.swift */,
 				86858E4F2BADED9900113E4B /* LocationCell.swift */,
 				86858E512BADEDB700113E4B /* LocationSearchView.swift */,
@@ -290,7 +313,6 @@
 				868A13142BE72A50003AF582 /* PaymentViewModel.swift */,
 				86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */,
 				5EFD38952C06252200C91228 /* CreateRideViewModel.swift */,
-
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -628,6 +650,7 @@
 				86E045AC2BFD7CF2006C66EF /* PQRView.swift in Sources */,
 				13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */,
 				86858E5E2BADEE7800113E4B /* SpeedView.swift in Sources */,
+				5E8D89212C0638120063ED13 /* CreateRideView.swift in Sources */,
 				864AFF362BD8A677006183A3 /* RideRequestView.swift in Sources */,
 				5EA875BA2BB27E71008826C1 /* SessionManager.swift in Sources */,
 				86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */,
@@ -646,6 +669,7 @@
 				5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */,
 				86858E5A2BADEE4200113E4B /* OptionsButtonView.swift in Sources */,
 				5E7032832BD8C9BF00B5C87C /* VehicleImageView.swift in Sources */,
+				5E8D89242C0638190063ED13 /* DriverInteractionView.swift in Sources */,
 				5EEB89E92B8E24AC00F37097 /* LoginViewModel.swift in Sources */,
 				5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */,
 			);
