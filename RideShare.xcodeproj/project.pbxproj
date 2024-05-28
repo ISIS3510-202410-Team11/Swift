@@ -15,7 +15,6 @@
 		5E1DF4F12BE85CBA00559071 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */; };
 		5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */; };
 		5E1DF4F52BE861D600559071 /* ConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */; };
-		5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -42,6 +41,7 @@
 		5EC001D82BBA69C80000C8EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC001D72BBA69C80000C8EC /* FirebaseStorage */; };
 		5EC001DA2BBA6AC30000C8EC /* FireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */; };
 		5EC001DC2BBA72190000C8EC /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */; };
+		5ED061B52C06697B00B731D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ED061B42C06697B00B731D3 /* GoogleService-Info.plist */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
@@ -120,7 +120,6 @@
 		5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayConnectivityBanner.swift; sourceTree = "<group>"; };
 		5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityBanner.swift; sourceTree = "<group>"; };
-		5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		5EC001D42BBA669E0000C8EC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireStorageManager.swift; path = RideShare/Views/FireStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageLoader.swift; path = RideShare/Views/AsyncImageLoader.swift; sourceTree = SOURCE_ROOT; };
+		5ED061B42C06697B00B731D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */,
+				5ED061B42C06697B00B731D3 /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
@@ -590,7 +590,7 @@
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
-				5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */,
+				5ED061B52C06697B00B731D3 /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);

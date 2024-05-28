@@ -298,6 +298,16 @@ class FirestoreManager {
         }
     }
 
+    func addRide(rideData: [String: Any], completion: @escaping (Bool, String?) -> Void) {
+            let rideID = rideData["id"] as? String ?? UUID().uuidString
+            db.collection("active_trips").document(rideID).setData(rideData) { error in
+                if let error = error {
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
     
 }
 
