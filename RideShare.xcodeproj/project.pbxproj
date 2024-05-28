@@ -60,6 +60,7 @@
 		5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */; };
 		5EF05F6F2B8D4F8A00885CC1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */; };
 		5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF05F702B8D4FF900885CC1 /* Buttons.swift */; };
+		5EFD38962C06252200C91228 /* CreateRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD38952C06252200C91228 /* CreateRideViewModel.swift */; };
 		86205EC42BD9F33E00347BC8 /* RidePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */; };
 		86205EC62BDA0B3400347BC8 /* ClickService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC52BDA0B3400347BC8 /* ClickService.swift */; };
 		86205EC82BDA114400347BC8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86205EC72BDA114400347BC8 /* PaymentView.swift */; };
@@ -156,6 +157,7 @@
 		5EF05F682B8D4F0D00885CC1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5EF05F6E2B8D4F8A00885CC1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EF05F702B8D4FF900885CC1 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		5EFD38952C06252200C91228 /* CreateRideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRideViewModel.swift; sourceTree = "<group>"; };
 		86205EC32BD9F33E00347BC8 /* RidePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidePickerCell.swift; sourceTree = "<group>"; };
 		86205EC52BDA0B3400347BC8 /* ClickService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClickService.swift; path = RideShare/Views/Map/ClickService.swift; sourceTree = SOURCE_ROOT; };
 		86205EC72BDA114400347BC8 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				86803BBA2BE2F64A00C84894 /* NetworkManager.swift */,
 				868A13102BE6B4B6003AF582 /* RidePickerViewModel.swift */,
 				868A13142BE72A50003AF582 /* PaymentViewModel.swift */,
+				5EFD38952C06252200C91228 /* CreateRideViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				868A13112BE6B4B6003AF582 /* RidePickerViewModel.swift in Sources */,
+				5EFD38962C06252200C91228 /* CreateRideViewModel.swift in Sources */,
 				13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */,
 				864AFF322BD8A046006183A3 /* Location.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,

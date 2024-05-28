@@ -16,7 +16,7 @@ struct DriverInteractionView: View {
         // Implement driver-specific components, e.g., accepting rides, managing routes
 //        Text("Driver-specific interface")
         if mapState == .createRide {
-            CreateRideView(mapState: $mapState, viewModel: LocationSearchViewModel())
+            CreateRideView(mapState: $mapState)
         }
     }
 }

@@ -17,8 +17,9 @@ struct CreateRideView: View {
     
     @Binding var mapState: MapViewState
     @ObservedObject var networkManager = NetworkManager()
-    @ObservedObject var viewModel: LocationSearchViewModel
-
+    @ObservedObject var createRideViewModel = CreateRideViewModel()
+    @EnvironmentObject var viewModel: LocationSearchViewModel
+    
     var body: some View {
         VStack {
             Text("Create a New Ride")
@@ -31,9 +32,17 @@ struct CreateRideView: View {
                 TextField("Enter Destination", text: $destination)
                     .onAppear {
                         // Set initial destination from the view model
-                        if destination.isEmpty {
-                            destination = viewModel.getSelectedLocationTitle()
+                        if let location = viewModel.selectedLocation{
+                            
+                            
+                            createRideViewModel.updatedLocation(location.title)
+                            
+                            destination = location.title
+                            print("Picked destination is: \(destination)")
+                            createRideViewModel.updatedInstructions(viewModel.instructions)
+                            print("Instructions for this ride: \(viewModel.instructions)")
                         }
+                        
                     }
                 TextField("Estimated Fare ($)", text: $estimatedFare)
                     .keyboardType(.decimalPad)
@@ -58,26 +67,26 @@ struct CreateRideView: View {
         }
         .background(Color.white)
     }
-
+    
     private func createRide() {
         guard validateFare(estimatedFare) else {
             alertMessage = "Please enter a valid fare amount."
             showAlert = true
             return
         }
-
+        
         print("Creating ride to \(destination) with fare $\(estimatedFare) at \(departureTime)")
         // Transition to the next appropriate view state
         actionState(mapState)
     }
-
+    
     private func validateFare(_ fare: String) -> Bool {
         guard let fareValue = Double(fare), fareValue > 0 else {
             return false
         }
         return true
     }
-
+    
     func actionState(_ state: MapViewState) {
         // Assuming the state should change to another specific state after ride creation
         if state == .locationSelected {
