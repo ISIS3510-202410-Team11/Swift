@@ -38,6 +38,9 @@ struct LocationDetail: View {
                 }
                 Spacer()
                 Button{
+                    AnalyticsManager.shared.logEvent(name: "UserSelectedLocation", params: ["LocationDetailView":"button"])
+                    AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["LocationDetailView":"Select Specific Location"])
+                    //remove in future
                     ClickCounter.shared.incrementCount()
                     show.toggle()
                     mapSelection=nil

@@ -13,6 +13,9 @@ struct OptionsButtonView: View {
 
     var body: some View {
         Button{
+            AnalyticsManager.shared.logEvent(name: "UserNavigatesBackwards", params: ["OptionsButtonView":"Circular Button"])
+            AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["OptionsButtonView":"Go back to the lastest view"])
+            //removed in future
             ClickCounter.shared.incrementCount()
             withAnimation(.spring()){
                 actionForState(mapState)

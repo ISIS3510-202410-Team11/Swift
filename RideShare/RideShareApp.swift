@@ -33,6 +33,7 @@ struct RideShareApp: App {
                         let endTime = DispatchTime.now()
                         let timeInterval = Double(endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000_000
                         ClickCounter.shared.getAppDeploymentTime(time: timeInterval)
+                        AnalyticsManager.shared.logEvent(name: "BQ1_0", params: ["AppDeploymentTime":"\(timeInterval)"])
                     }
                 }
         }

@@ -30,6 +30,9 @@ struct SpeedView: View {
         }
         .frame(height: 400)
         Button("Reset"){
+            AnalyticsManager.shared.logEvent(name: "UserChecksAccelerometer", params: ["SpeedView":"Reset Button"])
+            AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["SpeedView":"Reset Acelerometer"])
+            //remove in the future
             ClickCounter.shared.incrementCount()
             vm_speed.removeData()
         }

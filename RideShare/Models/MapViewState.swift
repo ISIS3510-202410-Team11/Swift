@@ -14,4 +14,5 @@ enum MapViewState{
     case polylineaddded
     case rideOffers
     case payment
+    
 }

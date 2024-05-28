@@ -63,6 +63,9 @@ struct RideRequestView: View {
             //request ride button
             
             Button{
+                AnalyticsManager.shared.logEvent(name: "UserRequestsTrip", params: ["RideRequestView":"Confirm Ride Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["RideRequestView":"Ride Selected"])
+                //remove in future
                 ClickCounter.shared.incrementCount()
                 withAnimation(.spring()){
                     actionState(mapState)
