@@ -83,10 +83,6 @@ struct RideRequestView: View {
     func actionState(_ state: MapViewState){
         if state == .polylineaddded{
             mapState = .rideOffers
-            if SessionManager.shared.isDriver{
-                mapState = .createRide
-            }
-            
         }
     }
 }

@@ -11,7 +11,6 @@ struct ProfileView: View {
     @ObservedObject private var viewModel = ProfileViewModel()
     @ObservedObject private var connectivityManager = ConnectivityManager.shared
     @ObservedObject private var sessionManager = SessionManager.shared
-    
     @State private var isShowingNewCarView = false
     @State private var isShowingImagePicker = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -34,7 +33,6 @@ struct ProfileView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.top, 20)
-                
                 
                 if let userProfile = sessionManager.currentUserProfile {
                     Button(action: {
@@ -64,7 +62,6 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
                 }
-                
                 if sessionManager.isDriver {
                     VStack(spacing: 20) {
                         Text("Vehicles")
