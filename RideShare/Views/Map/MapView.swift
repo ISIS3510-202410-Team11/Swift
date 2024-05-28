@@ -12,13 +12,19 @@ struct MapView: View {
     @State private var showAlert = false
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
-    
+    @ObservedObject private var sessionManager = SessionManager.shared
     var body: some View {
         ZStack(alignment:.bottom) {
             ZStack(alignment: .top){
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
+                
+                if SessionManager.shared.isDriver {
+                    DriverInteractionView(mapState: $mapState)
+                } else {
+                    RiderInteractionView(mapState: $mapState)
+                }
                 //new
                 if mapState == .payment{
                     PaymentView()
@@ -27,7 +33,7 @@ struct MapView: View {
                 if mapState == .rideOffers{
                     RidePickerView(mapState: $mapState)
                 }
-
+                
                 
                 if mapState == .searchingForLocation{
                     LocationSearchView(mapState: $mapState)
