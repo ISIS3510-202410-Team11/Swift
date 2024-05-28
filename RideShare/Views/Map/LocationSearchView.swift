@@ -124,6 +124,6 @@ struct LocationSearchView: View {
 }
 }
 
-#Preview {
-    LocationSearchView(mapState: .constant(.searchingForLocation))
-}
+//#Preview {
+//    LocationSearchView(mapState: .constant(.searchingForLocation))
+//}
