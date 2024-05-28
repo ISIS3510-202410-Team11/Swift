@@ -44,6 +44,8 @@ struct OptionsButtonView: View {
             mapState = .polylineaddded
         case .payment:
             mapState = .rideOffers
+        case .createRide:
+                    mapState = .polylineaddded
         }
     }
     func imageNameForState(_ state: MapViewState)-> String{
@@ -54,6 +56,8 @@ struct OptionsButtonView: View {
             return "arrow.left"
         case .rideOffers, .payment:
             return "arrow.left"
+        case .createRide:
+                    return "arrow.left"
         }
     }
 }
