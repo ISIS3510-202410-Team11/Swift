@@ -10,12 +10,14 @@
 		13BDDAED2BD6FEAD00E572C1 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */; };
 		13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */; };
 		13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */; };
+		13CC64292C064AAD00C988AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13CC64282C064AAD00C988AE /* GoogleService-Info.plist */; };
+		13CC642B2C065B7000C988AE /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC642A2C065B7000C988AE /* ActivityViewModel.swift */; };
+		13CC642F2C066EB500C988AE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CC642E2C066EB500C988AE /* ActivityView.swift */; };
 		13FF5C032BAE2FD200CE7121 /* Tabvar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C022BAE2FD200CE7121 /* Tabvar.swift */; };
 		13FF5C092BAE31CD00CE7121 /* ProfileTextFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */; };
 		5E1DF4F12BE85CBA00559071 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */; };
 		5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */; };
 		5E1DF4F52BE861D600559071 /* ConnectivityBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */; };
-		5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */; };
 		5E3C68062BCCE1A200ED04AB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3C68052BCCE1A200ED04AB /* KeychainAccess */; };
 		5E47E1F72BAE06A0004FFD67 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */; };
 		5E47E1FB2BAE1197004FFD67 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */; };
@@ -115,12 +117,14 @@
 		13BDDAEC2BD6FEAD00E572C1 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ended_trips.swift; sourceTree = "<group>"; };
 		13BDDAF02BD7E1D000E572C1 /* DefaultImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultImages.xcassets; sourceTree = "<group>"; };
+		13CC64282C064AAD00C988AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13CC642A2C065B7000C988AE /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		13CC642E2C066EB500C988AE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = SOURCE_ROOT; };
 		13FF5C022BAE2FD200CE7121 /* Tabvar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabvar.swift; sourceTree = "<group>"; };
 		13FF5C082BAE31CD00CE7121 /* ProfileTextFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextFiles.swift; sourceTree = "<group>"; };
 		5E1DF4F02BE85CBA00559071 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		5E1DF4F22BE85CF500559071 /* OverlayConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayConnectivityBanner.swift; sourceTree = "<group>"; };
 		5E1DF4F42BE861D600559071 /* ConnectivityBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityBanner.swift; sourceTree = "<group>"; };
-		5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E47E1F62BAE06A0004FFD67 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
 		5E47E1FA2BAE1197004FFD67 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
 		5E47E1FC2BAE1212004FFD67 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -327,8 +331,8 @@
 		5EF05F2D2B8D4E8B00885CC1 = {
 			isa = PBXGroup;
 			children = (
-				5E31443C2BFE3CC500DBEA5A /* GoogleService-Info.plist */,
 				5E4A43ED2BAC9ED700DCB02C /* .gitignore */,
+				13CC64282C064AAD00C988AE /* GoogleService-Info.plist */,
 				5EF05F382B8D4E8B00885CC1 /* RideShare */,
 				5EF05F492B8D4E8C00885CC1 /* RideShareTests */,
 				5EF05F532B8D4E8C00885CC1 /* RideShareUITests */,
@@ -421,6 +425,7 @@
 				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
 				5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */,
 				86858E4D2BADED6100113E4B /* SpeedViewModel.swift */,
+				13CC642A2C065B7000C988AE /* ActivityViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 		5EF05F6C2B8D4F7100885CC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				13CC642E2C066EB500C988AE /* ActivityView.swift */,
 				5EDA89A52BB3735700023634 /* Map */,
 				5EDA89A42BB3729500023634 /* Registration */,
 				5E7032862BD8CA1800B5C87C /* Profile */,
@@ -590,7 +596,7 @@
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
-				5E31443D2BFE3CC500DBEA5A /* GoogleService-Info.plist in Resources */,
+				13CC64292C064AAD00C988AE /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
 			);
@@ -640,6 +646,7 @@
 				86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */,
 				86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */,
 				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
+				13CC642B2C065B7000C988AE /* ActivityViewModel.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
 				868A13112BE6B4B6003AF582 /* RidePickerViewModel.swift in Sources */,
 				5EFD38962C06252200C91228 /* CreateRideViewModel.swift in Sources */,
@@ -657,6 +664,7 @@
 				86803BBB2BE2F64A00C84894 /* NetworkManager.swift in Sources */,
 				5EEB89EB2B8E273300F37097 /* LoginView.swift in Sources */,
 				863159302BE8240F00C9C9A0 /* DropDownMenuView.swift in Sources */,
+				13CC642F2C066EB500C988AE /* ActivityView.swift in Sources */,
 				86858E4C2BADED3300113E4B /* LocationSearchViewModel.swift in Sources */,
 				5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */,
 				86E045AC2BFD7CF2006C66EF /* PQRView.swift in Sources */,
@@ -842,7 +850,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 3FJ782F8ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -861,7 +869,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.js.pedrazap.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -877,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RideShare/Preview Content\"";
-				DEVELOPMENT_TEAM = 3L3R79WHCG;
+				DEVELOPMENT_TEAM = 3FJ782F8ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RideShare/Info.plist;
@@ -896,7 +904,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.junco.Moviles.RideShareV2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.js.pedrazap.Moviles.RideShareV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
