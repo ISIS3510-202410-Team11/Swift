@@ -62,6 +62,8 @@ struct MapRepresentable: UIViewRepresentable{
             break
         case .PQR:
             break
+        case .rideStatus:
+            break
         }
     }
 

@@ -10,9 +10,11 @@ import SwiftUI
 struct MapView: View {
     @State private var mapState = MapViewState.noInput
     @State private var showAlert = false
+    @State private var rideId: String = ""
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var viewModel: LocationSearchViewModel = LocationSearchViewModel()
     @ObservedObject private var sessionManager = SessionManager.shared
+
     var body: some View {
         ZStack(alignment:.bottom) {
             ZStack(alignment: .top){
@@ -23,7 +25,7 @@ struct MapView: View {
                     PQRView()
                 }
                 if SessionManager.shared.isDriver {
-                    DriverInteractionView(mapState: $mapState)
+                    DriverInteractionView(mapState: $mapState, rideId: $rideId)
                 } else {
                     RiderInteractionView(mapState: $mapState)
                 }
@@ -35,6 +37,7 @@ struct MapView: View {
                 if mapState == .rideOffers{
                     RidePickerView(mapState: $mapState)
                 }
+                
                 
                 
                 if mapState == .searchingForLocation{
@@ -76,6 +79,22 @@ struct MapView: View {
     }
 }
 
-#Preview {
-    MapView()
-}
+//extension RideStatusViewModel {
+//    static var sample: RideStatusViewModel {
+//        let viewModel = RideStatusViewModel()
+//        viewModel.destination = "Office"
+//        viewModel.passengers = ["Alice", "Bob", "Charlie", "David"]
+//        return viewModel
+//    }
+//}
+//
+//struct RideStatusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RideStatusView(
+//            rideStatusViewModel: .sample,
+//            rideId: "example_ride_id"
+//        )
+//        .environmentObject(CreateRideViewModel()) // Provide a sample CreateRideViewModel
+//        .environmentObject(LocationSearchViewModel()) // Provide a sample LocationSearchViewModel
+//    }
+//}

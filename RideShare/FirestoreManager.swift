@@ -297,7 +297,85 @@ class FirestoreManager {
             completion(payments, nil)
         }
     }
+    
+    func fetchActiveTripsForUser(driverID: String, completion: @escaping ([ActiveTrips]?, Error?) -> Void) {
+        let activeTripsDocRef = db.collection("active_trips")
 
+        let driverQuery = activeTripsDocRef.whereField("driver_id", isEqualTo: driverID)
+        let passengerQuery = activeTripsDocRef.whereField("passengers", arrayContains: driverID)
+        
+        // Run both queries in parallel and combine the results
+        let dispatchGroup = DispatchGroup()
+        var driverTrips: [ActiveTrips] = []
+        var passengerTrips: [ActiveTrips] = []
+        var fetchError: Error?
+
+        dispatchGroup.enter()
+        driverQuery.getDocuments { querySnapshot, error in
+            if let error = error {
+                fetchError = error
+            } else {
+                driverTrips = querySnapshot?.documents.compactMap { document -> ActiveTrips? in
+                    try? document.data(as: ActiveTrips.self)
+                } ?? []
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        passengerQuery.getDocuments { querySnapshot, error in
+            if let error = error {
+                fetchError = error
+            } else {
+                passengerTrips = querySnapshot?.documents.compactMap { document -> ActiveTrips? in
+                    try? document.data(as: ActiveTrips.self)
+                } ?? []
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            if let error = fetchError {
+                completion(nil, error)
+            } else {
+                let allTrips = driverTrips + passengerTrips
+                completion(allTrips, nil)
+            }
+        }
+    }
+
+
+
+
+    func addRide(rideData: [String: Any], completion: @escaping (Bool, String?) -> Void) {
+            let rideID = rideData["id"] as? String ?? UUID().uuidString
+            db.collection("active_trips").document(rideID).setData(rideData) { error in
+                if let error = error {
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
+    
+    func listenForPassengersUpdates(rideId: String, completion: @escaping ([Passenger]) -> Void) {
+            guard !rideId.isEmpty else {
+                print("Error: rideId is empty")
+                return
+            }
+            
+            db.collection("active_trips").document(rideId).addSnapshotListener { snapshot, error in
+                guard let snapshot = snapshot, let data = snapshot.data(), error == nil else {
+                    print("Error fetching snapshots: \(String(describing: error))")
+                    return
+                }
+
+                if let passengersData = data["passengers"] as? [[String: Any]] {
+                    let passengers = passengersData.compactMap { Passenger(dictionary: $0) }
+                    completion(passengers)
+                }
+            }
+        }
     
 }
 
