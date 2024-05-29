@@ -24,7 +24,7 @@ struct RidePickerCell: View {
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
-                    Text(trip.driver_id)//Marca
+                    Text("from: \(trip.start_location)")
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.black)
@@ -37,7 +37,7 @@ struct RidePickerCell: View {
                 
                 Spacer()
                 
-                Text("$4.000")
+                Text("$\(trip.estimated_fare)")
                     .font(.footnote)
                     .foregroundColor(.black)
                     .padding()
@@ -52,5 +52,5 @@ struct RidePickerCell: View {
 }
 
 #Preview {
-    RidePickerCell(trip: ActiveTrips(id:"edwe",driver_id: "defult", end_location: "location", passengers: ["p1","p2"], route: ["1,2,3"], start_location: "", start_time: "10:00"), index:0)
+    RidePickerCell(trip: ActiveTrips(id:"edwe", estimated_fare: "4000",driver_id: "defult", end_location: "location", passengers: ["p1","p2"], route: ["1,2,3"], start_location: "", start_time: "10:00"), index:0)
 }

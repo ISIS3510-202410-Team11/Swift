@@ -6,34 +6,44 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct PQRView: View {
-    @StateObject private var viewModel = PQRViewModel()
+    @ObservedObject private var viewModel = PQRViewModel()
     
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Tipo de PQR")) {
-                    Picker("Tipo", selection: $viewModel.selectedType) {
+                Section(header: Text("Type of PQR")) {
+                    Picker("Type", selection: $viewModel.selectedType) {
                         ForEach(PQRViewModel.PQRType.allCases) { type in
                             Text(type.rawValue)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                
-                Section(header: Text("Comentario")) {
+                Section(header: Text("Comments")) {
                     TextEditor(text: $viewModel.comment)
                         .frame(minHeight: 200)
                 }
-                
                 Section {
-                    Button("Enviar PQR") {
+                    GreenButton(tittle: "Submit PQR"){
+                        AnalyticsManager.shared.logEvent(name: "BQ2_2", params: ["PQRView":"Submit \($viewModel.selectedType)"])
+                        AnalyticsManager.shared.logEvent(name: "BQ2_3", params: ["PQRView":"Comment \($viewModel.comment)"])
                         viewModel.submitPQR()
                     }
                 }
             }
-            .navigationBarTitle("Registrar PQR")
+            .padding(.bottom)
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(
+                    title: Text("No Internet Connection"),
+                    message: Text("Please check your internet connection and try again."),
+                    dismissButton: .default(Text("Accept"))
+                )
+            }
+            .background(Color.white)
+            .navigationTitle("PQR")
         }
     }
 }

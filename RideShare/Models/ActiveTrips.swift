@@ -9,6 +9,7 @@ import Foundation
 
 struct ActiveTrips: Decodable, Hashable, Encodable{
     var id: String
+    var estimated_fare: String
     var driver_id: String
     var end_location: String
     var passengers: [String]

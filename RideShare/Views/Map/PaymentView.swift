@@ -10,6 +10,7 @@ import SwiftUI
 struct PaymentView: View {
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var viewModel: PaymentViewModel = PaymentViewModel()
+    @EnvironmentObject var locationSearchViewModel: LocationSearchViewModel
     
     @State private var selectedPayment: Payment?
     @State private var showAlert = false
@@ -80,6 +81,20 @@ struct PaymentView: View {
             GreenButton(tittle: "Pay Now"){
                 guard let selectedPayment = selectedPayment else { return }
                 print("DEBUG: Selected Payment method is \(selectedPayment.name)")
+                
+                //set trip ID
+                viewModel.rideId = locationSearchViewModel.tripID
+                // call update function
+                viewModel.updateRideStatus { error in
+                    if let error = error {
+                        // Handle error
+                        print("Error updating ride status: \(error.localizedDescription)")
+                        showAlert = true
+                    } else {
+                        // Handle success
+                        print("Ride status updated successfully")
+                    }
+                }
                 
                 AnalyticsManager.shared.logEvent(name: "UserPays4Ride", params: ["PaymentView":"Pay Now Button"])
                 AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["PaymentView":"Pay Now Button"])
