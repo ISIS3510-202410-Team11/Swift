@@ -18,7 +18,7 @@ class RidePickerViewModel: NSObject, ObservableObject{
     @Published var showAlert = false
     @Published var loadingBool = true
     private var db = Firestore.firestore()
-    private var isCheckingDatabase = false
+    private var isCheckingDatabase = false 
 
     
     func updateSelectedLocation(_ location: String) {
