@@ -297,6 +297,55 @@ class FirestoreManager {
             completion(payments, nil)
         }
     }
+    
+    func fetchActiveTripsForUser(driverID: String, completion: @escaping ([ActiveTrips]?, Error?) -> Void) {
+        let activeTripsDocRef = db.collection("active_trips")
+
+        let driverQuery = activeTripsDocRef.whereField("driver_id", isEqualTo: driverID)
+        let passengerQuery = activeTripsDocRef.whereField("passengers", arrayContains: driverID)
+        
+        // Run both queries in parallel and combine the results
+        let dispatchGroup = DispatchGroup()
+        var driverTrips: [ActiveTrips] = []
+        var passengerTrips: [ActiveTrips] = []
+        var fetchError: Error?
+
+        dispatchGroup.enter()
+        driverQuery.getDocuments { querySnapshot, error in
+            if let error = error {
+                fetchError = error
+            } else {
+                driverTrips = querySnapshot?.documents.compactMap { document -> ActiveTrips? in
+                    try? document.data(as: ActiveTrips.self)
+                } ?? []
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        passengerQuery.getDocuments { querySnapshot, error in
+            if let error = error {
+                fetchError = error
+            } else {
+                passengerTrips = querySnapshot?.documents.compactMap { document -> ActiveTrips? in
+                    try? document.data(as: ActiveTrips.self)
+                } ?? []
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            if let error = fetchError {
+                completion(nil, error)
+            } else {
+                let allTrips = driverTrips + passengerTrips
+                completion(allTrips, nil)
+            }
+        }
+    }
+
+
+
 
     func addRide(rideData: [String: Any], completion: @escaping (Bool, String?) -> Void) {
             let rideID = rideData["id"] as? String ?? UUID().uuidString

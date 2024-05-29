@@ -35,8 +35,7 @@ struct Tabvar: View {
             }
             .tag(Tab.services)
 
-            
-            Text("Activity")
+            ActiveTripsView()
             .tabItem {
                 Image(systemName: "bolt.fill")
                 Text("Activity")
