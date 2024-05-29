@@ -42,6 +42,9 @@
 		5EC001DA2BBA6AC30000C8EC /* FireStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */; };
 		5EC001DC2BBA72190000C8EC /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */; };
 		5ED061B52C06697B00B731D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ED061B42C06697B00B731D3 /* GoogleService-Info.plist */; };
+		5ED061B92C06847E00B731D3 /* RideStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED061B82C06847E00B731D3 /* RideStatusView.swift */; };
+		5ED061BB2C06902C00B731D3 /* RideStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED061BA2C06902C00B731D3 /* RideStatusViewModel.swift */; };
+		5ED061BD2C06D19300B731D3 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED061BC2C06D19300B731D3 /* Passenger.swift */; };
 		5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */; };
 		5ED5B0D32BADC89800AEED32 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */; };
 		5ED5B0D52BADC8B000AEED32 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */; };
@@ -141,6 +144,9 @@
 		5EC001D92BBA6AC30000C8EC /* FireStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireStorageManager.swift; path = RideShare/Views/FireStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		5EC001DB2BBA72190000C8EC /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageLoader.swift; path = RideShare/Views/AsyncImageLoader.swift; sourceTree = SOURCE_ROOT; };
 		5ED061B42C06697B00B731D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5ED061B82C06847E00B731D3 /* RideStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusView.swift; sourceTree = "<group>"; };
+		5ED061BA2C06902C00B731D3 /* RideStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusViewModel.swift; sourceTree = "<group>"; };
+		5ED061BC2C06D19300B731D3 /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5ED5B0D42BADC8B000AEED32 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 			children = (
 				5E8D891F2C0638110063ED13 /* CreateRideView.swift */,
 				5E8D89222C0638190063ED13 /* DriverInteractionView.swift */,
+				5ED061B82C06847E00B731D3 /* RideStatusView.swift */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -409,6 +416,7 @@
 				13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */,
 				868A13122BE6B597003AF582 /* ActiveTrips.swift */,
 				868A13182BE7380A003AF582 /* Payment.swift */,
+				5ED061BC2C06D19300B731D3 /* Passenger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,6 +429,7 @@
 				5ED5B0D02BADC88000AEED32 /* ImageViewModel.swift */,
 				5ED5B0D22BADC89800AEED32 /* ProfileViewModel.swift */,
 				86858E4D2BADED6100113E4B /* SpeedViewModel.swift */,
+				5ED061BA2C06902C00B731D3 /* RideStatusViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -623,6 +632,7 @@
 				866A1F8C2BAC041500EF6663 /* LocationDetail.swift in Sources */,
 				5EF05F3A2B8D4E8B00885CC1 /* RideShareApp.swift in Sources */,
 				5EC001D52BBA669E0000C8EC /* ImagePickerView.swift in Sources */,
+				5ED061B92C06847E00B731D3 /* RideStatusView.swift in Sources */,
 				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
 				5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
@@ -638,6 +648,7 @@
 				5E8D892A2C063D600063ED13 /* ServicesView.swift in Sources */,
 				5E1DF4F52BE861D600559071 /* ConnectivityBanner.swift in Sources */,
 				86858E562BADEDF300113E4B /* MapRepresentable.swift in Sources */,
+				5ED061BD2C06D19300B731D3 /* Passenger.swift in Sources */,
 				86858E642BADF7C700113E4B /* ObjectsLocalList.swift in Sources */,
 				5EA875B82BB27B26008826C1 /* AuthData.swift in Sources */,
 				5EEB89EF2B8E57E100F37097 /* TextFields.swift in Sources */,
@@ -647,6 +658,7 @@
 				864AFF322BD8A046006183A3 /* Location.swift in Sources */,
 				5E8D89282C063C3C0063ED13 /* Cards.swift in Sources */,
 				5ED5B0D12BADC88000AEED32 /* ImageViewModel.swift in Sources */,
+				5ED061BB2C06902C00B731D3 /* RideStatusViewModel.swift in Sources */,
 				5E901E7F2BDA13D1000267DA /* KeychainHelper.swift in Sources */,
 				13BDDAEF2BD7009B00E572C1 /* Ended_trips.swift in Sources */,
 				5E7AD2DA2BADF0EC0001D379 /* FirestoreManager.swift in Sources */,

@@ -112,6 +112,6 @@ struct DropDownMenuView: View {
     }
 }
 
-#Preview {
-    DropDownMenuView(title: "Make", prompt: "Select", options: ["PayPal","DaviPlata","Especie"], selection: .constant("PayPal"), isPresented: .constant(false))
-}
+//#Preview {
+//    DropDownMenuView(title: "Make", prompt: "Select", options: ["PayPal","DaviPlata","Especie"], selection: .constant("PayPal"), isPresented: .constant(false))
+//}

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CreateRideView: View {
     @Binding var mapState: MapViewState
+    @Binding var rideId: String
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var createRideViewModel = CreateRideViewModel()
     @EnvironmentObject var viewModel: LocationSearchViewModel
@@ -23,7 +24,7 @@ struct CreateRideView: View {
             Divider()
             
             Form {
-                
+                Text("Select Start Location")
                 Picker("Select Start Location", selection: $createRideViewModel.startLocation) {
                     ForEach(createRideViewModel.possibleStartLocations, id: \.self) { location in
                         Text(location).tag(location)
@@ -31,7 +32,7 @@ struct CreateRideView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                Text("Destination: \(createRideViewModel.destination)")
+                Text("\(createRideViewModel.destination)")
                     .onAppear {
                         // Set initial destination from the view model
                         if let location = viewModel.selectedLocation {
@@ -76,7 +77,9 @@ struct CreateRideView: View {
         createRideViewModel.createRide { success, error in
             if success {
                 print("Ride created successfully.")
-                actionState(mapState)
+                self.rideId = createRideViewModel.rideID
+                mapState = .rideStatus
+                
             } else {
                 createRideViewModel.alertMessage = error ?? "Failed to create ride."
                 createRideViewModel.showAlert = true
@@ -91,11 +94,7 @@ struct CreateRideView: View {
         return true
     }
     
-    func actionState(_ state: MapViewState) {
-        if state == .locationSelected {
-            mapState = .noInput
-        }
-    }
+
 }
 //#Preview {
 //    CreateRideView(

@@ -7,6 +7,7 @@
 
 import Foundation
 class CreateRideViewModel: ObservableObject {
+    @Published var rideID: String = ""
     @Published var destination: String = ""
     @Published var estimatedFare: String = ""
     @Published var departureTime: Date = Date()
@@ -36,24 +37,26 @@ class CreateRideViewModel: ObservableObject {
             return
         }
 
-        guard let endLocation = selectedLocation else {
+        guard selectedLocation != nil else {
             completion(false, "Start location not set.")
             return
         }
 
-        let rideID = UUID().uuidString
+        rideID = UUID().uuidString
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let startTime = dateFormatter.string(from: departureTime)
-
+        destination = selectedLocation ?? "not working"
         let rideData: [String: Any] = [
-            "driver_id": userUID,
-            "end_location": selectedLocation ?? "null",
             "id": rideID,
-            "passengers": [],  // initially empty
-            "route": selectedInstructions,
+            "driver_id": userUID,
             "start_location": startLocation,
-            "start_time": startTime
+            "end_location": selectedLocation ?? "null",
+            "start_time": startTime,
+            "passengers": [],  // initially empty
+            "estimated_fare": estimatedFare,
+            "route": selectedInstructions,
+            
         ]
 
         FirestoreManager.shared.addRide(rideData: rideData) { success, error in
