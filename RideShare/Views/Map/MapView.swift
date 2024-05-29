@@ -21,7 +21,9 @@ struct MapView: View {
                 
                 MapRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
-                
+                if mapState == .PQR{
+                    PQRView()
+                }
                 if SessionManager.shared.isDriver {
                     DriverInteractionView(mapState: $mapState, rideId: $rideId)
                 } else {

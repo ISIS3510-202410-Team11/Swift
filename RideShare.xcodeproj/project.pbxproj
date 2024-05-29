@@ -94,6 +94,8 @@
 		868A13132BE6B597003AF582 /* ActiveTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13122BE6B597003AF582 /* ActiveTrips.swift */; };
 		868A13152BE72A50003AF582 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13142BE72A50003AF582 /* PaymentViewModel.swift */; };
 		868A13192BE7380A003AF582 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A13182BE7380A003AF582 /* Payment.swift */; };
+		86A2B9FC2C063F3A000267DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A2B9FB2C063F3A000267DB /* GoogleService-Info.plist */; };
+		86A2B9FE2C06772C000267DB /* PQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2B9FD2C06772C000267DB /* PQR.swift */; };
 		86E045AC2BFD7CF2006C66EF /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E045AB2BFD7CF2006C66EF /* PQRView.swift */; };
 		86E045AE2BFD7D26006C66EF /* PQRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */; };
 		86E045B02BFD7D91006C66EF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 86E045AF2BFD7D91006C66EF /* FirebaseAnalytics */; };
@@ -205,6 +207,8 @@
 		868A13122BE6B597003AF582 /* ActiveTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTrips.swift; sourceTree = "<group>"; };
 		868A13142BE72A50003AF582 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		868A13182BE7380A003AF582 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		86A2B9FB2C063F3A000267DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86A2B9FD2C06772C000267DB /* PQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQR.swift; sourceTree = "<group>"; };
 		86E045AB2BFD7CF2006C66EF /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
 		86E045AD2BFD7D26006C66EF /* PQRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRViewModel.swift; sourceTree = "<group>"; };
 		86E045B32BFD7DA2006C66EF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -426,6 +430,7 @@
 				13BDDAEE2BD7009B00E572C1 /* Ended_trips.swift */,
 				868A13122BE6B597003AF582 /* ActiveTrips.swift */,
 				868A13182BE7380A003AF582 /* Payment.swift */,
+				86A2B9FD2C06772C000267DB /* PQR.swift */,
 				5ED061BC2C06D19300B731D3 /* Passenger.swift */,
 				5E20FD9F2C070CDA006D1C29 /* BycicleRide.swift */,
 			);
@@ -614,6 +619,7 @@
 			files = (
 				5EF05F412B8D4E8C00885CC1 /* Preview Assets.xcassets in Resources */,
 				5E4A43EE2BAC9ED700DCB02C /* .gitignore in Resources */,
+				86A2B9FC2C063F3A000267DB /* GoogleService-Info.plist in Resources */,
 				5ED061B52C06697B00B731D3 /* GoogleService-Info.plist in Resources */,
 				13BDDAF12BD7E1D000E572C1 /* DefaultImages.xcassets in Resources */,
 				5EF05F3E2B8D4E8C00885CC1 /* Assets.xcassets in Resources */,
@@ -650,6 +656,7 @@
 				5E20FDA22C070E28006D1C29 /* BycicleRidesViewModel.swift in Sources */,
 				5ED061B92C06847E00B731D3 /* RideStatusView.swift in Sources */,
 				86858E602BADF36700113E4B /* RidePickerView.swift in Sources */,
+				86A2B9FE2C06772C000267DB /* PQR.swift in Sources */,
 				5E1DF4F32BE85CF500559071 /* OverlayConnectivityBanner.swift in Sources */,
 				5EF05F712B8D4FF900885CC1 /* Buttons.swift in Sources */,
 				5EF05F692B8D4F0D00885CC1 /* UserProfile.swift in Sources */,
