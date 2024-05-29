@@ -377,5 +377,25 @@ class FirestoreManager {
             }
         }
     
+    func fetchBicycleRides(completion: @escaping ([BicycleRide]) -> Void) {
+            db.collection("bicycle_rides").getDocuments { snapshot, error in
+                guard let documents = snapshot?.documents, error == nil else {
+                    print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+                    completion([])
+                    return
+                }
+                
+                let rides = documents.compactMap { doc -> BicycleRide? in
+                    let data = doc.data()
+                    let startLocation = data["startLocation"] as? String ?? ""
+                    let startTime = data["startTime"] as? String ?? ""
+                    let endLocation = data["endLocation"] as? String ?? ""
+                    let passengers = data["passengers"] as? [String] ?? []
+                    return BicycleRide(startLocation: startLocation, startTime: startTime, endLocation: endLocation, passengers: passengers)
+                }
+                completion(rides)
+            }
+        }
+    
 }
 

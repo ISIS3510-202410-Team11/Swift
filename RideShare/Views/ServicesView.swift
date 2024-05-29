@@ -8,31 +8,39 @@
 import Foundation
 import SwiftUI
 struct ServicesView: View{
-
+//    @State private var mapState = MapViewState.noInput
 
     var body: some View {
+        NavigationView {
             VStack {
                 // Card 1
-                CardComponent(
-                            imageName: "image1",
-                            titleText: "Published commute routes",
-                            buttonText: "Search",
-                            buttonAction: { print("Button Tapped") }
-                        )
-
+                NavigationLink(destination: PublishedCommuteRoutesView()) {
+                    CardComponent(
+                        imageName: "image1",
+                        titleText: "Published commute routes",
+                        buttonText: "Search",
+                        buttonAction: { }
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
                 // Card 2
-                CardComponent(
-                            imageName: "image2",
-                            titleText: "Begin a car-pool",
-                            buttonText: "publish",
-                            buttonAction: { print("Button Tapped") }
-                        )
+                NavigationLink(destination: MapView()) {
+                    CardComponent(
+                        imageName: "image2",
+                        titleText: "Begin a car-pool",
+                        buttonText: "Publish",
+                        buttonAction: { }
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
             }
+            .padding()
         }
+    }
     }
 
-    struct Services_Preview: PreviewProvider {
-        static var previews: some View {
-            ServicesView()
-        }
+struct ServicesView_Previews: PreviewProvider {
+    static var previews: some View {
+        ServicesView()
     }
+}

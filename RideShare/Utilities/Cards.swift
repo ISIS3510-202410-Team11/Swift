@@ -14,6 +14,7 @@ struct CardComponent: View {
     var titleText: String
     var buttonText: String
     var buttonAction: () -> Void
+    
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -25,6 +26,7 @@ struct CardComponent: View {
             Text(titleText) // Using the parameter for the title
                 .font(.headline)
                 .padding(.leading)
+                .foregroundColor(.black)
             Button(action: buttonAction) { // Using the parameter for the button action
                 Text(buttonText) // Using the parameter for the button text
                     .foregroundColor(.white)
