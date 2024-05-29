@@ -12,11 +12,13 @@ import Firebase
 @main
 struct RideShareApp: App {
     @StateObject var locationViewModel: LocationSearchViewModel
+    @StateObject var createRideViewModel: CreateRideViewModel
     let clickCounter = ClickCounter.shared
     // Firebase initialization
     init() {
         FirebaseApp.configure()
         _locationViewModel = StateObject(wrappedValue: LocationSearchViewModel()) 
+        _createRideViewModel = StateObject(wrappedValue: CreateRideViewModel())
     }
     
     
@@ -26,7 +28,7 @@ struct RideShareApp: App {
         WindowGroup {
             
             ContentView()
-                .environmentObject(locationViewModel)
+                .environmentObject(locationViewModel )
                 .onAppear {
                     let startTime = DispatchTime.now()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -36,6 +38,7 @@ struct RideShareApp: App {
                         AnalyticsManager.shared.logEvent(name: "BQ1_0", params: ["AppDeploymentTime":"\(timeInterval)"])
                     }
                 }
+                .environmentObject(createRideViewModel)
         }
     }
 }

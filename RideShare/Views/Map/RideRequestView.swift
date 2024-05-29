@@ -93,8 +93,8 @@ struct RideRequestView: View {
     }
 }
 
-struct RideRequestView_Previews: PreviewProvider{
-    static var previews: some View{
-        RideRequestView(mapState: .constant(.polylineaddded))
-    }
-}
+//struct RideRequestView_Previews: PreviewProvider{
+//    static var previews: some View{
+//        RideRequestView(mapState: .constant(.polylineaddded))
+//    }
+//}
