@@ -27,7 +27,9 @@ struct RidePickerView: View {
                 VStack{
                     Text("Loading Data ... ")
                         .font(.footnote)
-                    Image(systemName: "repeat.circle")
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding(.top, 10)
                 }
             }
             if (viewModel.showAlert){
