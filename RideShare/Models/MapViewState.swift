@@ -15,5 +15,6 @@ enum MapViewState{
     case rideOffers
     case payment
     case createRide
+    case rideStatus
     
 }

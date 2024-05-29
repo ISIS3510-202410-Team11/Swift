@@ -298,6 +298,35 @@ class FirestoreManager {
         }
     }
 
+    func addRide(rideData: [String: Any], completion: @escaping (Bool, String?) -> Void) {
+            let rideID = rideData["id"] as? String ?? UUID().uuidString
+            db.collection("active_trips").document(rideID).setData(rideData) { error in
+                if let error = error {
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
+    
+    func listenForPassengersUpdates(rideId: String, completion: @escaping ([Passenger]) -> Void) {
+            guard !rideId.isEmpty else {
+                print("Error: rideId is empty")
+                return
+            }
+            
+            db.collection("active_trips").document(rideId).addSnapshotListener { snapshot, error in
+                guard let snapshot = snapshot, let data = snapshot.data(), error == nil else {
+                    print("Error fetching snapshots: \(String(describing: error))")
+                    return
+                }
+
+                if let passengersData = data["passengers"] as? [[String: Any]] {
+                    let passengers = passengersData.compactMap { Passenger(dictionary: $0) }
+                    completion(passengers)
+                }
+            }
+        }
     
 }
 

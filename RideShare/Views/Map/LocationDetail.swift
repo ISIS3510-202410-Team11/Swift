@@ -69,6 +69,6 @@ struct LocationDetail: View {
     }
 }
 
-#Preview {
-    LocationDetail(mapSelection: .constant(nil), show: .constant(false))
-}
+//#Preview {
+//    LocationDetail(mapSelection: .constant(nil), show: .constant(false))
+//}
