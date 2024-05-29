@@ -35,6 +35,8 @@ struct LoginView: View {
                 
                 
                 GreenButton(tittle: "Login", action: {
+                    AnalyticsManager.shared.logEvent(name: "UserLogsIn", params: ["LogInView":"LogIn_Button"])
+                    //remove in future
                     ClickCounter.shared.incrementCount()
                     loginViewModel.login { success, errorMessage in
                         if success {
@@ -49,6 +51,8 @@ struct LoginView: View {
                 .disabled(loginViewModel.username.isEmpty || loginViewModel.password.isEmpty)
                 
                 GreenButton(tittle: "Login with Face ID", action: {
+                    AnalyticsManager.shared.logEvent(name: "UserLogsInWithFaceId", params: ["LogInView":"LogIn_Using_FaceId"])
+                    //remove in the future
                     ClickCounter.shared.incrementCount()
                     loginViewModel.authenticateUserUsingFaceID { success, error in
                         if success {

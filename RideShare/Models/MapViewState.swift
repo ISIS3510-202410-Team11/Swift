@@ -9,9 +9,13 @@ import Foundation
 
 enum MapViewState{
     case noInput
+    case PQR
     case locationSelected
     case searchingForLocation
-    case polylineaddded //bug solver
+    case polylineaddded
     case rideOffers
-    //case payment
+    case payment
+    case createRide
+    case rideStatus
+    
 }

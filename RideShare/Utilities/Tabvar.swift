@@ -28,16 +28,14 @@ struct Tabvar: View {
             
             .tag(Tab.home) // Tag this view with the corresponding enum value
 
-            
-            Text("Services")
+            ServicesView()
             .tabItem {
                 Image(systemName: "circle.grid.3x3.fill")
                 Text("Services")
             }
             .tag(Tab.services)
 
-            
-            Text("Activity")
+            ActiveTripsView()
             .tabItem {
                 Image(systemName: "bolt.fill")
                 Text("Activity")
@@ -52,14 +50,18 @@ struct Tabvar: View {
             }
             .tag(Tab.account)
         }
+        .overlayConnectivityBanner()
+        .onAppear {
+            print("Current connectivity status: \(ConnectivityManager.shared.isConnected)")
+        }
         .accentColor(.green)
         
     }
 }
 
-// Preview with a specific starting tab
-struct Tabvar_Previews: PreviewProvider {
-    static var previews: some View {
-        Tabvar(startingTab: .account)
-    }
-}
+//// Preview with a specific starting tab
+//struct Tabvar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Tabvar(startingTab: .account)
+//    }
+//}

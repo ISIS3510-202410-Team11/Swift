@@ -9,8 +9,13 @@ import Foundation
 import SwiftUI
 struct NewCarView: View {
     @StateObject var viewModel = NewCarViewModel()
-    @State var navigateToProfileView = false
+    @ObservedObject private var connectivityManager = ConnectivityManager.shared
 
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var showConfirmationDialog = false
+    @State var navigateToProfileView = false
+    
     var onVehicleAdded: () -> Void // Callback when a vehicle is added
     
     
@@ -45,10 +50,27 @@ struct NewCarView: View {
                 
                 
                 GreenButton(tittle: "Register new vehicle") {
-                    ClickCounter.shared.incrementCount()
-                    viewModel.registerVehicle()
+                    if connectivityManager.isConnected {
+                        showConfirmationDialog = true
+                    } else {
+                        alertMessage = "No internet connection available. Please connect to the internet to continue."
+                        showAlert = true
+                    }
                 }
                 .disabled(!viewModel.isFormValid)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Connection Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
+                .confirmationDialog("Are you sure you want to register this vehicle?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+                    Button("Register", role: .destructive) {
+                        viewModel.registerVehicle()
+                    }
+                    .foregroundColor(.green)
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text("This will add a new vehicle to your profile.")
+                }
+                
                 
                 NavigationLink(destination: Tabvar(startingTab: .account), isActive: $navigateToProfileView) { EmptyView() }
                 Spacer()

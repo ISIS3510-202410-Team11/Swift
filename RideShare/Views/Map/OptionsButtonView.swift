@@ -13,6 +13,9 @@ struct OptionsButtonView: View {
 
     var body: some View {
         Button{
+            AnalyticsManager.shared.logEvent(name: "UserNavigatesBackwards", params: ["OptionsButtonView":"Circular Button"])
+            AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["OptionsButtonView":"Go back to the lastest view"])
+            //removed in future
             ClickCounter.shared.incrementCount()
             withAnimation(.spring()){
                 actionForState(mapState)
@@ -20,26 +23,34 @@ struct OptionsButtonView: View {
         } label: {
             Image(systemName: imageNameForState(mapState))
                 .font(.title2)
-                .foregroundColor(.black)
+                .foregroundColor(.green)
                 .padding()
                 .background(.white)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .shadow(color: .black, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         }
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
     }
     func actionForState(_ state: MapViewState){
         switch state{
         case .noInput:
-            print("No input")
+            mapState = .PQR
         case .searchingForLocation:
             mapState = .noInput
         case .locationSelected, .polylineaddded:
             //solve bug of keeping a past location
             mapState = .noInput
             viewModel.selectedLocation = nil
-        case .rideOffers: //DONE
+        case .rideOffers:
             mapState = .polylineaddded
+        case .payment:
+            mapState = .rideOffers
+        case .createRide:
+            mapState = .polylineaddded
+        case .PQR:
+            mapState = .noInput
+        case .rideStatus:
+            mapState = .polylineaddded
+
         }
     }
     func imageNameForState(_ state: MapViewState)-> String{
@@ -48,7 +59,11 @@ struct OptionsButtonView: View {
             return "line.3.horizontal"
         case .searchingForLocation, .locationSelected, .polylineaddded:
             return "arrow.left"
-        case .rideOffers:
+        case .rideOffers, .payment:
+            return "arrow.left"
+        case .createRide, .PQR:
+            return "arrow.left"
+        case .rideStatus:
             return "arrow.left"
         }
     }

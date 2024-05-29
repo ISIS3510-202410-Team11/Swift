@@ -53,7 +53,7 @@ class NewCarViewModel: ObservableObject {
     }
     
     private func resetForm() {
-        type = ""
+        vehicleType = ""
         plate = ""
         reference = ""
         color = ""

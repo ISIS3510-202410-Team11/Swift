@@ -63,6 +63,9 @@ struct RideRequestView: View {
             //request ride button
             
             Button{
+                AnalyticsManager.shared.logEvent(name: "UserRequestsTrip", params: ["RideRequestView":"Confirm Ride Button"])
+                AnalyticsManager.shared.logEvent(name: "BQ2_0", params: ["RideRequestView":"Ride Selected"])
+                //remove in future
                 ClickCounter.shared.incrementCount()
                 withAnimation(.spring()){
                     actionState(mapState)
@@ -83,12 +86,15 @@ struct RideRequestView: View {
     func actionState(_ state: MapViewState){
         if state == .polylineaddded{
             mapState = .rideOffers
+            if SessionManager.shared.isDriver{
+                mapState = .createRide
+            }
         }
     }
 }
-    
-struct RideRequestView_Previews: PreviewProvider{
-    static var previews: some View{
-        RideRequestView(mapState: .constant(.polylineaddded))
-    }
-}
+
+//struct RideRequestView_Previews: PreviewProvider{
+//    static var previews: some View{
+//        RideRequestView(mapState: .constant(.polylineaddded))
+//    }
+//}
