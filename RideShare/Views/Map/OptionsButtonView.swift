@@ -33,7 +33,7 @@ struct OptionsButtonView: View {
     func actionForState(_ state: MapViewState){
         switch state{
         case .noInput:
-            print("No input")
+            mapState = .PQR
         case .searchingForLocation:
             mapState = .noInput
         case .locationSelected, .polylineaddded:
@@ -45,7 +45,9 @@ struct OptionsButtonView: View {
         case .payment:
             mapState = .rideOffers
         case .createRide:
-                    mapState = .polylineaddded
+            mapState = .polylineaddded
+        case .PQR:
+            mapState = .noInput
         }
     }
     func imageNameForState(_ state: MapViewState)-> String{
@@ -56,8 +58,8 @@ struct OptionsButtonView: View {
             return "arrow.left"
         case .rideOffers, .payment:
             return "arrow.left"
-        case .createRide:
-                    return "arrow.left"
+        case .createRide, .PQR:
+            return "arrow.left"
         }
     }
 }

@@ -11,6 +11,7 @@ import MapKit
 class LocationSearchViewModel: NSObject, ObservableObject{
     //MARKS
     @Published var results = [MKLocalSearchCompletion]()
+    @Published var tripID: String?
     @Published var selectedLocation: Location? //location selected by user
     @Published var pickUpTime: String?
     @Published var dropOffTime: String?

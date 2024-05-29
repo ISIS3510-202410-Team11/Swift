@@ -21,18 +21,25 @@ struct RidePickerView: View {
                 Text("Choose your prefered ride")
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                if let location = locationViewModel.selectedLocation{
-                    Button{
-                        viewModel.updateSelectedLocation(location.title)
-                        //fetch data filtered
-                        viewModel.fetchActiveTripsDataFiltered()
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                    }
+            }
+            Divider()
+            if (viewModel.loadingBool){
+                VStack{
+                    Text("Loading Data ... ")
+                        .font(.footnote)
+                    Image(systemName: "repeat.circle")
                 }
             }
-            
-            Divider()
+            if (viewModel.showAlert){
+                VStack {
+                    Spacer()
+                    Text("There are no rides for the selected location at the moment, try again later")
+                        .font(.footnote)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.white)
+            }
             ScrollView{
                 LazyVStack{
                     ForEach(Array(viewModel.activeTrips.enumerated()), id: \.element){index, trip in
@@ -44,6 +51,7 @@ struct RidePickerView: View {
                                     showAlert = true
                                 } else {
                                     showAlert = false
+                                    locationViewModel.tripID = trip.id
                                     actionState(mapState)
                                 }
                             }
@@ -61,10 +69,28 @@ struct RidePickerView: View {
                     dismissButton: .default(Text("Accept"))
                 )
             }
+            
+            
         }
         .background(Color.white)
-
+        .onAppear {
+            if let location = locationViewModel.selectedLocation{
+                viewModel.updateSelectedLocation(location.title)
+                viewModel.startCheckingDatabase()
+            } else {
+                Text("The location selected is not suitable, please try again")
+                    .font(.subheadline)
+            }
+            
+        }
+        .onDisappear {
+            viewModel.stopCheckingDatabase()
+        }
+        
     }
+        
+    
+
     func actionState(_ state: MapViewState){
         if state == .rideOffers{
             mapState = .payment
@@ -73,5 +99,5 @@ struct RidePickerView: View {
 }
 
 //#Preview {
-//    RidePickerView(mapState: .constant(.rideOffers), locationViewModel: AnyClass)
+//    RidePickerView(mapState: .constant(.rideOffers))
 //}
